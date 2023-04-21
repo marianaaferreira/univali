@@ -9,12 +9,11 @@ Passo da recursão: n4n3n2n1n0 => (0 ou 1) + número de ocorrências em N / 10 (n4n
 int calculaRepNumRec(){
     if(n==0)
         return 0;
-    if (k==)
-    return
+
 }
 
 int main(){
-    string =
+
     cout << "Hello world!" << endl;
     return 0;
 }
