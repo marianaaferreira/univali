@@ -27,7 +27,7 @@ int main(){
         leiaFuncionario(i, empresa);
         i++;
         resp =leiaCaracterSN();
-    }while(resp);
+    }while (toupper(resp)=='S');
     relatorio(i, empresa);
 
     return 0;
@@ -44,6 +44,7 @@ char leiaCaracterSN(){
     char resp;
     cout << "Deseja continuar? S/N";
     cin.get(resp);
+    cin.ignore();
     return resp;
 }
 
