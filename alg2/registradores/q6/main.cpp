@@ -9,10 +9,13 @@ os sócios que tiverem mais de 3 dependentes. Admita que cada sócio tenha no
 máximo 5 dependentes. */
 
 typedef struct{
+    string nomeD, data;
+}dependente;
+
+typedef struct{
     string matricula, nomeS;
-    typedef struct{
-        string nomeD, data;
-    }dependente;
+    int nd[TMAX];
+    dependente dependentes[5];
 }socio;
 
 int leiaNLimSup(int lsup){
@@ -24,9 +27,9 @@ int leiaNLimSup(int lsup){
     return n;
 }
 
-void leiaDependente(int nd, int conts, dependente dependentes[], socio socios[]){
+void leiaDependente(int nd[], int conts, socio socios[]){
     cout << "Dependente" << endl;
-    for (int i=0; i<nd; i++){
+    for (int i=0; i<nd[conts]; i++){
         cout << "nome:\n";
         getline(cin, socios[conts].dependentes[i].nomeD);
         cout << "data de nascimento:\n";
@@ -34,24 +37,38 @@ void leiaDependente(int nd, int conts, dependente dependentes[], socio socios[])
     }
 }
 
-void leiaSocio(socio socios){
+void leiaSocio(int&conts, int nd, socio socios[]){
+    char resp;
     cout << "Socio" << endl;
     do{
         cout << "nome:\n";
-        getline(cin, socios[i].nomeS);
+        getline(cin, socios[conts].nomeS);
         cout << "matricula:\n";
-        getline(cin, socios[i].matricula);
-        nd = leiaNLimSup(5);
-        leiaDependente(nd, conts, dependentes, socios);
+        getline(cin, socios[conts].matricula);
+        socios[conts].nd[conts] = leiaNLimSup(5);
+        leiaDependente(nd, conts, socios);
         conts++;
-    }while(cotinuar or conts>=TMAX);
+        cout << "Mais um socio?S/N\n";
+        cin.get(resp);
+    }while(toupper(resp)=='S' or conts>=TMAX);
+}
+
+void relatorio(int conts, socio socios[]){
+    for (int i=0; i<conts; i++){
+        if (socios[i].nd[i]>3){
+            cout << "socio: " << socios[i].nomeS << endl;
+            cout << "dependentes:\n";
+            for(int j=0; j<socios[i].nd[i]; j++){
+                cout << socios[i].dependentes[j].nomeD;
+            }
+        }
+    }
 }
 
 int main(){
-    int nd, conts=0;
+    int conts=0;
     socio socios[TMAX];
-    dependente dependentes[5];
     leiaSocio(socios);
-
+    relatorio(conts, socios);
     return 0;
 }
