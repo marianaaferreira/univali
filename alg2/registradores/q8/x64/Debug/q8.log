@@ -1,0 +1,2 @@
+﻿  q8.cpp
+C:\Users\55489\Documents\github\univali\alg2\registradores\q8\q8.cpp(18,16): error C5208: a classe sem nome usada no nome de typedef não pode declarar membros que não sejam membros de dados, enumerações de membro ou classes de membro não estáticos

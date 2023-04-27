@@ -21,23 +21,25 @@ typedef struct{
 int leiaNLimSup(int lsup){
     int n;
     do{
-        cout << "Qtd desejada: ";
+        cout << "Qtd dependentes: ";
         cin >> n;
     }while(n<=0 or n>lsup);
     return n;
 }
 
-void leiaDependente(int nd[], int conts, socio socios[]){
+void leiaDependente(int conts, socio socios[]){
     cout << "Dependente" << endl;
-    for (int i=0; i<nd[conts]; i++){
+    for (int i=0; i<socios[i].nd[conts]; i++){
         cout << "nome:\n";
         getline(cin, socios[conts].dependentes[i].nomeD);
+        cin.ignore();
         cout << "data de nascimento:\n";
         getline(cin, socios[conts].dependentes[i].data);
+        cin.ignore();
     }
 }
 
-void leiaSocio(int&conts, int nd, socio socios[]){
+void leiaSocio(int&conts, socio socios[]){
     char resp;
     cout << "Socio" << endl;
     do{
@@ -46,10 +48,11 @@ void leiaSocio(int&conts, int nd, socio socios[]){
         cout << "matricula:\n";
         getline(cin, socios[conts].matricula);
         socios[conts].nd[conts] = leiaNLimSup(5);
-        leiaDependente(nd, conts, socios);
+        leiaDependente(conts, socios);
         conts++;
         cout << "Mais um socio?S/N\n";
         cin.get(resp);
+        cin.ignore();
     }while(toupper(resp)=='S' or conts>=TMAX);
 }
 
@@ -68,7 +71,7 @@ void relatorio(int conts, socio socios[]){
 int main(){
     int conts=0;
     socio socios[TMAX];
-    leiaSocio(socios);
+    leiaSocio(conts, socios);
     relatorio(conts, socios);
     return 0;
 }
