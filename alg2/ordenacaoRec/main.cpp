@@ -5,7 +5,7 @@ using namespace std;
 void ordenacaoRec(int i, int n, int v[]){
     if(n<0)
         return;
-    if(v[n-1]>v[i])
+    if(v[n]>v[i])
         swap(v[n], v[i]);
     ordenacaoRec(i-1, n, v);
     ordenacaoRec(i, n-1, v);
@@ -13,7 +13,7 @@ void ordenacaoRec(int i, int n, int v[]){
 
 int main(){
     int v[5] = {4, 2, 3, 8, 1};
-    int n =5;
+    int n =4;
     int i = n-1;
     ordenacaoRec(i, n, v);
     for(int i=0; i<n; i++){
