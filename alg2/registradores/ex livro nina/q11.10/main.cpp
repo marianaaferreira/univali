@@ -18,6 +18,7 @@ char leiaCaracterSN(){
     return resp;
 }
 
+<<<<<<< HEAD
 void leiaFunc(int&i, Func empresa[]){
     char resp;
     do{
@@ -29,21 +30,44 @@ void leiaFunc(int&i, Func empresa[]){
         cin >> empresa[i].salario;
         cout << "sexo:\n";
         cin.get(empresa[i].sexo);
+=======
+void leiaFunc(int%i, Func empresa[]){
+    do{
+        cout << "codigo:\n";
+        cin >> p.cod;
+        cout << "idade:\n";
+        cin >> p.idade;
+        cout << "salario\n";
+        cin >> p.salario;
+        cout << "sexo:\n";
+        p.sexo = toupper(cin.get(p.sexo));
+>>>>>>> 0b01fd6c973a11d2e4de820a14c28fd8b757df61
         i++;
         resp = leiaCaracterSN();
     }while(resp=='S' and i<=TMAX);
 }
 
+<<<<<<< HEAD
 int pesqCod(int codPesq, int i, Func empresa[]){
     for(int j=0; j<i; j++){
         if(codPesq==empresa[j].cod)
+=======
+int pesqCod(){
+    for(int j=0; j<i; j++){
+        if(codPesq==v[j].cod)
+>>>>>>> 0b01fd6c973a11d2e4de820a14c28fd8b757df61
             return j;
     }
     return -1;
 }
 
+<<<<<<< HEAD
 void mostraFuncionario(int codPesq, int i, Func empresa[]){
     int j = pesqCod(codPesq, i, empresa);
+=======
+void mostraFuncionario(int codPesq, Func empresa[]){
+    j = pesqCod();
+>>>>>>> 0b01fd6c973a11d2e4de820a14c28fd8b757df61
     if (j>=0){
         cout << "codigo:\n" << empresa[j].cod;
         cout << "idade:\n" << empresa[j].idade;
@@ -53,6 +77,7 @@ void mostraFuncionario(int codPesq, int i, Func empresa[]){
 
 }
 
+<<<<<<< HEAD
 void aumentaSalario(int codPesq, int i, Func empresa[]){
     int j = pesqCod(codPesq, i, empresa);
     if(j>=0)
@@ -83,6 +108,10 @@ void mostraDadosMulheres(int i, Func empresa[]){
             cout << "salario\n" << empresa[j].salario;
             cout << "sexo:\n" << empresa[j].sexo;
         }
+=======
+void aumentaSalario(int codPesq, Func empresa[]){
+
+>>>>>>> 0b01fd6c973a11d2e4de820a14c28fd8b757df61
 }
 
 void menu(){
@@ -97,8 +126,12 @@ void menu(){
 
 int main(){
     Func empresa[TMAX];
+<<<<<<< HEAD
     char resp, op;
     int i=0, contF=0, contM=0, codPesq;
+=======
+    int i=0;
+>>>>>>> 0b01fd6c973a11d2e4de820a14c28fd8b757df61
     do{
         menu();
         cin.get(toupper(op));
@@ -106,11 +139,17 @@ int main(){
             case 'A': leiaFunc(i, empresa);
             case 'B': cout << "codigo:\n"; cin >> codPesq); mostraFuncionario(codPesq, empresa);
             case 'C': cout << "codigo:\n"; cin >> codPesq); aumentaSalario(codPesq, empresa);
+<<<<<<< HEAD
             case 'D': cout << "mulheres: " << contF << endl << "homens: " << contM << endl;
             case 'E': cout << "idade media: " << calculaIdadeMedia(i, empresa) << endl;
             case 'F': mostraDadosMulheres(i, empresa);
         }
         resp == leiaCaracterSN();
     }while(toupper(resp)=='S');
+=======
+
+        }
+
+>>>>>>> 0b01fd6c973a11d2e4de820a14c28fd8b757df61
     return 0;
 }

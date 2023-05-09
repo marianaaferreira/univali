@@ -32,6 +32,7 @@ void ordenaBubbleSortRecursivo(int, Livro []);
 int pesquisaRecBinaria(string, Livro [], int, int);
 bool validaISBN(string);
 bool validaNome(string);
+bool validaNumeroIntPositivo(string);
 void leiaData(string, int &, int &, int &);
 void leiaISBN(string &);
 void leiaMenu();
@@ -239,16 +240,25 @@ void leiaNome(string mensagem, string &nome){
     }
 }
 
+bool validaNumeroIntPositivo(string num){
+    if (num!=""){
+        for(int i=0; i<num.size(); i++)
+            if (not isdigit(num[i]))
+                return false;
+    }else
+        return false;
+    return true;
+}
+
 void leiaInteiro(string mensagem, int &num){
+    string nums;
     cout << mensagem << endl;
-    cin >> num;
-    while(num < 0 or cin.fail()) {
-        cin.clear();
-        cin.ignore(10000, '\n');
+    getline(cin, nums);
+    while(not validaNumeroIntPositivo(nums)){
         cout << "Dado invalido. Informe novamente" << endl;
-        cin >> num;
+        getline(cin, nums);
     }
-    cin.ignore();
+    num=atoi(nums.c_str());
 }
 
 void incluaNovoLivro(int &n, Livro acervo[]){
@@ -283,6 +293,7 @@ void mostraLivro(int i, Livro acervo[]){
 }
 
 void mostraEmprestimo(int i, Emprestimo e[]){
+    cout << "Codigo: " << i << endl;
     cout << "Matricula: " << e[i].matricula << endl;
     cout << "Data: " << e[i].data.dia << "/" << e[i].data.mes << "/" << e[i].data.ano << endl;
     cout << "ISBN: " << e[i].isbn << endl;
@@ -358,6 +369,7 @@ void emprestaExemplarLivro(int &n, int &l, Livro acervo[], Emprestimo emprestimo
         if(acervo[result].qtdDisponivel > 0){
             leiaInteiro("Informe a matricula: ", e.matricula);
             leiaData("Data do emprestimo", e.data.dia, e.data.mes, e.data.ano);
+            e.isbn = chave;
             emprestimos[l] = e;
             cout << "Emprestimo realizado - codigo " << l << endl;
             acervo[result].qtdDisponivel--;
