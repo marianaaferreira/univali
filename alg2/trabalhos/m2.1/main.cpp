@@ -18,24 +18,6 @@ typedef struct {
     Data data;
 } Emprestimo;
 
-char validaCaracter(){
-    char op;
-    do {
-        cout << "O que deseja fazer?" << endl;
-        cin.get(op);
-        op = toupper(op);
-    } while(op<'A' or op>'G');
-    return op;
-}
-
-char leiaCaracterSN(){
-    char resp;
-    cout << "Deseja continuar? S/N ";
-    cin.get(resp);
-    cin.ignore();
-    return resp;
-}
-
 bool validaTitulo(string l){
     if(l=="")
         return false;
@@ -59,42 +41,35 @@ bool validaNumeroIntPositivo(string num){
     return true;
 }
 
-void inclusaoNovoLivro(int&n, Livro&l){
-    string num;
-    do{
-        cout << "Informe o titulo do livro a ser adicionado: " << endl;
-        getline(cin, l.titulo);
-    }while(not validaTitulo(l.titulo));
-    do{
-        cout << "Informe o nome do autor do livro: " << endl;
-        getline(cin, l.autor);
-    }while(not validaNome(l.autor));
-    do{
-        cout << "Informe a quantidade de exemplares: " << endl;
-        getline(cin, num);
-    }while(not validaNumeroIntPositivo(num));
-    l.qtdAcervo=atoi(num.c_str());
-    l.qtdDisponivel = l.qtdAcervo;
-    cout << "Inclusao de titulo confirmada" << endl;
-    n++;
+bool validaNumLim(string chave, int lim){
+    if(chave.size() == lim){
+        for(int i=0;i<lim;i++)
+            if (not isdigit(chave[i]))
+                return false;
+    }else
+        return false;
+    return true;
 }
 
-void mostraInfoLivro(Livro l){
-    cout << "titulo: " << l.titulo << endl;
-    cout << "autor: " << l.autor << endl;
-    cout << "isbn: " << l.isbn << endl;
-    cout << "qtd de exemplares no acervo: " << l.qtdAcervo << endl;
-    cout << "qtd disponivel pra emprestimo: " << l.qtdDisponivel << endl;
-}
 
-void excluiLivroFisicamente(int n, int iPesq, Livro v[]){
-    for(int i=iPesq; i<n-1; i++)
-        swap(v[i], v[i+1]);
+int validaData(string msg, int lim){
+    int d; string sd;
+    bool validada=true;
+    do{
+        do{
+            cout << msg; getline(cin, sd);
+            for(int i=0; i<sd.size(); i++)
+                if (not isdigit(sd[i]))
+                    validada = false;
+        }while(not validada);
+        d = atoi(sd.c_str());
+    }while(d<1 or d>lim);
+    return d;
 }
 
 int pesquisaRecBinaria(Livro acervo[], string chave, int inicio, int fim){
-    int meio = (inicio + fim) /2;
     if(fim>=inicio){
+        int meio = (inicio + fim) /2;
         if(chave==acervo[meio].isbn)
             return meio;
         else if (chave>acervo[meio].isbn)
@@ -112,15 +87,139 @@ void ordenaVetor(int n, Livro v[]){
                 swap(v[i], v[j]);
 }
 
-bool validaISBN(string chave){
-    if(chave.size() == 13){
-        for(int i=0;i<13;i++)
-            if (not isdigit(chave[i]))
-                return false;
-    }else
-        return false;
-    return true;
+string leiaISBN(){
+    string chave;
+    do{
+        cout << "Informe o ISBN: " << endl;
+        getline(cin, chave);
+    }while(not validaNumLim(chave, 13));
+    return chave;
 }
+
+void inclusaoNovoLivro(int&n, Livro acervo[]){
+    string num, chave = leiaISBN();
+    if (pesquisaRecBinaria(acervo, chave, 0, n-1)<0){
+        do{
+            cout << "Informe o titulo do livro a ser adicionado: " << endl;
+            getline(cin, acervo[n].titulo);
+        }while(not validaTitulo(acervo[n].titulo));
+        do{
+            cout << "Informe o nome do autor do livro: " << endl;
+            getline(cin, acervo[n].autor);
+        }while(not validaNome(acervo[n].autor));
+        do{
+            cout << "Informe a quantidade de exemplares: " << endl;
+            getline(cin, num);
+        }while(not validaNumeroIntPositivo(num));
+        acervo[n].qtdAcervo=atoi(num.c_str());
+        acervo[n].qtdDisponivel = acervo[n].qtdAcervo;
+        acervo[n].isbn = chave;
+        cout << "Inclusao de titulo confirmada" << endl;
+        cout << endl;
+        n++;
+    }else
+        cout << "Livro ja cadastrado" << endl;
+
+}
+
+void mostraInfoLivro(int n, Livro acervo[]){
+    string chave = leiaISBN();
+    int iPesq = pesquisaRecBinaria(acervo, chave, 0 , n-1);
+    if(iPesq>=0){
+        cout << "titulo: " << acervo[iPesq].titulo << endl;
+        cout << "autor: " << acervo[iPesq].autor << endl;
+        cout << "isbn: " << acervo[iPesq].isbn << endl;
+        cout << "qtd de exemplares no acervo: " << acervo[iPesq].qtdAcervo << endl;
+        cout << "qtd disponivel pra emprestimo: " << acervo[iPesq].qtdDisponivel << endl;
+    }else
+        cout << "Livro inexistente" << endl;
+        cout << endl;
+}
+
+void excluiLivroFisicamente(int&n, Livro acervo[]){
+    string chave = leiaISBN();
+    int iPesq = pesquisaRecBinaria(acervo, chave, 0 , n-1);
+    if(iPesq>=0){
+        for(int i=iPesq; i<n-1; i++)
+            acervo[i] = acervo[i+1];
+        n--;
+        cout << "Exclusao confirmada";
+        cout << endl;
+    }else
+        cout << "Titulo inexistente, impossivel excluir";
+        cout << endl;
+}
+
+void cadastroEmprestimo(int n, int&cod, Livro acervo[], Emprestimo e[]){
+    string chave = leiaISBN();
+    int iPesq = pesquisaRecBinaria(acervo, chave, 0 , n-1);
+    if(iPesq>=0){
+        if (acervo[iPesq].qtdDisponivel>0){
+            do{
+                cout << "Informe a matricula: " << endl;
+                getline(cin, e[cod].matricula);
+            }while(not validaNumLim(e[cod].matricula, 5));
+            e[cod].isbn = chave;
+            cout << "Data: " << endl;
+            e[iPesq].data.dia = validaData("dia:\n", 31);
+            e[iPesq].data.mes = validaData("mes:\n", 12);
+            e[iPesq].data.ano = validaData("ano:\n", 2023);
+            acervo[iPesq].qtdDisponivel--;
+            cout << "Emprestimo realizado. Codigo: " << cod << endl;
+            cod++;
+            }
+        else
+            cout << "Exemplar indisponível para empréstimo " << endl;
+    }else
+        cout << "Titulo inexistente" << endl;
+}
+
+void cadastroDevolucao(int n, int cod, Livro acervo[], Emprestimo e[]){
+    int codp;
+    cout << "Informe o codigo: " << endl;
+    cin >> codp;
+    for(int i=0; i<cod; i++){
+        if(i==codp){
+            if(e[i].matricula=="-1"){
+                cout << "Devolucao ja realizada" << endl;
+                return;
+            }else{
+                cout << "matricula: " << e[i].matricula << endl;
+                cout << "isbn do livro: " << e[i].isbn << endl;
+                cout << "data: " << e[i].data.dia << "/" << e[i].data.mes << "/" << e[i].data.ano << endl;
+                e[i].matricula = "-1";
+                int iPesq = pesquisaRecBinaria(acervo, e[codp].isbn, 0, n-1);
+                acervo[iPesq].qtdDisponivel++;
+                cout << "Devolucao realizada" << endl;
+                return;
+            }
+        }
+
+    }
+    cout << "Registro inexistente" << endl;
+}
+
+void relatorio1(int n, Livro acervo[]){
+    for(int i=0; i<n; i++){
+        cout << "Titulo: " << acervo[i].titulo << endl;
+        cout << "Autor: " << acervo[i].autor << endl;
+        cout << "ISBN: " << acervo[i].isbn << endl;
+        cout << "Qtd de exemplares no acervo: " << acervo[i].qtdAcervo << endl;
+        cout << "Qtd disponiivel pra emprestimo: " << acervo[i].qtdDisponivel << endl;
+        cout << "========================" << endl;
+    }
+}
+
+void relatorio2(int cod, Emprestimo e[]){
+    for(int i=0; i<cod; i++){
+        if(e[i].matricula!="-1")
+            cout << "matricula: " << e[i].matricula << endl;
+            cout << "isbn do livro: " << e[i].isbn << endl;
+            cout << "data: " << e[i].data.dia << "/" << e[i].data.mes << "/" << e[i].data.ano << endl;
+            cout << "====================" << endl;
+    }
+}
+
 
 void lerMenu(){
     cout << "Menu de Biblioteca" << endl;
@@ -131,60 +230,37 @@ void lerMenu(){
     cout << "E - Devolucao" << endl;
     cout << "F - Relatorio: Livros do Acervo" << endl;
     cout << "G - Relatorio: Emprestimos" << endl;
+    cout << "H - Sair" << endl;
 }
 
-int buscaISBN(int n, Livro acervo[]){
-    string chave;
-    int inicio=0, fim=n-1;
-    do{
-        cout << "Informe o ISBN: " << endl;
-        getline(cin, chave);
-    }while(not validaISBN(chave));
-    int i = pesquisaRecBinaria(acervo, chave, inicio, fim);
-    if (i>=0){
-        acervo[n].isbn = chave;
-        return i;
-    }
-    else
-        return -1;
+char validaCaracter(){
+    char op;
+    do {
+        cout << "O que deseja fazer?" << endl;
+        cin.get(op);
+        op = toupper(op);
+    } while(op<'A' or op>'H');
+    return op;
 }
-
 
 int main(){
-    char resp;
-    int n = 0, iPesq;
+    int n=0, cod=0;
+    char op;
     Livro acervo[TMAX];
-    Emprestimo emprestimos[TMAX];
-    string chave;
-
+    Emprestimo e[TMAX];
     do{
         lerMenu();
-        char op = validaCaracter();
+        op = validaCaracter();
         cin.ignore();
         switch (op) {
-            case 'A':
-                if (buscaISBN(n, acervo)<0)
-                    inclusaoNovoLivro(n, acervo[n]);
-                else
-                    cout << "Livro ja cadastrado" << endl;
-                break;
-            case 'B':
-                iPesq = buscaISBN(n, acervo);
-                if(iPesq>=0)
-                    mostraInfoLivro(acervo[iPesq]);
-                else
-                   cout << "Livro inexistente" << endl;
-                break;
-            case 'C':
-                iPesq = buscaISBN(n, acervo);
-                if (iPesq>=0)
-                    excluiLivroFisicamente(n, iPesq, acervo);
-                else
-                    cout << "Titulo inexistente, impossivel excluir";
-                break;
+            case 'A': inclusaoNovoLivro(n, acervo); ordenaVetor(n, acervo); break;
+            case 'B': mostraInfoLivro(n, acervo); break;
+            case 'C': excluiLivroFisicamente(n, acervo); break;
+            case 'D': cadastroEmprestimo(n, cod, acervo, e); break;
+            case 'E': cadastroDevolucao(n, cod, acervo, e); break;
+            case 'F': relatorio1(n, acervo); break;
+            case 'G': relatorio2(cod, e); break;
         }
-        resp = leiaCaracterSN();
-        cout << "=======================" << endl;
-    }while(toupper(resp)=='S');
+    }while(op!='H');
     return 0;
 }
