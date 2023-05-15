@@ -398,7 +398,7 @@ void devolvaLivro(int l, int n, Livro acervo[], Emprestimo e[]){
         }
         else {
             result = pesquisaRecBinaria(e[codigo].isbn, acervo, 0, n-1);
-            if(result >= 0){
+            if(result == 0){
                 mostraEmprestimo(codigo, e);
 
                 opcao = leiaSN("Deseja mesmo devolver o livro? S/N");
@@ -414,23 +414,13 @@ void devolvaLivro(int l, int n, Livro acervo[], Emprestimo e[]){
 }
 
 void mostraRelatorioEmprestimosAtivos(int l, Emprestimo e[]){
-    bool encontrou = false;
-
     if(l == 0){
-        cout << "Nao existem dados a serem informados" << endl;
+            cout << "Nao existem dados a serem informados" << endl;
     }
-
-    else {
-        for(int i=0; i<l; i++){
+    for(int i=0; i<l; i++){
         if(e[i].matricula != -1){
             mostraEmprestimo(i, e);
             cout << "==========================================" << endl;
-            encontrou = true;
-            }
-        }
-
-        if(encontrou == false){
-            cout << "Nao existem dados a serem informados" << endl;
         }
     }
 }
