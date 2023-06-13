@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1686056174 source:c:\users\55489\documents\github\univali\alg2\arquivos\q1\main.cpp
+	<iostream>
+	<fstream>
+
