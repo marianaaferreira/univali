@@ -1,0 +1,295 @@
+#include <iostream> // EXERC5
+#include <fstream>
+#include <iomanip>
+using namespace std;
+typedef struct nodo{
+    string nome, disc;
+    float nota;
+    struct nodo *proximo;
+} Tipolista;
+
+void destroilista(Tipolista** lista){
+Tipolista *p;
+while (*lista != NULL){
+        p = *lista;
+        *lista = (*lista)->proximo;
+        delete(p);
+    }
+}
+void inserenoinicio(Tipolista** lista, string nome, string disc, float valor){
+    Tipolista *p;
+    p = new Tipolista; //alocacao
+    if(p==NULL){
+        cout <<"sem memoria"<<endl; exit(0);
+    }
+    p->nome = nome;
+    p->disc = disc;
+    p->nota = valor;
+    p->proximo = *lista;
+    *lista = p;
+}
+void gravaLista(Tipolista* lista, string nomearq){
+    string nome, disc;
+    float nota;
+    Tipolista* p=lista;
+    ofstream arq(nomearq.c_str());//"ALUNOS2.TXT");
+    if (!arq) exit(0);
+    while(p!=NULL){
+        nome = p->nome;
+        disc = p->disc;
+        nota = p->nota;
+        arq<<fixed<<setprecision(2);
+        arq<<nome<<disc<<setw(5)<<nota<<endl;
+        p = p->proximo;
+    }
+    arq.close();
+}
+int main(){
+    string linha, str1, str2;
+    float valor;
+    Tipolista *lista=NULL;
+    ifstream arq("ALUNOS1.TXT");
+    if (!arq) {
+            cout << "arquivo nao pode ser aberto"; exit(0); }
+    while(!arq.eof()){
+        getline(arq,linha);
+        str1 = linha.substr(0, 20); // 20 primeiros caracteres da linha
+        str2 = linha.substr(20, 11); // 11 proximos
+        valor = stof(linha.substr(31, 5)); // 5 ultimos
+        cout << str1 << " "<< str2 << " "<< valor << endl;
+        inserenoinicio(&lista,str1,str2,valor); // vai ficar em ordem invertida
+    }
+    arq.close();
+//    ordenaLista(lista); // construa o ordenaLista
+    gravaLista(lista, "ALUNOS2.TXT");
+    destroilista(&lista);
+    system("PAUSE");
+    return 0;
+}
+
+#include <iostream> // EXERC6
+#include <fstream>
+#include <iomanip>
+#include <cstring>
+using namespace std;
+typedef struct{
+    char nome[51]; // string no padrao C (vetor de char, 50 caract = '/0')
+    int cod, qtde;
+} Produto;
+
+void gravaProdutos(){
+    Produto p; string nome; char resp; int i=0;
+    ofstream arq("PRODUTOS.BIN", ios::binary);
+    if (arq.fail()) {
+            cout << "arquivo nao pode ser aberto"; exit(0); }
+    do{
+        cout<<"Produto "<<++i<< endl;
+        p.cod = i;
+        cout<<"Informe nome ";
+        getline(cin,nome); strcpy(p.nome,nome.c_str());
+        cout<<"Informe qtde do produto";
+        cin >> p.qtde;
+        cin.ignore();
+        arq.write((const char*)(&p),sizeof(Produto)); // grava item
+        cout << "Outro? S/N";
+        resp = toupper(cin.get()); cin.ignore();
+    }while(resp=='S');
+    arq.close();
+}
+void atualizaProdutos(){
+    fstream arq2("PRODUTOS.BIN", ios::binary | ios::in | ios::out | ios::ate ); // ele abre e vai pro final !!!
+    Produto p;
+    ifstream arq1("MOVTO.TXT");
+    string linha;
+    char tipo;
+    int valor, cod;
+    cout<<endl<< "Iniciando atualizacao de produtos"<<endl;
+    if (arq1.fail()) {
+            cout << "problema com MOVTO.TXT"; exit(0); }
+    if (arq2.fail()){
+            cout << "problema com PRODUTOS.BIN"; exit(0); }
+
+    while(getline(arq1,linha)){
+        cod = stoi(linha.substr(0,1)); // codigo 1 char na 1a posicao
+        tipo = toupper(linha.at(2)); // tipo do mvmto 1 char na 3a posicao
+        valor = stoi(linha.substr(4,2)); // qtde 2 char na 5 posicao
+        cout << cod << " "<< tipo << " "<< valor << endl;
+        arq2.seekg(0,ios::beg); // vai pro inicio
+        do{
+            arq2.read((char*)(&p),sizeof(Produto));
+            if(p.cod==cod){
+                cout << "atualizando " << p.cod << endl;
+                if(tipo =='C') p.qtde += valor;
+                else p.qtde -= valor;
+                arq2.seekp(-sizeof(Produto),ios::cur);
+                arq2.write((const char*)(&p),sizeof(Produto));
+                break;
+            }
+        }while(not arq2.eof());
+   }
+    arq1.close();
+    arq2.close();
+}
+void mostraProdutos(){
+    ifstream arq("PRODUTOS.BIN", ios::binary);
+    Produto pp;
+    if (arq.fail()) {
+            cout << "arquivo nao pode ser aberto"; exit(0); }
+    arq.seekg(0,ios::end);
+    int n = arq.tellg()/sizeof(Produto);
+    arq.seekg(0,ios::beg);
+    cout<<endl<< "Relatorio de produtos"<<endl;
+    for(int i=0;i<n;i++){
+        arq.read((char*)(&pp),sizeof(Produto));
+        cout << pp.cod << " " << pp.nome << " " << pp.qtde << endl;
+   }
+    arq.close();
+}
+int main(){
+    //gravaProdutos();
+    mostraProdutos();
+    atualizaProdutos();
+    mostraProdutos();
+    return 1;
+}
+
+#include <iostream> // EXERC7 - valor de estoque > 1000.00
+#include <fstream>
+#include <cstring>
+using namespace std;
+    typedef struct {
+        char nome[51];
+        int codigo, qtde;
+        float preco, valor;
+    } Produto;
+
+int main(){
+    bool achou=false; string nome;
+    Produto p;
+    ofstream ofs("PRODUTOS.DAT", ios::binary);
+
+    if(ofs.fail()) {
+        cout << "Arquivo nao pode ser aberto para escrita.\n"; exit(0);
+    }
+    else    // le/grava informações no arquivo e fecha arquivo
+    {
+        cout << "Arquivo aberto para escrita.\n";
+        for (int i = 0; i <3; i++){
+            cout << "Leitura de dados de um produto" << endl;
+            cout << "Nome...: ";
+            getline(cin,nome); strcpy(p.nome,nome.c_str());
+            cout << "Codigo.: ";
+            cin >> p.codigo;
+            cout << "Preco: ";
+            cin >> p.preco;
+            cout << "Qtde ";
+            cin >> p.qtde;
+            cin.ignore();
+            p.valor = p.preco * p.qtde;
+            ofs.write((const char*)(&p), sizeof(Produto));
+        }
+        ofs.close();
+    }
+
+    cout << endl << "Recuperando os dados do arquivo" << endl;
+    ifstream ifs("PRODUTOS.DAT", ios::binary);
+    if(ifs.fail()) cout << "Arquivo nao pode ser aberto para leitura.";
+    else{
+        ifs.seekg(0,ios::end); // vai pro fim
+        int quantidade = ifs.tellg()/sizeof(Produto);
+        ifs.seekg(0); //  volta pro inicio
+
+        for (int i = 0; i < quantidade; i++){
+            ifs.read((char*)(&p), sizeof(Produto));
+            if(p.valor>1000){
+                achou=true;
+                cout << "Codigo.: " << p.codigo << endl;
+                cout << "Nome...: " << p.nome << endl;
+            }
+        }
+        if(not achou) cout << "Sem produtos com valor estoque >1000";
+        ifs.close();
+    }
+    return 0;
+}
+
+#include <iostream> // EXERC8
+#include <fstream>
+#include <cstring>
+using namespace std;
+
+typedef struct{
+    char nome[51], dataNasc[11], corOlhos[15];
+    char sexo;
+    float altura, peso;
+} REGISTRO;
+
+typedef struct{
+    char nome[51], dataNasc[11], corOlhos[15];
+    float altura, peso;
+} REGISTRO2;
+
+int main(){
+    REGISTRO umRegistro;
+    REGISTRO2 outroRegistro;
+    int n, i; string info;
+
+    ofstream arq1("CADASTRO.DAD", ios::out | ios::binary);
+    if (arq1.fail()) { cout << "Arquivo nao pode ser aberto."; exit(0);}
+
+    cout<<"Numero de pessoas: "; cin>>n;
+    cin.ignore();
+
+    for(i=1; i<=n; i++){
+        cout<<"Nome ";
+        getline(cin,info);  strcpy(umRegistro.nome,info.c_str());
+        cout<<"Data Nascimento (dd/mm/aaaa) ";
+        getline(cin,info);  strcpy(umRegistro.dataNasc,info.c_str());
+        cout<<"Cor dos olhos (Azul,Verde,Castanho,Preto) ";
+        getline(cin,info);  strcpy(umRegistro.corOlhos,info.c_str());
+        cout<<"Sexo ";
+        umRegistro.sexo=toupper(cin.get());
+        cin.ignore();
+        cout<<"Altura ";
+        cin>>umRegistro.altura;
+        cout<<"Peso ";
+        cin>>umRegistro.peso;
+        cin.ignore();
+        arq1.write((const char*)(&umRegistro),sizeof(REGISTRO));
+    }
+    arq1.close();
+
+    ifstream arquivo("CADASTRO.DAD", ios::binary);
+    ofstream arqF("MULHERES.DAD", ios::out | ios::binary);
+    ofstream arqM("HOMENS.DAD", ios::out | ios::binary);
+    if (arquivo.fail() or arqF.fail() or arqM.fail()) {
+            cout << "arquivos com problema"; exit(0);
+    }
+
+    while(arquivo.read((char*)(&umRegistro),sizeof(REGISTRO))){
+        strcpy(outroRegistro.nome,umRegistro.nome);
+        strcpy(outroRegistro.dataNasc,umRegistro.dataNasc);
+        strcpy(outroRegistro.corOlhos,umRegistro.corOlhos);
+        outroRegistro.altura = umRegistro.altura;
+        outroRegistro.peso = umRegistro.peso;
+
+        if (umRegistro.sexo=='M')
+            arqM.write((const char*)(&outroRegistro),sizeof(REGISTRO2));
+        else
+            arqF.write((const char*)(&outroRegistro),sizeof(REGISTRO2));
+    }
+    arqF.close();
+    arqM.close();
+    arquivo.close();
+
+    ifstream arq("MULHERES.DAD", ios::binary);
+    if (arq.fail()) exit(0);
+    cout << "Relatorio de Mulheres"<< endl;
+    while(arq.read((char*)(&outroRegistro),sizeof(REGISTRO2))){
+        cout << outroRegistro.nome << endl << outroRegistro.dataNasc << endl << outroRegistro.corOlhos << endl;
+        cout << outroRegistro.altura << endl << outroRegistro.peso << endl;
+    }
+    arq.close();
+
+    return 0;
+}

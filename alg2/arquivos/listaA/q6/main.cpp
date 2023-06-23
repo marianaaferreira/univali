@@ -15,6 +15,6 @@ typedef struct{
 
 int main(){
 
-    cout << "Hello world!" << endl;
+
     return 0;
 }

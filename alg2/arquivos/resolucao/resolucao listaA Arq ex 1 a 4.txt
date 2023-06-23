@@ -1,0 +1,136 @@
+#include <iostream> // EXERC1 LISTAA ARQ
+#include <iomanip>
+#include <fstream>
+using namespace std;
+int main() {
+    ifstream fin;    // arquivo para leitura
+    string linha, nomearq;
+    int i=0;
+    cout << "\nNome do arquivo a ser aberto: ";    getline(cin,nomearq);
+    fin.open(nomearq.c_str()); // abre para leitura
+
+    ofstream fout("fontenew.txt");
+    if (!fin or !fout) {
+        cout << "Nao foi possivel abrir um dos arquivos."; cin.get();
+        exit(0);
+    }
+    while (getline(fin,linha)){ //leitura da linha usada como teste do while
+        fout << setw(2) << ++i << " " << linha << endl;
+    }
+    fin.close();
+    fout.close();
+
+    i=0;
+    fin.open(nomearq.c_str()); // abre para leitura
+    if (!fin or !fout) {
+        cout << "Nao foi possivel abrir os arquivos."; cin.get();
+        return 0;
+    }
+    // leitura da linha usada como teste do while
+    while (getline(fin,linha))    {
+        fout << setw(2) << ++i << " " << linha << endl;
+    }
+    fin.close();
+    fout.close();
+    return 0;
+}
+
+#include <iostream> // EXERC2
+#include <cstring>
+#include <fstream>
+using namespace std;
+int main(){
+    char carac;
+    string nomearq;
+    int contChaves=0;
+    ifstream arq;
+    cout<<"Nome do arquivo a ser aberto: ";
+    getline(cin,nomearq);
+    arq.open(nomearq.c_str()); // abre para leitura
+    if (!arq){
+        cout<<"Nao foi possivel abrir o arquivo."; exit(0);
+    }
+    while (!arq.eof()){
+        arq.get(carac);
+        if(carac=='{') contChaves++;
+        else if(carac=='}') contChaves--;
+    }
+    if (contChaves ==0) cout<<"Numero de chaves OK."<<endl;
+    else
+        cout<<"Numero de chaves inconsistente."<<endl;
+        arq.close();
+        system("PAUSE");
+        return 0;
+    }
+
+#include <iostream> // EXERC3
+#include <iomanip>
+#include <fstream>
+using namespace std;
+int main() {
+    ifstream fin;    // arquivo para leitura
+    string linha, nomearq;
+    int i=0;
+    cout << "\nNome do arquivo a ser aberto: ";    getline(cin,nomearq);
+    fin.open(nomearq.c_str());   // abre para leitura
+    if (not fin) {
+        cout << "Nao foi possivel abrir um dos arquivos."; cin.get();
+        exit(0);
+    }
+    while (not fin.eof()){
+        getline(fin,linha);  //leitura da linha usada como teste do while
+        cout << setw(2) << ++i << " " << linha << endl;
+        if(i%20==0) cin.get();
+    }
+    fin.close();
+    return 0;
+}
+
+#include <iostream> // EXERC4
+#include <fstream>
+    using namespace std;
+    int main(){
+        ifstream arq;
+        ofstream arq2;
+        char ch;
+        string nomearq, nomearq2;
+        cout << "Nome do arquivo a ser aberto: ";
+        getline(cin, nomearq);
+        arq.open(nomearq.c_str()); // cria e abre para leitura
+
+        nomearq2 = nomearq;
+        for(int i=nomearq2.size()-1; i>0; i--)
+            if(nomearq2.at(i)!='.') nomearq2.at(i)='x';
+            else break;
+
+        cout << nomearq2 << endl;
+        arq2.open(nomearq2.c_str());   // cria e abre pra leitura
+        if (!arq or !arq2){
+            cout << "Nao foi possivel abrir o arquivo."; cin.get();
+            return 0;
+        }
+        while(arq.get(ch)) {         // enquanto le caracter
+            if(ch!='/') arq2<<ch;   // grava caracter normal no arq2
+            else  {                  // leitura anterior indicou possivel comentario
+                arq.get(ch);        // le 2o caracter
+                if(ch!='/' && ch!='*') {     // indica q nao era comentario
+                    arq2<<'/'<<ch;  // grava os 2 caracteres lidos
+                }
+                else                // confirmado comentario
+                    if(ch=='/'){     // de linha
+                        while(arq.get()!='\n'); //le-descarta resto lin
+                        arq2<<'\n';             //grava o final p/pular linha arq2
+                    }
+                    else{                        // de bloco, sai procurando
+                        do{
+                            arq.get(ch);        // le caracter
+                            if(ch=='*'){
+                                arq.get(ch);    // le 2o caracter
+                                if(ch=='/') break;
+                            }
+                        }while(true);
+                    }
+            }
+        }
+        return 0;
+    }

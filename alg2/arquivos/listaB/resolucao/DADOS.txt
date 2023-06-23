@@ -1,0 +1,11 @@
+1. Admita a existência de um arquivo de acesso sequencial de nome TEXTO.DOC contendo um texto qualquer.
+Escreva um algoritmo que modifique TEXTO.DOC de forma que todas as ocorrências de uma determinada
+palavra sejam substituídas por outra palavra.
+Exemplificando, substituir todas as ocorrências da palavra FILE pela palavra ARQUIVO. O algoritmo deve
+preservar a versão antiga de TEXTO.DOC em um arquivo TEXTO.BAK.
+2. Considerando o arquivo TEXTO.DOC, gere um outro arquivo onde são excluídas todas as palavras com menos
+de três caracteres.
+3. A partir de um arquivo de acesso sequencial DADOS, determine o número da maior linha do arquivo e escreva
+os valores numéricos encontrados no arquivo.
+
+

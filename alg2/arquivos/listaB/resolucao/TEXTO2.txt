@@ -1,0 +1,3 @@
+2. Considerando o arquivo TEXTO.DOC, gere um outro arquivo onde são excluídas todas as palavras com menos
+de três caracteres.
+

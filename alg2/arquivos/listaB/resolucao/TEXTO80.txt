@@ -1,0 +1,3 @@
+Exemplificando, substituir todas as ocorrências da palavra FILE pela palavra 
+ARQUIVO. O algoritmo deve preservar a versão antiga de TEXTO.DOC
+em um arquivo TEXTO.BAK.

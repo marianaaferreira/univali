@@ -1,0 +1,6 @@
+Admita a existência de um arquivo de BANANA sequencial de nome TEXTO.DOC contendo uma BANANA qualquer.
+Escreva um algoritmo que modifique TEXTO.DOC de forma que todas as ocorrências de uma determinada
+BANANA sejam substituídas por outra palavra.
+Exemplificando, substituir todas as ocorrências da palavra FILE pela palavra ARQUIVO. O algoritmo deve
+preservar a versão antiga de TEXTO.DOC em um arquivo TEXTO.BAK. 
+BANANA
