@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1687439889 source:c:\users\55489\desktop\revisao prova m3\arq bin\q6 (sem lista)\main.cpp
+	<iostream>
+	<fstream>
+	<cstring>
+	<iomanip>
+

@@ -1,0 +1,195 @@
+//EXERCICIO1
+#include <iostream>
+using namespace std;
+int main(){
+    int pontos, n, i, j, k;
+    int R[5], A[10];
+    bool erro;
+
+    do{
+        erro=false;
+        cout<<"Informe o gabarito da Loto"<<endl;
+        for(i=0; i<5; i++){
+            cout<<"Numero sorteado (1 a 60): ";
+            do{
+                cin>>R[i];
+                if(R[i]<0 or R[i]>60) cout<<"Valor invalido"<<endl;
+            }while(R[i]<0 or R[i]>60);    // validacao de valor no intervalo requerido
+        }
+        for(i=0; i<4; i++){     // verificacao de valor repetido
+            for(j=i+1; j<5; j++){
+                if(R[i]==R[j]){
+                    cout<< "Valor repetido - refazer gabarito"<<endl;
+                    erro = true; break; // para o laco for j
+                }
+            }
+            if(erro==true) break; // para o laco for i
+        }
+    }while(erro==true);
+
+    cout << "Qtde apostas: " << endl;
+    do{
+        cin >> n;
+    }while(n<1);
+    for(k=0; k<n; k++){
+        pontos=0;
+        do{
+            erro=false;
+            cout<<"Informe aposta"<<endl;
+            for(i=0; i<10; i++){
+                cout<<"Numero sorteado (1 a 60): ";
+                do{
+                    cin>>A[i];
+                    if(A[i]<0 or A[i]>60) cout<<"Valor invalido"<<endl;
+                }while(A[i]<0 or A[i]>60);
+            }
+            for(i=0; i<9; i++){
+                for(j=i+1; j<10; j++){
+                    if(A[i]==A[j]){
+                        cout<< "Valor repetido - refazer aposta"<<endl;
+                        erro = true; break; // do laco for j
+                    }
+                }
+                if(erro==true) break; // do laco for i
+            }
+        }while(erro==true);
+
+        // contagem dos pontos
+        for(i=0; i<5; i++)
+            for(j=0; j<10; j++)
+                if(R[i]==A[j]){
+                    pontos++;
+                    break;
+                }
+        cout<<"Pontuacao: "<<pontos<< endl;
+    }
+    return 0;
+}
+//EXERCICIO2
+#include <iostream>
+using namespace std;
+#define TMAX 10
+
+int main()
+{
+    int D[TMAX], cont=0;
+
+    cout << "Informe 10 elementos do Vetor D" << endl;
+    for(int i=0; i<TMAX; i++){
+        cout << "D[" << i+1 << "]:";
+        cin >> D[i];
+    }
+    for(int i=0; i<TMAX-cont; i++)
+        if(D[i]<=0){
+           for(int j=i; j<TMAX-cont; j++)
+                D[j]=D[j+1];
+           cont++;
+        }
+
+    cout <<endl<<"Saida Vetor D" << endl;
+    for(int i=0; i<TMAX-cont;i++)
+        cout <<"["<< D[i]<<"]";
+
+    return 0;
+}
+//EXERCICIO3
+#include <iostream>
+#define TMAX1 10
+#define TMAX2 20
+using namespace std;
+
+int main(){
+    int X[TMAX1], Y[TMAX1], R[TMAX2];
+
+    cout<<"Vetor X: ";
+    for(int i=0; i<TMAX1; i++){
+        cout<<"Valor: ";
+        cin>>X[i];
+    }
+    cout<<"Vetor Y: ";
+    for(int i=0; i<TMAX1; i++){
+        cout<<"Valor: ";
+        cin>>Y[i];
+    }
+    for(int i=0, j=0; i<TMAX1; i++){
+        R[j++]=X[i];
+        R[j++]=Y[i];
+    }
+    cout<<endl<<"Vetor R: ";
+    for(int i=0; i<TMAX2; i++)
+        cout<<"["<<R[i]<<"]";
+
+    return 0;
+}
+//EXERCICIO4
+#include <iostream>
+using namespace std;
+
+int main(){
+    int i, j, k, cont=0;
+    int R[10], S[20], X[10];
+    bool repetido;
+
+    cout<<"Insira 10 valores para Vetor R: ";
+    for(i=0; i<10; i++){
+        cout<<"Valor: ";
+        cin>>R[i];
+    }
+    cout<<"Insira 20 valores para Vetor S: ";
+    for(i=0; i<20; i++){
+        cout<<"Valor: ";
+        cin>>S[i];
+    }
+
+    for(i=0; i<10; i++)
+        for(j=0; j<20; j++)
+            if(R[i]==S[j]){
+                repetido=false; // para ver se ja estah no X
+                for(k=0; k<cont; k++)
+                    if(X[k]==R[i]) repetido=true;
+
+                if(not repetido)   // se nao estah inclui no X
+                    X[cont++]=R[i];
+
+            }
+
+    cout<<endl<<"Interseccao/Vetor X: ";
+    for(i=0; i<cont; i++)
+        cout<<"["<<X[i]<<"]";
+
+    return 0;
+}
+//EXERCICIO5
+#include <iostream>
+#define TAM 10
+using namespace std;
+
+int main(){
+
+    int i, P, X;
+    int B[TAM];
+    cout<<"Insira 9 valores para o Vetor B: ";
+    for(i=0; i<9; i++)    {
+        cout<<"Valor: ";
+        cin>>B[i];
+    }
+
+    cout<<"Valor X: ";
+    cin>>X;
+
+    do{
+        cout<<"Posicao (0 a 8) onde quer inserir o valor acima: "<<endl;
+        cin>>P;
+    }while(P<0 or P>8);
+
+    for(i=9; i>=P; i--){
+        B[i]=B[i-1]; // copia de tras pra frente os valores do final do vetor
+    }
+    B[P]=X;
+
+    cout<< "Vetor final"<< endl;
+    for(i=0; i<10; i++)
+        cout<<"["<<B[i]<<"]";
+
+    return 0;
+}
