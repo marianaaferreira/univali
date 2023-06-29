@@ -12,3 +12,8 @@ git push -u origin main
 git remote add origin https://github.com/marianaaferreira/testesGit.git
 git branch -M main
 git push -u origin main
+
+///
+git add -A
+git commit -m "wip"
+git push origin main
