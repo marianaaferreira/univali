@@ -45,9 +45,9 @@ void alteraCoordenadaY(Circunferencia &c, int y){
 }
 
 string comparaDuasCircunferencias(Circunferencia c1, Circunferencia c2){
-    if(c1.raio*2*3.14 == c2.raio*2*3.14)
+    if(calculaPerimetro(c1) == calculaPerimetro(c2))
         return "c1=c2";
-    else if(c1.raio*2*3.14 > c2.raio*2*3.14)
+    else if(calculaPerimetro(c1) > calculaPerimetro(c2))
         return "c1>c2";
     return "c1<c2";
 }
@@ -69,7 +69,7 @@ int main(){
     //Entrada de dados c1 a c3
     for(int i=0; i<3; i++){
         cout << "\nCircunferencia " << i+1;
-        cout << "\nnCoordenada x: "; cin >> x;
+        cout << "\nCoordenada x: "; cin >> x;
         cout << "\nCoordenada y: "; cin >> y;
         cout << "\nRaio: "; cin >> raio; cout << endl;
         criarCircunferencia(c[i], x, y, raio);
@@ -108,7 +108,7 @@ int main(){
     for(int i=0; i<4; i++){
         for(int j=i+1; j<5; j++){
             if(verificaCircunferenciaMesmaPosicao(c[i], c[j])){
-                cout << i << " e " << j << endl;
+                cout << i+1 << " e " << j+1 << endl;
                 existe = true;
             }
         }
