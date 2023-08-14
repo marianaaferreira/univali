@@ -32,7 +32,7 @@ bool verificaElementoLista(Lista l, int elemento){
 }
 
 bool verificaPosicaoValida(Lista l, int posicao){
-    if(l.cardinalidade<=posicao)
+    if(l.cardinalidade<posicao)
         return false;
     return true;
 }
@@ -74,7 +74,7 @@ void retiraElementoLista(Lista &l, int elemento){
     int p = recuperaPosicao(l, elemento);
     if(p==l.cardinalidade-1)
         l.cardinalidade--;
-    for(int i=p; i>l.cardinalidade; i++){
+    for(int i=p; i<l.cardinalidade-1; i++){
         l.v[i]=l.v[i+1];
     }
     l.cardinalidade--;

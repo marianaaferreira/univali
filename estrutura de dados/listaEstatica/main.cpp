@@ -28,7 +28,7 @@ int main(){
                 insereNoFinal(l, elemento); break;
             case 'C':
                 cout << "Informe a posicao(0 a " << qtdElementosLista(l) << "):\n"; cin >> posicao;
-                if(verificaPosicaoValida(l, posicao))
+                if(not verificaPosicaoValida(l, posicao))
                     cout << "Posicao invalida" << endl;
                 else{
                     cout << "Informe o elemento:\n"; cin >> elemento;
