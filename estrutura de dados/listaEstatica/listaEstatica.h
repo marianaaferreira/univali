@@ -1,6 +1,7 @@
 #ifndef LISTAESTATICA_H_INCLUDED
 #define LISTAESTATICA_H_INCLUDED
 #define TMAX 10
+using namespace std;
 
 typedef struct{
     int v[TMAX];
@@ -80,10 +81,10 @@ void retiraElementoLista(Lista &l, int elemento){
     l.cardinalidade--;
 }
 
-std::string exibeLista(Lista l){
-    std::string s;
+string exibeLista(Lista l){
+    string s;
     for(int i=0; i<l.cardinalidade; i++)
-        s+= "[" + std::to_string(l.v[i]) + "]";
+        s+= "[" + to_string(l.v[i]) + "]";
     return s;
 }
 
