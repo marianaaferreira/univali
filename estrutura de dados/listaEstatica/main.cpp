@@ -35,7 +35,6 @@ int main(){
                     insereNaPosicao(l, elemento, posicao);
                 }break;
             case 'D':
-                //remove apenas  primeiro elemento do valor informado
                 cout << "Informe o elemento:\n"; cin >> elemento;
                 if(verificaElementoLista(l, elemento))
                     retiraElementoLista(l, elemento);
