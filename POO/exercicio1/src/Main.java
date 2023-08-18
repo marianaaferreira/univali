@@ -1,4 +1,4 @@
-import java.sql.SQLOutput;
+import br.univali.poo.exercicio1.Invoice;
 import java.util.Scanner;
 
 public class Main {

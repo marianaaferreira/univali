@@ -1,3 +1,5 @@
+package br.univali.poo.exercicio1;
+
 public class Invoice {
     private String num;
     private String descricao;
@@ -53,4 +55,3 @@ public class Invoice {
         return precoItem*qtdComprada;
     }
 }
-
