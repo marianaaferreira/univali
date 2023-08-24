@@ -10,22 +10,13 @@ A cada 20 minutos, exiba a evolução do preço da ação.
 Utilize a estrutura de dados ListaEstaticaGenerica para representar o preço da ação.*/
 int main(){
     ListaEstaticaGenerica<int, 18> lista;
-    int preco, p;
 
     cria(lista);
-
-    do{
-        preco = rand()%10;
-    }while(preco>7 or preco<5);
-
-    insere(lista, 0, preco);
+    insere(lista, 0, rand()%3+5);
 
     for (int i=1; i<18; i++){
-        do{
-            p = rand()%10;
-        }while(p>3 or p<1);
-        if(i%2==0) p = p*(-1);
-        insere(lista, qtdElementos(lista), preco+p);
+        insere(lista, qtdElementos(lista), recuperaElemento(lista, qtdElementos(lista)-1)+rand()%7-3);
     }
+
     exibeLista(lista);
 }
