@@ -1,4 +1,5 @@
 #include <iostream>
+#include <time.h>
 #include "ListaEstaticaGenerica.h"
 
 using namespace std;
@@ -10,7 +11,7 @@ A cada 20 minutos, exiba a evolução do preço da ação.
 Utilize a estrutura de dados ListaEstaticaGenerica para representar o preço da ação.*/
 int main(){
     ListaEstaticaGenerica<int, 18> lista;
-
+    //srand(time(NULL));
     cria(lista);
     insere(lista, 0, rand()%3+5);
 
