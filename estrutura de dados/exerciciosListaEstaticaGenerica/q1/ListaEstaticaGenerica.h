@@ -60,6 +60,8 @@ void insere(ListaEstaticaGenerica<T, MAX> &lista, int posicao, T elemento){
             lista.elementos[i+1]=lista.elementos[i];
 
     lista.elementos[posicao]=elemento;
+    lista.cardinalidade++;
+    //cout << "[" << lista.elementos[posicao] << "]";
 }
 
 template<typename T, int MAX>
@@ -84,8 +86,10 @@ void retiraPelaPosicao(ListaEstaticaGenerica<T, MAX> &lista, int posicao){
 
 template<typename T, int MAX>
 void exibeLista(ListaEstaticaGenerica<T, MAX> lista){
-    for(int i=0; i<lista.cardinalidade; i++)
-        cout << "[" << lista.elementos[i] << "]";
+    cout << "teste";
+    for(int i=0; i<lista.cardinalidade; i++){
+        cout << lista.elementos[i];
+    }
 }
 
 #endif // LISTAESTATICAGENERICA_H_INCLUDED
