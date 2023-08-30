@@ -10,3 +10,4 @@ public CommissionEmployee(double grossSales, double commissionRate){
     if(grossSales < 0.0)
         throw new IllegalArgumentsException("Gross sales must be >= 0.0")
 }
+
