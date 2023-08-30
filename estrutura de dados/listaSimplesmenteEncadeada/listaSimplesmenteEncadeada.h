@@ -43,7 +43,26 @@ int qtdElementos(ListaSimplesmenteEncadeada<T> lista){
 }
 
 template<typename T>
+bool elementoEstaNaLista(ListaSimplesmenteEncadeada<T> lista, T elemento){
+    Nodo<T> *p = lista.inicio;
+    while(p.proximo!=NULL){
+        if (p.elemento==elemento)
+            return true;
+        p = p -> proximo;
+    }
+    return false;
+}
 
+template<typename T>
+bool posicaoValida(ListaSimplesmenteEncadeada<T> lista){
+    if(posicao>lista.cardinalidade)
+        return false;
+    return true;
+}
+
+T recuperaElemento(ListaSimplesmenteEncadeada<T> lista, int posicao){
+
+}
 
 
 #endif // LISTASIMPLESMENTEENCADEADA_H_INCLUDED
