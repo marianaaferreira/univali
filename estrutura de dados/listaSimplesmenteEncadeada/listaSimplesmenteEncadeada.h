@@ -81,7 +81,6 @@ int recuperaPosicao(ListaSimplesmenteEncadeada<T> lista, T elemento){
         p = p->proximo;
         i++;
     }
-    return false;
 }
 
 template<typename T>
@@ -106,10 +105,8 @@ void insere(ListaSimplesmenteEncadeada<T> &lista, T elemento, int posicao){
             p->proximo = n;
             n->proximo = NULL;
         }else{
-            temp = p->proximo;
+            n->proximo = p->proximo;
             p->proximo = n;
-            n->elemento = elemento;
-            n->proximo = temp;
         }
     }
 }
