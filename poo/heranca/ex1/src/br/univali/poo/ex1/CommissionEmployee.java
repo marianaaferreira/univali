@@ -40,12 +40,15 @@ public class CommissionEmployee extends Employee {
     public double earnings(){
         return getCommissionRate()*getGrossSales();
     }
-
+/*
     @Override
     public String toString() {
         return "CommissionEmployee{" +
                 "grossSales=" + grossSales +
                 ", commissionRate=" + commissionRate +
                 "} " + super.toString();
+    }*/
+    public String toString(){
+        return String.format("%sCommissionEmployee{grossSales=%s, commissionRate=%s}", super.toString(), getGrossSales(), getCommissionRate());
     }
 }

@@ -1,7 +1,5 @@
 package br.univali.poo.ex1;
 
-/*firstName, lastName, socialSecurityNumber,
-getFirstName, getLastName, getSocialSecurityNumber e uma parte do método toString. */
 public class Employee {
     private String firstName;
     private String lastName;
@@ -23,7 +21,7 @@ public class Employee {
     public String getSocialSecurityNumber() {
         return socialSecurityNumber;
     }
-
+/*
     @Override
     public String toString() {
         return "Employee{" +
@@ -31,5 +29,10 @@ public class Employee {
                 ", lastName='" + lastName + '\'' +
                 ", socialSecurityNumber='" + socialSecurityNumber + '\'' +
                 '}';
+    }*/
+    public String toString(){
+        return String.format("Employee{firstName=%s, lastName=%s, socialSecurityNumber=%s}", getFirstName(), getLastName(), getSocialSecurityNumber());
     }
+
+
 }
