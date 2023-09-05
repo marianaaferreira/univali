@@ -1,5 +1,6 @@
 #ifndef LISTADUPLAMENTEENCADEADA_H_INCLUDED
 #define LISTADUPLAMENTEENCADEADA_H_INCLUDED
+//ver todas as funcoes que usam posicao e lancar uma excessao caso a posicao seja invalida
 
 template<typename T>
 struct Nodo{
@@ -56,9 +57,6 @@ bool elementoEstaNaLista(ListaDuplamenteEncadeada<T> lista, T elemento){
     return false;
 }
 
-/*recuperar um elemento da lista, recuperar uma posição da lista, inserir um elemento na lista, retirar um
-elemento da lista e mostrar uma lista.*/
-
 template<typename T>
 T recuperaElemento(ListaDuplamenteEncadeada<T> lista, int posicao){
     Nodo<T> *p;
@@ -81,25 +79,71 @@ int recuperaPosicao(ListaSimplesmenteEncadeada<T> lista, T elemento){
 }
 
 template<typename T>
-void insere(ListaDuplamenteEncadeada<T> lista, T elemento, int posicao){
+void insere(ListaDuplamenteEncadeada<T> &lista, T elemento, int posicao){
     Nodo<T> *p = lista.inicio;
     Nodo<T> *n = new Nodo<T>;
-    if(lista.inicio==NULL){
+    if(p==NULL){cout << "sem memória"; cin.get(); exit(1);}
+    n->elemento = elemento;
+    if(lista.inicio==NULL){ //lista vazia
         lista.inicio = n;
+        lista.fim = n;
         lista.anterior = NULL;
         lista.proximo = NULL;
-    }else{
-        for(int i=0; i<posicao; i++){
+    }else if(posicao==1){ //insere no inicio
+        n->proximo = lista.inicio;
+        n->anterior = NULL;
+        lista.inicio->anterior = n;
+        lista.inicio = n;
+    }else if(posicao==qtdElementos()){ // insere no final
+        lista.fim->proximo = n;
+        n->anterior = lista.fim;
+        n->proximo = NULL;
+        lista.fim = n;
+    }else{ // insere no meio
+        for(int i=1; i<posicao-1; i++){
             p = p->proximo;
         }
         n->proximo = p->proximo;
         n->anterior = p;
         p->proximo = n;
-        p = p->proximo;
-        p->anterior = n;
+        n->proximo->anterior = n;
     }
 }
 
+template<typename T>
+void excluiElemento(ListaDuplamenteEncadeada<T> &lista, int posicao){
+    Nodo<T> *p;
+    if(qtdElementos()==1){ //exclui o unico elemento da lista
+        p = lista.inicio;
+        lista.inicio=NULL;
+        lista.fim=NULL;
+    }else if(posicao==1){ // exclui o primeiro elemento
+        p = lista.inicio;
+        lista.inicio = lista.inicio->proximo;
+        lista.inicio->anterior=NULL;
+    }else if(posicao==qtdElementos()){ // exclui o ultimo elemento
+        p = lista.fim;
+        lista.fim = lista.fim->anterior;
+        lista.fim->proximo=NULL;
+    }else{ // exclui elemento no meio
+        p=lista.inicio;
+        for(int i=1; i<posicao; i++)
+            p = p->proximo;
+        p->anterior ->proximo = p->proximo;
+        p->proximo->anterior = p->anterior;
+    }
+    delete p;
+    lista.cardinalidade--;
+}
+
+template<typename T>
+void mostralista(ListaDuplamenteEncadeada<T> lista){
+    Nodo<T> *p = lista.inicio;
+    while(p->proximo!=NULL){
+        cout << "[" << p->elemento << "]";
+        p = p->proximo;
+    }
+}
 
 
 #endif // LISTADUPLAMENTEENCADEADA_H_INCLUDED

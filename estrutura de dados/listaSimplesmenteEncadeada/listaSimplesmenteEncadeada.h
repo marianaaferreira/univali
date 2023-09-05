@@ -56,16 +56,16 @@ bool elementoEstaNaLista(ListaSimplesmenteEncadeada<T> lista, T elemento){
 
 template<typename T>
 bool posicaoValida(ListaSimplesmenteEncadeada<T> lista, int posicao){
-    if(posicao>lista.cardinalidade)
+    if(posicao<=0 or posicao>lista.cardinalidade)
         return false;
     return true;
 }
 
 template<typename T>
 T recuperaElemento(ListaSimplesmenteEncadeada<T> lista, int posicao){
-    int cont=0;
+    int cont=1;
     Nodo<T> *p = lista.inicio;
-    for(int i=0; i<posicao; i++){
+    for(int i=1; i<posicao; i++){
         p = p->proximo;
     }
     return p->elemento;
@@ -74,7 +74,7 @@ T recuperaElemento(ListaSimplesmenteEncadeada<T> lista, int posicao){
 template<typename T>
 int recuperaPosicao(ListaSimplesmenteEncadeada<T> lista, T elemento){
     Nodo<T> *p = lista.inicio;
-    int i=0;
+    int i=1;
     while(p->proximo!=NULL){
         if(p->elemento==elemento)
             return i;
