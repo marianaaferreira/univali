@@ -1,6 +1,6 @@
 #ifndef LISTADUPLAMENTEENCADEADA_H_INCLUDED
 #define LISTADUPLAMENTEENCADEADA_H_INCLUDED
-//ver todas as funcoes que usam posicao e lancar uma excessao caso a posicao seja invalida
+using namespace std;
 
 template<typename T>
 struct Nodo{
@@ -59,15 +59,17 @@ bool elementoEstaNaLista(ListaDuplamenteEncadeada<T> lista, T elemento){
 
 template<typename T>
 T recuperaElemento(ListaDuplamenteEncadeada<T> lista, int posicao){
+    if(posicao<1 or posicao>qtdElementos(lista)+1)
+        throw "Posicao invalida";
     Nodo<T> *p;
-    for(int i=0; i<posicao; i++){
+    for(int i=1; i<posicao; i++){
         p = p->proximo;
     }
     return p->elemento;
 }
 
 template<typename T>
-int recuperaPosicao(ListaSimplesmenteEncadeada<T> lista, T elemento){
+int recuperaPosicao(ListaDuplamenteEncadeada<T> lista, T elemento){
     Nodo<T> *p = lista.inicio;
     int i=1;
     while(p->proximo!=NULL){
@@ -78,23 +80,29 @@ int recuperaPosicao(ListaSimplesmenteEncadeada<T> lista, T elemento){
     }
 }
 
+//verificar qnd o elemento e adicionado na ultima posicao que n tem ngm
 template<typename T>
 void insere(ListaDuplamenteEncadeada<T> &lista, T elemento, int posicao){
+    if(posicao<1 or posicao>qtdElementos(lista)+1)
+        throw "Posicao invalida";
+
     Nodo<T> *p = lista.inicio;
     Nodo<T> *n = new Nodo<T>;
-    if(p==NULL){cout << "sem memória"; cin.get(); exit(1);}
+
+    if(n==NULL){cout << "sem memória"; cin.get(); exit(1);}
+
     n->elemento = elemento;
     if(lista.inicio==NULL){ //lista vazia
         lista.inicio = n;
         lista.fim = n;
-        lista.anterior = NULL;
-        lista.proximo = NULL;
+        n->anterior = NULL;
+        n->proximo = NULL;
     }else if(posicao==1){ //insere no inicio
         n->proximo = lista.inicio;
         n->anterior = NULL;
         lista.inicio->anterior = n;
         lista.inicio = n;
-    }else if(posicao==qtdElementos()){ // insere no final
+    }else if(posicao==qtdElementos(lista)){ // insere no final
         lista.fim->proximo = n;
         n->anterior = lista.fim;
         n->proximo = NULL;
@@ -108,12 +116,15 @@ void insere(ListaDuplamenteEncadeada<T> &lista, T elemento, int posicao){
         p->proximo = n;
         n->proximo->anterior = n;
     }
+    lista.cardinalidade++;
 }
 
 template<typename T>
 void excluiElemento(ListaDuplamenteEncadeada<T> &lista, int posicao){
+    if(posicao<1 or posicao>qtdElementos(lista)+1)
+        throw "Posicao invalida";
     Nodo<T> *p;
-    if(qtdElementos()==1){ //exclui o unico elemento da lista
+    if(qtdElementos(lista)==1){ //exclui o unico elemento da lista
         p = lista.inicio;
         lista.inicio=NULL;
         lista.fim=NULL;
@@ -121,7 +132,7 @@ void excluiElemento(ListaDuplamenteEncadeada<T> &lista, int posicao){
         p = lista.inicio;
         lista.inicio = lista.inicio->proximo;
         lista.inicio->anterior=NULL;
-    }else if(posicao==qtdElementos()){ // exclui o ultimo elemento
+    }else if(posicao==qtdElementos(lista)){ // exclui o ultimo elemento
         p = lista.fim;
         lista.fim = lista.fim->anterior;
         lista.fim->proximo=NULL;
@@ -139,7 +150,7 @@ void excluiElemento(ListaDuplamenteEncadeada<T> &lista, int posicao){
 template<typename T>
 void mostralista(ListaDuplamenteEncadeada<T> lista){
     Nodo<T> *p = lista.inicio;
-    while(p->proximo!=NULL){
+    for(int i=0; i<lista.cardinalidade; i++){
         cout << "[" << p->elemento << "]";
         p = p->proximo;
     }
