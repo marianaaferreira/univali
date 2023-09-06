@@ -46,10 +46,11 @@ int qtdElementos(ListaDuplamenteEncadeada<T> lista){
     return lista.cardinalidade;
 }
 
+//nao esta conferindo o ultimo elemento da lista arrumar
 template<typename T>
 bool elementoEstaNaLista(ListaDuplamenteEncadeada<T> lista, T elemento){
     Nodo<T> *p = lista.inicio;
-    while(p->proximo!=NULL){
+    while(p!=NULL){
         if (p->elemento==elemento)
             return true;
         p = p->proximo;
@@ -61,7 +62,7 @@ template<typename T>
 T recuperaElemento(ListaDuplamenteEncadeada<T> lista, int posicao){
     if(posicao<1 or posicao>qtdElementos(lista)+1)
         throw "Posicao invalida";
-    Nodo<T> *p;
+    Nodo<T> *p=lista.inicio;
     for(int i=1; i<posicao; i++){
         p = p->proximo;
     }
@@ -72,7 +73,7 @@ template<typename T>
 int recuperaPosicao(ListaDuplamenteEncadeada<T> lista, T elemento){
     Nodo<T> *p = lista.inicio;
     int i=1;
-    while(p->proximo!=NULL){
+    while(p!=NULL){
         if(p->elemento==elemento)
             return i;
         p = p->proximo;
@@ -102,7 +103,7 @@ void insere(ListaDuplamenteEncadeada<T> &lista, T elemento, int posicao){
         n->anterior = NULL;
         lista.inicio->anterior = n;
         lista.inicio = n;
-    }else if(posicao==qtdElementos(lista)){ // insere no final
+    }else if(posicao==qtdElementos(lista)+1){ //insere no final
         lista.fim->proximo = n;
         n->anterior = lista.fim;
         n->proximo = NULL;
