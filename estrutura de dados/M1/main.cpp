@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <iomanip>
+#include <cstdlib>
 #include <string>
 #include "ListaDuplamenteEncadeada.h"
 
@@ -47,8 +47,8 @@ int main(){
         entradaDadosCliente(nome, op, orig, dest, origem, destino);
 
         pos = recuperaPosicao(origem, orig);
-        if(pos==recuperaPosicao(destino, dest)){
-            if(recuperaElemento(lugDisponivel, pos)==0){
+        if(recuperaElemento(destino, pos)==dest){
+            if(recuperaElemento(lugDisponivel, pos)==0 and op=='+'){
                 cout << "** NAO CONFIRMADO ** " << nome << " VOO LOTADO" << endl;
             }else if(op=='+'){
                 insere(lugDisponivel, recuperaElemento(lugDisponivel, pos)-1, pos);

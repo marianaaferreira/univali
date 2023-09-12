@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1694113330 source:c:\users\55489\documents\github\univali\estrutura de dados\m1\main.cpp
+1694526416 source:c:\users\55489\documents\github\univali\estrutura de dados\m1\main.cpp
 	<iostream>
 	<fstream>
-	<iomanip>
+	<cstdlib>
 	<string>
 	"ListaDuplamenteEncadeada.h"
 
-1694005655 c:\users\55489\documents\github\univali\estrutura de dados\m1\listaduplamenteencadeada.h
+1694525727 c:\users\55489\documents\github\univali\estrutura de dados\m1\listaduplamenteencadeada.h
 

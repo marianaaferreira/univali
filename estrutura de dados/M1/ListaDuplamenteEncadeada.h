@@ -78,6 +78,7 @@ int recuperaPosicao(ListaDuplamenteEncadeada<T> lista, T elemento){
         p = p->proximo;
         i++;
     }
+    return -1;
 }
 
 template<typename T>
