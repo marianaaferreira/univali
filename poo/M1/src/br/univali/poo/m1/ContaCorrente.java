@@ -1,10 +1,5 @@
 package br.univali.poo.m1;
 
-/*A classe ContaCorrente, outra herança de Conta, possui um atributo que representa
-o valor cobrado por movimento realizado (double) – deve-se descontar este valor do saldo
-da conta a cada crédito/débito realizado com sucesso. Crie/redefina os demais métodos
-necessários.
-*/
 public class ContaCorrente extends Conta {
     private double taxaMovimento;
 
@@ -22,12 +17,12 @@ public class ContaCorrente extends Conta {
     }
 
     public void saque(double saque){
-        super.saque(saque+getTaxaMovimento());
+        super.saque(saque+saque*(getTaxaMovimento()));
     }
 
     @Override
     public void deposito(double deposito) {
-        super.deposito(deposito-getTaxaMovimento());
+        super.deposito(deposito-deposito*(getTaxaMovimento()));
     }
 
     public String toString(){

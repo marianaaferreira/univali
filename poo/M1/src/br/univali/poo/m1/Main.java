@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        Conta contas[] = new Conta[5];
+        Conta[] contas = new Conta[5];
         int op=1, tipoConta;
         int i=0;
         double saldo=-1;
@@ -14,7 +14,7 @@ public class Main {
         while (op!=7){
             System.out.println("Menu");
             System.out.println("1. Cadastrar conta\n2. Saque\n3. Depósito\n4. Extrato");
-            System.out.println("5.Rendimento\n6.Listagem das contas\n7. Sair");
+            System.out.println("5. Rendimento\n6. Listagem das contas\n7. Sair");
             op = input.nextInt();
             switch (op){
                 case 1: // cadastrar conta
@@ -31,19 +31,21 @@ public class Main {
                         saldo = input.nextDouble();
                     }
 
-                    switch (tipoConta){
-                        case 1:try{
+                    switch (tipoConta) {
+                        case 1 -> {
+                            try {
                                 System.out.println("Taxa de rendimento:");
                                 double taxaRendimento = input.nextDouble();
                                 contas[i] = new ContaPoupanca(titular, numConta, saldo, taxaRendimento);
-                        } catch (IllegalArgumentException e) {
-                            System.err.println(e);
+                            } catch (IllegalArgumentException e) {
+                                System.err.println(e);
+                            }
                         }
-                            break;
-                        case 2:
+                        case 2 -> {
                             System.out.println("Taxa de movimento:");
                             double taxaMovimento = input.nextDouble();
                             contas[i] = new ContaCorrente(titular, numConta, saldo, taxaMovimento);
+                        }
                     }
                     i++;
                     break;
@@ -54,7 +56,7 @@ public class Main {
                     System.out.println("Informe o valor:");
                     double saque = input.nextDouble();
                     for(int j=0; j<i; j++)
-                        if(numConta==contas[j].getNumConta()) {
+                        if(numConta.equals(contas[j].getNumConta())) {
                             try {
                                 contas[j].saque(saque);
                             } catch (IllegalArgumentException e) {
@@ -67,13 +69,14 @@ public class Main {
                     else System.out.println("Operação efetivada");
                     break;
                 case 3: // deposito
+                    input.nextLine();
                     System.out.println("Informe o número da conta:");
                     numConta = input.nextLine();
                     System.out.println("Informe o valor do deposito:");
                     double deposito = input.nextDouble();
                     existe = false;
                     for(int j=0; j<i; j++)
-                        if(numConta==contas[j].getNumConta()) {
+                        if(numConta.equals(contas[j].getNumConta())) {
                             contas[j].deposito(deposito);
                             existe = true;
                             break;
@@ -87,8 +90,8 @@ public class Main {
                     numConta = input.nextLine();
                     existe = false;
                     for(int j=0; j<i; j++)
-                        if(numConta==contas[j].getNumConta()){
-                            contas[j].getHistoricoMovimentos();
+                        if(numConta.equals(contas[j].getNumConta())){
+                            System.out.println(contas[j].getHistoricoMovimentos());
                             existe = true;
                             break;
                         }
@@ -96,12 +99,12 @@ public class Main {
                     break;
 
                 case 5: // rendimento
+                    input.nextLine();
                     System.out.println("Informe o número da conta:");
                     numConta = input.nextLine();
                     existe = false;
                     for(int j=0; j<i; j++)
-                        if(numConta.equals(contas[j].getNumConta()) && contas[j] instanceof ContaPoupanca){
-                            ContaPoupanca conta = (ContaPoupanca) contas[j];
+                        if(numConta.equals(contas[j].getNumConta()) && contas[j] instanceof ContaPoupanca conta){
                             conta.atualizaSaldoRendimento();
                             System.out.printf("Saldo atualizado: R$%s", contas[j].getSaldo());
                             existe = true;

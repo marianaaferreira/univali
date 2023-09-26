@@ -1,9 +1,5 @@
 package br.univali.poo.m1;
 
-/*A classe ContaPoupanca, herança de Conta, também possui especificamente um atributo
-para representar a taxa de rendimento em um período, em % (double), e um método
-atualizaSaldoRendimento, que atualiza o saldo da poupança em função desta taxa.
-Crie/redefina os demais métodos necessários. */
 public class ContaPoupanca extends Conta {
     private double taxaRendimento;
 
