@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1694392854 source:c:\users\ackni\onedrive\documentos\code\univali\estrutura de dados\trabalho m1\teste 1\trabalho\main.cpp
+	<iostream>
+	"trabalho.h"
+	"voo.h"
+	<fstream>
+	<string>
+	"validacoes.h"
+	"passageiro.h"
+
+1694392877 c:\users\ackni\onedrive\documentos\code\univali\estrutura de dados\trabalho m1\teste 1\trabalho\trabalho.h
+
+1694392886 c:\users\ackni\onedrive\documentos\code\univali\estrutura de dados\trabalho m1\teste 1\trabalho\voo.h
+	<fstream>
+	<string>
+	"trabalho.h"
+
+1694392894 c:\users\ackni\onedrive\documentos\code\univali\estrutura de dados\trabalho m1\teste 1\trabalho\validacoes.h
+	<string>
+	<iostream>
+
+1694393089 c:\users\ackni\onedrive\documentos\code\univali\estrutura de dados\trabalho m1\teste 1\trabalho\passageiro.h
+	"passageiro.h"
+	"trabalho.h"
+	<string>
+	<iostream>
+
