@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1696249007 source:c:\users\55489\documents\github\univali\estrutura de dados\fila\exercicios\q1\main.cpp
+	<iostream>
+	<time.h>
+	"FilaEstaticaGenerica.h"
+
+1695998130 c:\users\55489\documents\github\univali\estrutura de dados\fila\exercicios\q1\filaestaticagenerica.h
+

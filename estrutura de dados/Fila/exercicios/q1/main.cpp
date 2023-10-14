@@ -10,7 +10,7 @@ using namespace std;
 int main(){
     FilaEstaticaGenerica<int, 15> filaA;
     FilaEstaticaGenerica<int, 15> filaB;
-    bool existe = false, elementosIguais=true;
+    bool existeA, existeB, elementosIguais=true;
 
     srand(time(NULL));
     cria(filaA);
@@ -24,12 +24,17 @@ int main(){
     mostra(filaA);
     mostra(filaB);
 
-    for(int i=0; i<10; i++){
-        for(int j=0; j<10; j++){
+    for(int i=1; i<=10; i++){
+        existeA = false;
+        for(int j=1; j<=10; j++)
             if(existeElemento(filaB, umElemento(filaA, j)))
-                existe = true;
-        }
-        if(not existe){
+                existeA = true;
+        existeB = false;
+        for(int j=1; j<=10; j++)
+            if(existeElemento(filaA, umElemento(filaB, j)))
+                existeB = true;
+
+        if(not existeA or not existeB){
             elementosIguais=false; break;
         }
     }
