@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1697500874 source:c:\users\ackni\onedrive\documentos\code\github\univali\estrutura de dados\trabalhos\trabalho m2\codeblocks\trabalho m2 - fila dinâmica\main.cpp
+	<iostream>
+	"FilaDinamicaGenerica.h"
+	"Generica.h"
+
+1697500843 c:\users\ackni\onedrive\documentos\code\github\univali\estrutura de dados\trabalhos\trabalho m2\codeblocks\trabalho m2 - fila dinâmica\filadinamicagenerica.h
+	<iostream>
+
+1697500853 c:\users\ackni\onedrive\documentos\code\github\univali\estrutura de dados\trabalhos\trabalho m2\codeblocks\trabalho m2 - fila dinâmica\generica.h
+	<iostream>
+	<string>
+
+1697500874 source:c:\users\55489\documents\3 semestre\estrutura de dados\trabalho m2 - fila dinâmica\main.cpp
+	<iostream>
+	"FilaDinamicaGenerica.h"
+	"Generica.h"
+
+1697500843 c:\users\55489\documents\3 semestre\estrutura de dados\trabalho m2 - fila dinâmica\filadinamicagenerica.h
+	<iostream>
+
+1697500853 c:\users\55489\documents\3 semestre\estrutura de dados\trabalho m2 - fila dinâmica\generica.h
+	<iostream>
+	<string>
+

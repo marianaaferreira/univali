@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1697422078 source:c:\users\ackni\onedrive\documentos\code\github\univali\estrutura de dados\trabalhos\trabalho m2\codeblocks\trabalho m2\main.cpp
+	<iostream>
+	"FilaEstaticaCircular.h"
+	"Genericas.h"
+
+1697422058 c:\users\ackni\onedrive\documentos\code\github\univali\estrutura de dados\trabalhos\trabalho m2\codeblocks\trabalho m2\filaestaticacircular.h
+
+1697422067 c:\users\ackni\onedrive\documentos\code\github\univali\estrutura de dados\trabalhos\trabalho m2\codeblocks\trabalho m2\genericas.h
+	<iostream>
+	<string>
+
+1697422627 source:c:\users\ackni\onedrive\documentos\code\github\univali\estrutura de dados\trabalhos\trabalho m2\codeblocks\trabalho m2 - fila circular\main.cpp
+	<iostream>
+	"FilaEstaticaCircular.h"
+	"Genericas.h"
+
+1697422650 c:\users\ackni\onedrive\documentos\code\github\univali\estrutura de dados\trabalhos\trabalho m2\codeblocks\trabalho m2 - fila circular\filaestaticacircular.h
+
+1697422639 c:\users\ackni\onedrive\documentos\code\github\univali\estrutura de dados\trabalhos\trabalho m2\codeblocks\trabalho m2 - fila circular\genericas.h
+	<iostream>
+	<string>
+
+1697422627 source:c:\users\55489\documents\3 semestre\estrutura de dados\trabalho m2 - fila circular\main.cpp
+	<iostream>
+	"FilaEstaticaCircular.h"
+	"Genericas.h"
+
+1697422650 c:\users\55489\documents\3 semestre\estrutura de dados\trabalho m2 - fila circular\filaestaticacircular.h
+
+1697422639 c:\users\55489\documents\3 semestre\estrutura de dados\trabalho m2 - fila circular\genericas.h
+	<iostream>
+	<string>
+

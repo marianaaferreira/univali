@@ -2,9 +2,7 @@
 #include "FilaDePrioridade.h"
 
 using namespace std;
-/* criar uma fila, destruir uma fila,
-verificar se um elemento existe na fila, inserir um elemento na fila,retirar um elemento da fila e mostrar
-uma fila (por ordem de prioridade).*/
+
 int main(){
     char prioridade, op='1';
     FilaDePrioridade<int> fila;
