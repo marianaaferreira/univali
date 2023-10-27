@@ -11,3 +11,8 @@ A+B*C/D*E-F....................... ABC*D/E*+F-
 A+(B-(C+(D-(E+F))))............... ABCDEF+-+-+
 
 A*(B+(C*(D+(E*(F+G)))))........... ABCDEFG+*+*+*
+
+A+(B/C/D*E+F)/(K*R-M/X)*Z......... ABC/D/E*F+KR*MX/-/Z*+
+
+A/B/C/(D*E+H)-X+(Y/K-M)*R......... AB/C/DE*H+/X-YK/M-R*+
+
