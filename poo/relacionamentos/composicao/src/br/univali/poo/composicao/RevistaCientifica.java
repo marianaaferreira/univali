@@ -12,10 +12,15 @@ public class RevistaCientifica {
         this.TitRev = titRev;
         this.publica = new ArrayList<Edicao>();
     }
-    public void Registrar(){
 
+    public void addEdicao(Edicao e){
+        this.publica.add(e);
     }
-    public Integer Consultar(long ISSNRev){
-
+    public String Consultar() {
+        return "RevistaCientifica{" +
+                "ISSNRev=" + ISSNRev +
+                ", TitRev='" + TitRev + '\'' +
+                ", publica=" + publica +
+                '}';
     }
 }

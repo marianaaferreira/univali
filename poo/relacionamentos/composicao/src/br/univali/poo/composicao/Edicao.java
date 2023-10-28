@@ -12,12 +12,16 @@ public class Edicao {
         this.VolumeEdi = volumeEdi;
         this.contem = new ArrayList<Artigo>();
     }
-
-    public void Registrar(Artigo a){
-        contem.add(a);
+    public void addArtigo(Artigo a){
+        if(contem.size()<10){
+            this.contem.add(a);
+        }
     }
-
-    public Integer Consultar(){
-
+    public String Consultar() {
+        return "Edicao{" +
+                "NroEdi=" + NroEdi +
+                ", VolumeEdi=" + VolumeEdi +
+                ", contem=" + contem +
+                '}';
     }
 }

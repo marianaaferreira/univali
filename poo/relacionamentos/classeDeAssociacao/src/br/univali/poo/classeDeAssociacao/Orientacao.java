@@ -8,6 +8,8 @@ public class Orientacao {
         this.tituloTrabalho = tituloTrabalho;
         this.orientador = p;
         this.orientando = a;
+        a.addOrientacao(this);
+        p.addOrientacao(this);
     }
 
     public String getTituloTrabalho() {

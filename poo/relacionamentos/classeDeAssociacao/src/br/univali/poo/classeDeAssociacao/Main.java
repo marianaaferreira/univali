@@ -1,19 +1,16 @@
 package br.univali.poo.classeDeAssociacao;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Aluno a = new Aluno("Maria", "123");
+        Professor p = new Professor("José");
+        Orientacao tcc = new Orientacao("Desenvolvimento de arquiteturas dedicadas para inferência em modelos baseados em árvores", p, a);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        p.addDisciplinas("Algoritmos I");
+        p.addDisciplinas("Algoritmos II");
+        p.addDisciplinas("Estrutura de dados");
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        //padroes de projeto
+        //https://homepages.dcc.ufmg.br/~figueiredo/disciplinas/2012a/reuso/reuso-aula03.pdf
     }
 }

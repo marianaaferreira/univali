@@ -5,49 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dde7982-f44c-49c0-a346-fbbb61adac99" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../agregacao/agregacao.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../composicao/composicao.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../banco de dados/m1/Captura de tela 2023-09-12 091249.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../banco de dados/m1/Captura de tela 2023-09-12 091700.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../banco de dados/m1/Captura de tela 2023-09-12 092851.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../banco de dados/m1/trabalho m1.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../banco de dados/m1/trabalho m1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Fila/exercicios/q1/q1.depend" beforeDir="false" afterPath="$PROJECT_DIR$/../../../estrutura de dados/Fila/exercicios/q1/q1.depend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Fila/exercicios/q1/q1.layout" beforeDir="false" afterPath="$PROJECT_DIR$/../../../estrutura de dados/Fila/exercicios/q1/q1.layout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1.1/ENTRADA.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1.1/bin/Debug/trabalho.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1.1/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1.1/obj/Debug/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1.1/passageiro.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1.1/trabalho.cbp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1.1/trabalho.depend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1.1/trabalho.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1.1/trabalho.layout" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1.1/validacoes.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1.1/voo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1/ListaDuplamenteEncadeada.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1/M1.cbp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1/M1.depend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1/M1.layout" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1/bin/Debug/M1.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1/obj/Debug/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/Lista/M1/voos.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../estrutura de dados/notação polonesa.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../atividade de estudo m1/atividade  de  estudo M1 POO 23-2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../atividade de estudo m1/respostas.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../relacionamentosRes/Aluno.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../relacionamentosRes/Baterista.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../relacionamentosRes/Biblioteca.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../relacionamentosRes/Disciplina.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../relacionamentosRes/Familia.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../relacionamentosRes/Livro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../relacionamentosRes/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../relacionamentosRes/Pessoa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../relacionamentosRes/Pneu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../relacionamentosRes/Saxofonista.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../relacionamentosRes/Situacao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../relacionamentosRes/Veiculo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/univali/poo/classeDeAssociacao/Aluno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/univali/poo/classeDeAssociacao/Aluno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/univali/poo/classeDeAssociacao/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/univali/poo/classeDeAssociacao/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/univali/poo/classeDeAssociacao/Orientacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/univali/poo/classeDeAssociacao/Orientacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/univali/poo/classeDeAssociacao/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/univali/poo/classeDeAssociacao/Professor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../composicao/src/br/univali/poo/composicao/Artigo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../composicao/src/br/univali/poo/composicao/Artigo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../composicao/src/br/univali/poo/composicao/Edicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../composicao/src/br/univali/poo/composicao/Edicao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../composicao/src/br/univali/poo/composicao/RevistaCientifica.java" beforeDir="false" afterPath="$PROJECT_DIR$/../composicao/src/br/univali/poo/composicao/RevistaCientifica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,9 +29,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2XMAl5uXweQiOgihLVM40OFhId1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -78,6 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/7930666/OneDrive/github/univali/poo/relacionamentos/composicao",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -95,6 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1698428724139</updated>
       <workItem from="1698428725483" duration="902000" />
+      <workItem from="1698445205218" duration="4945000" />
     </task>
     <servers />
   </component>
@@ -106,7 +76,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/br/univali/poo/classeDeAssociacao/Main.java</url>
-          <line>13</line>
+          <line>14</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
