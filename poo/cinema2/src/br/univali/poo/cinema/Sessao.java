@@ -16,7 +16,7 @@ public class Sessao {
         this.ingressos = new ArrayList<Ingresso>();
         this.salas = new ArrayList<Sala>();
     }
-    /*
+
     public int cadeirasDisponiveis(){
         int nAssentos=0;
         for(Sala s: salas){
@@ -33,7 +33,7 @@ public class Sessao {
             }
         }
     }
-    */
+    /*
 
     //sem mexer no numero de assentos da sala
 
@@ -53,6 +53,7 @@ public class Sessao {
             }
         }
     }
+    */
 
     public boolean isEstadoDaSessao() {
         return estadoDaSessao;
@@ -83,12 +84,12 @@ public class Sessao {
 
     @Override
     public String toString() {
-        return "Sessao{" +
-                "estadoDaSessao=" + estadoDaSessao +
-                ", horario=" + horario +
-                ", filme=" + filme +
-                ", ingressos=" + ingressos +
-                ", salas=" + salas +
-                '}';
+        return "Sessao{" + "\n" +
+                "EstadoDaSessao=" + estadoDaSessao + "\n" +
+                "Horario=" + horario + "\n" +
+                "Filmes=" + filme + "\n" +
+                "Ingressos=" + ingressos + "\n" +
+                "Salas=" + salas + "\n" +
+                '}' + "\n\n";
     }
 }

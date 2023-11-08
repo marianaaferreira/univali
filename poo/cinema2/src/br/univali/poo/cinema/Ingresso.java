@@ -8,4 +8,12 @@ public class Ingresso {
         this.tipo = tipo;
         this.categoria = categoria;
     }
+
+    @Override
+    public String toString() {
+        return "Ingresso{" +
+                "tipo=" + tipo +
+                ", categoria=" + categoria +
+                '}';
+    }
 }
