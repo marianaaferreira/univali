@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Funcionario {
     private ArrayList<Sessao> sessoes;
     private ArrayList<Ingresso> ingressos;
-    public Funcionario(ArrayList<Sessao> sessoes) {
-        this.sessoes = sessoes;
+    public Funcionario() {
+        this.sessoes = new ArrayList<Sessao>();
         this.ingressos = new ArrayList<Ingresso>();
     }
     public void addSessao(Sessao s){
