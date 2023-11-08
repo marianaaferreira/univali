@@ -14,9 +14,11 @@ public class Sessao {
         this.horario = horario;
         this.estadoDaSessao = false;
         this.ingressos = new ArrayList<Ingresso>();
+        this.salas = new ArrayList<Sala>();
     }
+    /*
     public int cadeirasDisponiveis(){
-        int nAssentos;
+        int nAssentos=0;
         for(Sala s: salas){
             nAssentos = nAssentos + s.getnAssentos();
         }
@@ -31,14 +33,16 @@ public class Sessao {
             }
         }
     }
+    */
+
     //sem mexer no numero de assentos da sala
-    /*
+
     public int cadeirasDisponiveis(){
-        int nAssentos;
+        int nAssentos=0;
         for(Sala s: salas){
             nAssentos = nAssentos + s.getnAssentos();
         }
-        nAssentos - this.ingressos.size();
+        nAssentos = nAssentos - this.ingressos.size();
         return nAssentos;
     }
 
@@ -49,8 +53,6 @@ public class Sessao {
             }
         }
     }
-    */
-
 
     public boolean isEstadoDaSessao() {
         return estadoDaSessao;
@@ -74,6 +76,9 @@ public class Sessao {
 
     public ArrayList<Sala> getSalas() {
         return salas;
+    }
+    public void addSala(Sala s){
+        salas.add(s);
     }
 
     @Override

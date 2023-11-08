@@ -2,9 +2,9 @@ package br.univali.poo.cinema;
 
 public class Ingresso {
     private EnumTipoIngresso tipo;
-    private enumCategoriaIngresso categoria;
+    private EnumCategoriaIngresso categoria;
 
-    public Ingresso(EnumTipoIngresso tipo, enumCategoriaIngresso categoria) {
+    public Ingresso(EnumTipoIngresso tipo, EnumCategoriaIngresso categoria) {
         this.tipo = tipo;
         this.categoria = categoria;
     }

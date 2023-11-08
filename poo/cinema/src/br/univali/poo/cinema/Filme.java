@@ -11,16 +11,16 @@ public class Filme {
         this.genero = genero;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setDuracao(int duracao) {
-        this.duracao = duracao;
+    public int getDuracao() {
+        return duracao;
     }
 
-    public void setGenero(EnumGeneroFilme genero) {
-        this.genero = genero;
+    public EnumGeneroFilme getGenero() {
+        return genero;
     }
 
     @Override
