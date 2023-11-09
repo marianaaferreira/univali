@@ -11,31 +11,13 @@ public class Sessao {
 
     public Sessao(Filme filme, int horario){
         this.filme = filme;
+        if(horario<0 || horario >23)
+            throw new IllegalArgumentException("Horario invalido");
         this.horario = horario;
         this.estadoDaSessao = false;
         this.ingressos = new ArrayList<Ingresso>();
         this.salas = new ArrayList<Sala>();
     }
-
-    public int cadeirasDisponiveis(){
-        int nAssentos=0;
-        for(Sala s: salas){
-            nAssentos = nAssentos + s.getnAssentos();
-        }
-        return nAssentos;
-    }
-
-    public void addIngresso(Ingresso ingresso){
-        for(Sala s: salas){
-            if(s.getnAssentos()>0){
-                s.setnAssentos(s.getnAssentos()-1);
-                ingressos.add(ingresso);
-            }
-        }
-    }
-    /*
-
-    //sem mexer no numero de assentos da sala
 
     public int cadeirasDisponiveis(){
         int nAssentos=0;
@@ -53,7 +35,6 @@ public class Sessao {
             }
         }
     }
-    */
 
     public boolean isEstadoDaSessao() {
         return estadoDaSessao;
@@ -85,11 +66,12 @@ public class Sessao {
     @Override
     public String toString() {
         return "Sessao{" + "\n" +
-                "EstadoDaSessao=" + estadoDaSessao + "\n" +
+                "Estado da Sessao=" + estadoDaSessao + "\n" +
                 "Horario=" + horario + "\n" +
-                "Filmes=" + filme + "\n" +
-                "Ingressos=" + ingressos + "\n" +
+                "Filme=" + filme + "\n" +
+                "Quantidade de Ingressos=" + ingressos.size() + "\n" +
+                "Cadeiras Disponiveis=" + cadeirasDisponiveis() + "\n" +
                 "Salas=" + salas + "\n" +
-                '}' + "\n\n";
+                '}' + "\n";
     }
 }

@@ -6,6 +6,8 @@ public class Sala {
     private String localizacao;
 
     public Sala(int nAssentos, String tipoTela, String localizacao) {
+        if(nAssentos<=0)
+            throw new IllegalArgumentException("O numero de assentos não pode ser negativo");
         this.nAssentos = nAssentos;
         this.tipoTela = tipoTela;
         this.localizacao = localizacao;
@@ -16,6 +18,8 @@ public class Sala {
     }
 
     public void setnAssentos(int nAssentos) {
+        if(nAssentos<=0)
+            throw new IllegalArgumentException("O numero de assentos não pode ser negativo");
         this.nAssentos = nAssentos;
     }
 

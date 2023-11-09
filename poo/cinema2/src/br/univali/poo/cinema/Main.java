@@ -1,19 +1,16 @@
 package br.univali.poo.cinema;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    //nao presisa ter um arraylist de sessoes pq o funcionario tem acesso a todas as sessoes
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        Funcionario f = new Funcionario();
+
         String nome, genero, nomeFilme, tipotela, localizacao;
-        int ingresso, categoria, idfilme, op=1, horario, n, numassentos, duracao, resp;
+        int ingresso, categoria, idfilme, op=1, horario, n, numassentos, duracao, resp, i;
         EnumTipoIngresso  tipoIngresso=null;
         EnumCategoriaIngresso  categoriaIngresso=null;
-
-        Funcionario f = new Funcionario();
-        ArrayList<Sessao> sessoes = new ArrayList<Sessao>();
 
         while(op!=6){
             System.out.println("1. Atender cliente");
@@ -27,12 +24,15 @@ public class Main {
             try{
                 switch(op){
                     case 1:
+                        if(f.numSessoes()==0){
+                            System.out.println("Nenhum sessao disponivel"); break;
+                        }
                         System.out.println("Nome: "); nome = input.nextLine();
                         System.out.println("Tipo Ingresso(Inteiro 1, Meio 2): "); ingresso = input.nextInt();
                         System.out.println("Categoria(Fisico 1, Online 2): "); categoria = input.nextInt();
                         System.out.println("Filmes(informe o id): ");
-                        int i=0;
-                        for(Sessao s: sessoes){
+                        i=0;
+                        for(Sessao s: f.getSessoes()){
                             System.out.printf("%s. %s%n", ++i, s.getFilme());
                         }
                         idfilme = input.nextInt();
@@ -45,10 +45,11 @@ public class Main {
                             case 2: categoriaIngresso = EnumCategoriaIngresso.INGRESSOONLINE;
                         }
                         Cliente c = new Cliente(nome);
-                        c.setIngresso(f.vendaIngresso(tipoIngresso, categoriaIngresso, sessoes.get(idfilme-1)));
+                        c.setIngresso(f.vendaIngresso(tipoIngresso, categoriaIngresso, f.getSessoes().get(idfilme-1)));
+                        System.out.println("Compra finalizada");
                         break;
                     case 2:
-                        for(Sessao s: sessoes){
+                        for(Sessao s: f.getSessoes()){
                             System.out.println(s);
                         }
                         break;
@@ -62,7 +63,10 @@ public class Main {
                         Filme filme = new Filme(nomeFilme, duracao ,EnumGeneroFilme.valueOf(genero));
                         Sessao sessao = new Sessao(filme, horario);
 
-                        System.out.println("Quantas salas possui a sessao? "); n = input.nextInt();
+                        n=0;
+                        while(n<=0){
+                            System.out.println("Quantas salas possui a sessao? "); n = input.nextInt();
+                        }
                         for(int j=0; j<n; j++){
                             System.out.printf("Sala %s%n", j+1);
                             System.out.println("Numero de assentos"); numassentos = input.nextInt();
@@ -74,26 +78,26 @@ public class Main {
                             sessao.addSala(sala);
                         }
                         f.addSessao(sessao);
-                        sessoes.add(sessao);
                         break;
 
                     case 4:
                         System.out.println("Que sessao deseja iniciar?");
                         i=0;
-                        for(Sessao s: sessoes){
+                        for(Sessao s: f.getSessoes()){
                             System.out.printf("%s. %s", ++i, s);
                         }
                         resp = input.nextInt();
-                        sessoes.get(resp-1).setEstadoDaSessao(true);
+                        f.getSessoes().get(resp-1).setEstadoDaSessao(true);
                         break;
                     case 5:
                         System.out.println("Que sessao deseja encerrar?");
                         i=0;
-                        for(Sessao s: sessoes){
-                            System.out.printf("%s. %s", ++i, s);
+                        for(Sessao s: f.getSessoes()){
+                            if(s.isEstadoDaSessao()==false)
+                                System.out.printf("%s. %s", ++i, s);
                         }
                         resp = input.nextInt();
-                        sessoes.remove(resp-1);
+                        f.getSessoes().remove(resp-1);
                 }
             }catch (IllegalArgumentException e) {
                 System.err.println(e);

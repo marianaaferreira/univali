@@ -7,6 +7,8 @@ public class Filme {
 
     public Filme(String titulo, int duracao, EnumGeneroFilme genero){
         this.titulo = titulo;
+        if(duracao<=0)
+            throw new IllegalArgumentException("A duracao do filme não pode ser negativa");
         this.duracao = duracao;
         this.genero = genero;
     }

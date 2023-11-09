@@ -23,4 +23,7 @@ public class Funcionario {
             throw new IllegalArgumentException("Sessao lotada");
 
     }
+    public int numSessoes(){
+        return this.sessoes.size();
+    }
 }
