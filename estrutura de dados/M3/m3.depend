@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1701729347 source:c:\users\user\documents\univali\estrutura de dados\m3\main.cpp
+	<iostream>
+	<fstream>
+	<time.h>
+	<math.h>
+
+1701819958 source:c:\users\ackni\downloads\m3\main.cpp
+	<iostream>
+	<fstream>
+	<time.h>
+	<math.h>
+	"validacoes.h"
+
+1701729853 c:\users\ackni\downloads\m3\validacoes.h
+
