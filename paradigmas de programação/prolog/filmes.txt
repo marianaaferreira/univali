@@ -1,0 +1,16 @@
+%Programa 2.3: Uma tabela de filmes. 
+
+% filme(Título, Gênero, Ano, Duração) 
+filme('Uma linda mulher', romance, 1990, 119). 
+filme('Sexto sentido', suspense, 2001, 108). 
+filme('A cor púrpura', drama, 1985, 152). 
+filme('Copacabana', comédia, 2001, 92). 
+filme('E o vento levou', drama, 1939, 233). 
+filme('Carrington', romance, 1995, 130). 
+
+%a) Um filme é longo se tem duração superior a 150 minutos.
+filme_longo(T, G, A, D) :- filme(T, G, A, D), D>150.
+
+%b) Um filme é lançamento se foi lançado a menos de 1 ano. 
+lançamento(T, G, A, D) :- filme(T, G, A, D), 2024 - A =< 1.
+%ver funções que retornem o ano atual

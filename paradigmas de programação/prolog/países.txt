@@ -1,0 +1,16 @@
+%2.1. Inclua no Programa 2.1 uma regra para o predicado dens(P,D), que 
+%relaciona cada país P à sua densidade demográfica correspondente D. 
+%Em seguida, faça consultas para descobrir: 
+
+% país(Nome, Área, População) 
+país(brasil, 9, 130). 
+país(china, 12, 1800). 
+país(eua, 9, 230). 
+país(índia, 3, 450). 
+
+dens(P, D) :- país(P, A, Pop), D is Pop/A.
+
+%a) qual a densidade demográfica de cada um dos países;
+%-?dens(brasil, X), dens(china, Y), dens(eua, Z), dens(índia, J).
+%b) se a Índia é mais populosa que a China. 
+%-? dens(índia, X), dens(china, Y), X < Y.

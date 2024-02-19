@@ -1,0 +1,26 @@
+%Programa 2.2: Funcionários e dependentes.
+
+% func(Código, Nome, Salário) 
+func(1, ana, 1000.90). 
+func(2, bia, 1200.00). 
+func(3, ivo, 903.50). 
+func(4, leo, 2500.35).
+func(5, clô, 1800.00).
+func(6, gil, 1100.00).
+
+% dep(Código, Nome) 
+dep(1, ary). 
+dep(3, raí). 
+dep(3, eva). 
+dep(4, lia).
+dep(4, noé).
+dep(5, eli).
+
+%a) Quem tem salário entre R$ 1500,00 e R$ 3000,00?
+%func(_, X, Y), Y>1500.00, Y<3000.00.
+
+%b) Quem não tem dependentes e ganha menos de R$ 1200,00? 
+%  func(C, X, Y), Y<1200.00, not dep(C, _).  ERRO
+
+%c) Quem depende de funcionário que ganha mais de R$ 1700,00?
+%dep(C, X), func(C, _, Y), Y>1700.00

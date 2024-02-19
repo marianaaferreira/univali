@@ -1,0 +1,10 @@
+mulher(ana, fem, 23, 1.55, 56.0).
+mulher(bia, fem, 19, 1.71, 61.3).
+mulher(lia, fem, 17, 1.85, 57.3).
+mulher(eva, fem, 28, 1.75, 68.7).
+
+homem(ivo, masc, 22, 1.80, 70.5).
+homem(ary, masc, 25, 1.72, 68.9).
+
+%c) Quais são os possíveis casais onde o homem é mais alto que a mulher?
+%mulher(A, _, _, B, _), homem(C, _, _, D, _), D>B.

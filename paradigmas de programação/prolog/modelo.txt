@@ -1,0 +1,15 @@
+mulher(ana, fem, 23, 1.55, 56.0).
+mulher(bia, fem, 19, 1.71, 61.3).
+mulher(lia, fem, 17, 1.85, 57.3).
+mulher(eva, fem, 28, 1.75, 68.7).
+
+homem(ivo, masc, 22, 1.80, 70.5).
+homem(ary, masc, 25, 1.72, 68.9).
+
+%2.5. O peso ideal para uma modelo é no máximo 62.1*Altura–44.7 . Além 
+%disso, para ser modelo, uma mulher precisa ter mais que 1.70m de altura 
+%e menos de 25 anos de idade. Com base nessas informações, e considerando 
+%a tabela do exercício anterior, defina um predicado capaz de recuperar
+% apenas os nomes das mulheres que podem ser modelos. 
+
+modelo(N, S, I, A, P) :- mulher(N, S, I, A, P), A < 1.70, P < 62.1*A-44.7, I < 25. 
