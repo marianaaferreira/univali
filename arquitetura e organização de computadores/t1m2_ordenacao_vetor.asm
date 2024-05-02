@@ -1,0 +1,89 @@
+.data
+	vetor: .space 32
+	entrada: .asciiz "Entre com A["
+	msg_vetor: .asciiz "Vetor A"
+	pula_linha: .asciiz "\n"
+	saida: .asciiz "A["
+	fim_string: .asciiz "]:"
+	
+.text
+main:
+	li $t0, 0         #contador
+	la $t1, vetor
+loop_leitura:
+	li $v0, 4         #imprimi string
+    	la $a0, entrada
+    	syscall
+    	
+    	add $a0, $t0, $zero#carrega o valor de $t0 para $a0
+	li $v0, 1      
+	syscall      
+    	
+    	li $v0, 4            
+    	la $a0, fim_string
+    	syscall
+	
+	li $v0, 5         #le int
+	syscall
+	
+	sw $v0, ($t1)     #armazena o valor lido no vetor
+	addi $t0, $t0, 1  # incrementa o contador
+	addi $t1, $t1, 4  # avança para o próximo elemento do vetor
+	blt $t0, 8, loop_leitura
+	
+
+    	li $t2, 7          #t2 recebe o tamanho do vetor menos 1
+inicio_ordenacao:
+    	li $t0, 0          # contador
+    	la $t1, vetor     
+compara_troca:
+    	lw $t3, 0($t1)     #le valor da posicao atual do vetor
+    	lw $t4, 4($t1)     #le valor da posicao seguinte
+    	ble $t3, $t4, avanca # se a primeira posicao for menor não faz a troca
+    	sw $t4, 0($t1)     # troca
+    	sw $t3, 4($t1)
+avanca:
+    	addi $t0, $t0, 1   # incrementa o contador
+    	addi $t1, $t1, 4   # avanca pro proximo elemento
+    	blt $t0, $t2, compara_troca #volta pro loop de comparação e troca
+    	subi $t2, $t2, 1   #diminui o contador no primeiro loop
+    	bnez $t2, inicio_ordenacao # se diferente de 0 volta ao inicio
+
+mostra_vetor:
+	li $v0, 4
+    	la $a0, msg_vetor
+    	syscall
+    	
+    	li $v0, 4            
+    	la $a0, pula_linha
+    	syscall
+    	
+    	li $t0, 0
+    	la $t1, vetor
+loop_mostra_vetor:
+	li $v0, 4            
+    	la $a0, saida
+    	syscall
+    	
+    	add $a0, $t0, $zero  
+	li $v0, 1      
+	syscall      
+    	
+    	li $v0, 4            
+    	la $a0, fim_string
+    	syscall
+    	
+    	lw $a0, ($t1)   
+    	li $v0, 1      
+    	syscall
+    	
+	li $v0, 4            
+    	la $a0, pula_linha
+    	syscall
+    	
+    	addi $t0, $t0, 1     
+    	addi $t1, $t1, 4    
+    	blt $t0, 8, loop_mostra_vetor 
+fim:
+    	li $v0, 10
+    	syscall
