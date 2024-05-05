@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "mysql2": "^3.9.3",
+    "prompt-sync": "^4.2.0",
+    "sequelize": "^6.37.2"
+  }
+}
