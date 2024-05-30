@@ -1,0 +1,267 @@
+<mxfile host="Electron" modified="2024-05-30T22:00:47.155Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.8 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="7fGFHC2zRu8kl_QefhBY" version="24.4.8" type="device">
+  <diagram name="Página-1" id="p6NYUlURmcmHuqvvD6l5">
+    <mxGraphModel dx="2100" dy="1242" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-1" value="Biblioteca" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="520" y="40" width="180" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-2" value="Nome&lt;div&gt;Endereço&lt;/div&gt;&lt;div&gt;Horário de Funcionamento&lt;br&gt;&lt;/div&gt;&lt;div&gt;Contato&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-1">
+          <mxGeometry y="26" width="180" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-1">
+          <mxGeometry y="90" width="180" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-4" value="Organização de caráter cultural com acervo de informação organizada e&lt;br/&gt;serviços de informação à comunidade a que se destina." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-1">
+          <mxGeometry y="100" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="EADJ1UnAKuh7BOQ3qBm7-5" target="EADJ1UnAKuh7BOQ3qBm7-32">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="770" />
+              <mxPoint x="855" y="770" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-100" value="inclui" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EADJ1UnAKuh7BOQ3qBm7-86">
+          <mxGeometry x="-0.0607" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-5" value="Empréstimo Domiciliar" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="90" y="840" width="200" height="208" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-6" value="Data de Empréstimo&lt;div&gt;Data de Devolução Prevista&lt;br&gt;&lt;/div&gt;&lt;div&gt;Data de Devolução Real&lt;br&gt;&lt;/div&gt;&lt;div&gt;Status (Ativo, Concluído, Atrasado)&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-5">
+          <mxGeometry y="26" width="200" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-5">
+          <mxGeometry y="100" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-8" value="Serviço oferecido ao usuário interno – alunos, professores,&lt;br/&gt;funcionários – que possibilita a retirada de livros da biblioteca por tempo previamente&lt;br/&gt;estabelecido." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-5">
+          <mxGeometry y="108" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-9" value="Empréstimo entre Bibliotecas " style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="400" y="850" width="210" height="178" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-10" value="Data de Empréstimo&lt;div&gt;Data de Devolução Prevista&lt;br&gt;&lt;/div&gt;&lt;div&gt;Data de Devolução Real&lt;br&gt;&lt;/div&gt;&lt;div&gt;Status (Ativo, Concluído, Atrasado)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-9">
+          <mxGeometry y="26" width="210" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-11" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-9">
+          <mxGeometry y="100" width="210" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-12" value="Convênio/acordo informal no qual é possível disponibilizar&lt;br/&gt;os acervos de diversas instituições aos usuários de uma dada biblioteca." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-9">
+          <mxGeometry y="108" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-17" value="Acervo" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="670" y="350" width="150" height="148" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-18" value="Descrição&lt;div&gt;Responsável&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-17">
+          <mxGeometry y="26" width="150" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-19" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-17">
+          <mxGeometry y="70" width="150" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-20" value="Conjunto de publicações, documentos e materiais que constituem uma biblioteca." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-17">
+          <mxGeometry y="78" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-21" value="Base de dados bibliográfica" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="150" y="210" width="200" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-22" value="Descrição&lt;div&gt;Data de atualização&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-21">
+          <mxGeometry y="26" width="200" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-23" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-21">
+          <mxGeometry y="70" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-24" value="Versão eletrônica de um catálogo ou índice bibliográfico." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-21">
+          <mxGeometry y="78" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="EADJ1UnAKuh7BOQ3qBm7-25" target="EADJ1UnAKuh7BOQ3qBm7-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-81" value="registrado em" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EADJ1UnAKuh7BOQ3qBm7-80">
+          <mxGeometry x="-0.4883" relative="1" as="geometry">
+            <mxPoint y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-25" value="Entrada" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="40" y="407" width="170" height="178" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="EADJ1UnAKuh7BOQ3qBm7-25" source="EADJ1UnAKuh7BOQ3qBm7-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="48" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-94" value="pertence a" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EADJ1UnAKuh7BOQ3qBm7-92">
+          <mxGeometry x="-0.4167" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-26" value="Descrição&lt;div&gt;Data&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-25">
+          <mxGeometry y="26" width="170" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-27" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-25">
+          <mxGeometry y="70" width="170" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-28" value="Cada item listado num catálogo, bibliografia ou índice bibliográfico. As entradas&lt;br/&gt;podem ser de autor, de título e de assunto." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-25">
+          <mxGeometry y="78" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-29" value="Exemplar" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="750" y="574" width="210" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-30" value="&lt;div&gt;Edição&lt;/div&gt;&lt;div&gt;Status (Disponível, Emprestado)&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-29">
+          <mxGeometry y="26" width="210" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-31" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-29">
+          <mxGeometry y="70" width="210" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-32" value="Cada cópia de uma edição." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-29">
+          <mxGeometry y="78" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-33" value="Edição" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="720" y="850" width="270" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-34" value="Título&lt;div&gt;Autor&lt;br&gt;&lt;/div&gt;&lt;div&gt;ISBN&lt;/div&gt;&lt;div&gt;Gênero&lt;br&gt;&lt;/div&gt;&lt;div&gt;Data de Publicação&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-33">
+          <mxGeometry y="26" width="270" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-35" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-33">
+          <mxGeometry y="110" width="270" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-36" value="Todos os exemplares de uma obra produzidos por uma única matriz. No caso de&lt;br/&gt;livros, a indicação de 1. edição não ocorre; somente edições posteriores são indicadas. Ex.:&lt;br/&gt;3. ed. rev. e aum.&lt;div&gt;&lt;br/&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-33">
+          <mxGeometry y="118" width="270" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-37" value="Serviços Técnicos" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="960" y="270" width="170" height="178" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-38" value="Descrição&lt;div&gt;Responsável&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-37">
+          <mxGeometry y="26" width="170" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-39" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-37">
+          <mxGeometry y="70" width="170" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-40" value="Departamento que lida com aquisição, catalogação, classificação,&lt;br/&gt;processamento e manutenção dos materiais da biblioteca.&lt;div&gt;&lt;br/&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-37">
+          <mxGeometry y="78" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-41" value="Usuário" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="321" y="510" width="186" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-42" value="Nome&lt;div&gt;ID de usuário&lt;br&gt;&lt;div&gt;Contato&lt;br&gt;&lt;/div&gt;&lt;div&gt;Histórico de Empréstimos&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-41">
+          <mxGeometry y="26" width="186" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-43" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-41">
+          <mxGeometry y="90" width="186" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-44" value="É uma entidade que representa qualquer pessoa que utiliza os serviços da biblioteca, podendo fazer empréstimos, reservas, e participar de outras atividades oferecidas pela biblioteca." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-41">
+          <mxGeometry y="98" width="186" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-49" value="Aquisição" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="520" width="160" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-50" value="Tipo (Compra, Doação)&lt;div&gt;Data&lt;/div&gt;&lt;div&gt;Fornecedor&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-49">
+          <mxGeometry y="26" width="160" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-51" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-49">
+          <mxGeometry y="80" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-52" value="Processo de obtenção de publicações e materiais por compra, permuta ou&lt;br&gt;doação.&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EADJ1UnAKuh7BOQ3qBm7-49">
+          <mxGeometry y="88" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EADJ1UnAKuh7BOQ3qBm7-4" target="EADJ1UnAKuh7BOQ3qBm7-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-57" value="possui" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EADJ1UnAKuh7BOQ3qBm7-56">
+          <mxGeometry x="-0.1485" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EADJ1UnAKuh7BOQ3qBm7-4" target="EADJ1UnAKuh7BOQ3qBm7-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-59" value="possui" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EADJ1UnAKuh7BOQ3qBm7-58">
+          <mxGeometry x="-0.3631" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EADJ1UnAKuh7BOQ3qBm7-20" target="EADJ1UnAKuh7BOQ3qBm7-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-71" value="contém" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EADJ1UnAKuh7BOQ3qBm7-70">
+          <mxGeometry x="0.1513" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="EADJ1UnAKuh7BOQ3qBm7-52">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="643" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-76" value="adquire" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EADJ1UnAKuh7BOQ3qBm7-75">
+          <mxGeometry x="0.1891" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-82" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EADJ1UnAKuh7BOQ3qBm7-44" target="EADJ1UnAKuh7BOQ3qBm7-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-83" value="realiza" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EADJ1UnAKuh7BOQ3qBm7-82">
+          <mxGeometry x="0.6784" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.416;exitY=0.983;exitDx=0;exitDy=0;entryX=0.577;entryY=0.013;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="EADJ1UnAKuh7BOQ3qBm7-44" target="EADJ1UnAKuh7BOQ3qBm7-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="398" y="800" />
+              <mxPoint x="521" y="800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-85" value="participa de" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EADJ1UnAKuh7BOQ3qBm7-84">
+          <mxGeometry x="-0.0997" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="EADJ1UnAKuh7BOQ3qBm7-33">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="923" y="680" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-91" value="pertence a" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EADJ1UnAKuh7BOQ3qBm7-90">
+          <mxGeometry x="-0.2719" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-95" value="possui" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.815;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;" edge="1" parent="1" source="EADJ1UnAKuh7BOQ3qBm7-4" target="EADJ1UnAKuh7BOQ3qBm7-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-96" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.007;exitY=0.791;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;" edge="1" parent="1" source="EADJ1UnAKuh7BOQ3qBm7-4" target="EADJ1UnAKuh7BOQ3qBm7-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-97" value="possui" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EADJ1UnAKuh7BOQ3qBm7-96">
+          <mxGeometry x="0.2859" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-98" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EADJ1UnAKuh7BOQ3qBm7-40" target="EADJ1UnAKuh7BOQ3qBm7-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-99" value="gerencia" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EADJ1UnAKuh7BOQ3qBm7-98">
+          <mxGeometry x="0.3083" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.841;exitY=-0.011;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="EADJ1UnAKuh7BOQ3qBm7-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="577" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EADJ1UnAKuh7BOQ3qBm7-102" value="feito por" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EADJ1UnAKuh7BOQ3qBm7-101">
+          <mxGeometry x="-0.1924" relative="1" as="geometry">
+            <mxPoint y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
