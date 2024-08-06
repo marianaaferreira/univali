@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8e9e9;
+}
+h1 {
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+}
+p {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 10px;
+    color: #666;
+}
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 40%;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+}
+video {
+    display: block;
+    margin: 20px auto;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+}
+audio {
+    display: block;
+    margin: 20px auto;
+}
+a {
+    display: inline-block;
+    margin: 20px auto;
+    text-align: center;
+    color: #007bff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+}
+a:hover {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+}
