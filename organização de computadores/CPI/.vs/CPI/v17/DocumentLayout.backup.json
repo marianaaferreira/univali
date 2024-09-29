@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\github\\univali\\organiza\u00E7\u00E3o de computadores\\CPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{83EC8965-F3C3-48C4-BD90-B2C7145F5526}|CPI\\CPI.vcxproj|D:\\github\\univali\\organiza\u00E7\u00E3o de computadores\\CPI\\CPI\\CPI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{83EC8965-F3C3-48C4-BD90-B2C7145F5526}|CPI\\CPI.vcxproj|solutionrelative:CPI\\CPI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CPI.cpp",
+              "DocumentMoniker": "D:\\github\\univali\\organiza\u00E7\u00E3o de computadores\\CPI\\CPI\\CPI.cpp",
+              "RelativeDocumentMoniker": "CPI\\CPI.cpp",
+              "ToolTip": "D:\\github\\univali\\organiza\u00E7\u00E3o de computadores\\CPI\\CPI\\CPI.cpp",
+              "RelativeToolTip": "CPI\\CPI.cpp",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAG4AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-27T00:28:08.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

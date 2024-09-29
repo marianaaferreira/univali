@@ -1,0 +1,45 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(15, 31, 16);
+    color: #fff;
+}
+
+#login{
+    text-align: center;
+    margin-top: 150px;
+}
+
+.nome input{
+    border-radius: 15px;
+    border: none;
+    width: 250px;
+    height: 48px;
+    padding-left: 15px;
+    background-color: rgb(51, 82, 53);
+    color: bisque;
+}
+
+.senha input{
+    border-radius: 15px;
+    border: none;
+    width: 250px;
+    height: 48px;
+    padding-left: 15px;
+    background-color: rgb(51, 82, 53);
+    color: bisque;
+    margin-top: 15px;
+}
+
+.entrar input{
+    cursor: pointer;
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 15px;
+    border: none;
+    background-color: blanchedalmond;
+}
+
+h1{
+    color: blanchedalmond;
+}
