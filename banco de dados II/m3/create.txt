@@ -1,0 +1,43 @@
+create table employees_by_manager(
+	first_name_manager VARCHAR, 
+	last_name_manager VARCHAR,
+	emp_no INT,
+	birth_date DATE,
+	first_name VARCHAR,
+	last_name VARCHAR,
+	gender VARCHAR,
+	hire_date DATE,
+	PRIMARY KEY((first_name_manager, last_name_manager))
+); 
+
+create table employees_by_dept(
+	dept_name VARCHAR,
+	from_date DATE,
+	to_date DATE,
+	emp_no INT,
+	birth_date DATE,
+	first_name VARCHAR,
+	last_name VARCHAR,
+	gender VARCHAR,
+	hire_date DATE,
+	PRIMARY KEY((dept_name), from_date, to_date)
+);
+
+
+create table avg_salary_employees_by_dept(
+	dept_name VARCHAR,
+	emp_no INT,
+	birth_date DATE,
+	first_name VARCHAR,
+	last_name VARCHAR,
+	gender VARCHAR,
+	hire_date DATE,
+	avg_salary INT,
+	PRIMARY KEY(dept_name)
+);
+
+
+CREATE KEYSPACE cassandra_db WITH REPLICATION = {
+    'class': 'SimpleStrategy',
+    'replication_factor': 1
+};
