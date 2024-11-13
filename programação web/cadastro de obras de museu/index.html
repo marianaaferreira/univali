@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cadastro de Obras de Museu</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Montserrat:ital,wght@0,900;1,900&family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="container">
+      <h1>Cadastro de Obras de Museu</h1>
+      <form id="formObras">
+        <label for="nomeObra">Nome da Obra:</label>
+        <input type="text" id="nomeObra" maxlength="100" required />
+
+        <label for="autor">Autor:</label>
+        <input type="text" id="autor" maxlength="100" required />
+
+        <label for="ano">Ano da Obra:</label>
+        <input type="text" id="ano" maxlength="4" required />
+
+        <label for="periodo">Período:</label>
+        <select id="periodo" required>
+          <option value="">Selecione</option>
+          <option value="d.C">d.C.</option>
+          <option value="a.C.">a.C.</option>
+        </select>
+
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" required>
+          <option value="">Selecione</option>
+          <option value="quadro">Quadro</option>
+          <option value="escultura">Escultura</option>
+          <option value="outro">Outro</option>
+        </select>
+
+        <label for="detalhamento">Detalhamento:</label>
+        <textarea id="detalhamento" maxlength="2000"></textarea>
+
+        <button type="button" onclick="validarForm()">Cadastrar</button>
+      </form>
+
+      <ul id="mensagensErro"></ul>
+
+      <h2>Obras Cadastradas</h2>
+      <table id="tabelaObras">
+        <thead>
+        <tr>
+            <th>Nome da Obra</th>
+            <th>Autor</th>
+            <th>Ano</th>
+            <th>Período</th>
+            <th>Tipo</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

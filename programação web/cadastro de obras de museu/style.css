@@ -1,0 +1,73 @@
+.borda-vermelha {
+    border-color: red;
+}
+
+body {
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0 2em;
+    line-height: 1.6;
+    background-color: #f9f9c5;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #ffffff;
+    border-bottom: 3px solid #333;
+    padding: 20px;
+    text-align: left;
+}
+
+td {
+    padding: 20px;
+    vertical-align: top;
+    text-align: justify;
+    word-wrap: break-word;
+    font-size: 1em;
+}
+
+table tr:last-child td {
+    border-bottom: 1px solid #999;
+}
+
+tr:hover {
+    background-color: #e0e0e0;
+}
+
+input,
+textarea,
+select {
+  font-size: 1.5em;
+  padding: 5px;
+  border: 1px solid #555;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  background-color: #999976;
+}
+
+label {
+    font-weight: bold;
+}
+
+p,
+span,
+div {
+  line-height: 1.6;
+}
+
+form#formObras > label, 
+form#formObras > input, 
+form#formObras > textarea, 
+form#formObras > select {
+    display: block;
+    margin-bottom: 10px;
+}
+

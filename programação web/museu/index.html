@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Obras de Museu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="" onsubmit="validaNomeObra()">
+        <input type="text" name="obra" maxlength="100" placeholder="Informe a obra" required>
+        <input type="text" name="autor" maxlength="100" placeholder="Informe o autor" required>
+        <input type="text" name="ano" maxlength="4" placeholder="Informe o ano" required>
+        
+        <select name="periodo" id="periodo">
+            <option value="">Período</option>
+            <option value="a.C">a.C</option>
+            <option value="d.C">d.C</option>
+        </select>
+        
+        <select name="tipo" id="tipo">
+            <option value="">Tipo</option>
+            <option value="quadro">quadro</option>
+            <option value="escultura">escultura</option>
+            <option value="outro">outro</option>
+        </select>
+        
+        <textarea name="detalhamento" maxlength="2000" placeholder="Detalhamento" rows="5"></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
