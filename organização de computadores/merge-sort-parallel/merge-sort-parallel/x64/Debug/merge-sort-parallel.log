@@ -1,3 +1,3 @@
 ﻿  merge-sort-parallel.cpp
-D:\github\univali\organização de computadores\merge-sort-parallel\merge-sort-parallel\merge-sort-parallel.cpp(49,12): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+D:\github\univali\organização de computadores\merge-sort-parallel\merge-sort-parallel\merge-sort-parallel.cpp(74,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
   merge-sort-parallel.vcxproj -> D:\github\univali\organização de computadores\merge-sort-parallel\x64\Debug\merge-sort-parallel.exe
