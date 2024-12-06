@@ -1,0 +1,32 @@
+- modelar a situação atual ou uma situação desejada
+- analisar o processo atual e identificar os problemas e gargalos
+- analisar esses problemas dentro do contexto do problema (que tipo de necessidade de informação de negocio será necessário)
+- um modelo de negocio precisar ter: um objetivo, um recurso (qualquer coisa que seja usada pelo modelo), processos (dificilmente são lineares, podem ser usados diagramas) e regras.
+- o processo estrutura atividades (tem que ter uma saída clara)
+- instância de processo é instanciar um processo a partir de um processo de forma similar a programação orientada a objetos
+- objetivos da modelagem: entender a estrutura e a dinâmica da organização, garantir que os envolvidos tenham um conhecimento comum sobre a organização, focar em como o trabalho é feito, entender os processos de forma bem definida.
+- benefícios de modelar os processos: redução de gastos, compartilhar o conhecimento e conseguir apontar os pontos de melhoria, aumentar a produtividade, reduzir a complexidade (permite que problemas difíceis sejam resolvidos de forma mais fácil, isolando os detalhes que não são relevantes naquele momento).
+- técnicas de identificação: observação dos fluxos de trabalho (existem diversas técnicas de observação), questionários (também são usadas técnicas, é feito de forma planejada), reuniões e seminários, brainstorming, simulação de variações dos processos (testes em diferentes cenários).
+- artefatos típicos: diagramas (UML), BPMN, português (importante ter domínio da língua e conseguir argumentar em texto), glossário (palavras criadas).
+- livro: [[Metodologia de Pesquisa para Ciência da Computação, Raul Sidnei WAZLAWICK]] (apresenta as técnicas de identificação apoiando elas na ciência)
+- atividade: tem entradas, controles (regras), recursos e saídas
+- detalhamento: 
+	- ID: REC_001
+	- Processo/atividade: receber contrato de matrícula
+	- propósito: receber os contratos assinados pelos alunos para a matrícula no semestre 
+	- critério de entrada: contrato foi entregue na secretaria 
+	- critério de saída: contrato está preenchido adequadamente
+	- entrada: contrato
+	- saída: recibo de entrega
+	- métodos, técnicas e ferramentas: sistema de matrícula, sistema financeiro
+	- responsável: atendente 
+	- outros envolvidos: aluno
+	- descrição e orientações: 
+		- aluno entrega o contrato na secretaria 
+		- atendente utiliza a matrícula do aluno para efetuar buscas nos sistemas de matrícula e financeiro e verifica a situação do aluno
+		- atendente verifica preenchimento adequado do contrato e assinatura 
+		- atendente imprime o recibo de entrega 
+		- atendente entrega o recibo ao aluno
+
+
+                                                        08 de maio de 2024

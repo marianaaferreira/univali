@@ -1,0 +1,106 @@
+https://www.amazon.com.br/Metodologia-Pesquisa-para-Ci%C3%AAncia-Computa%C3%A7%C3%A3o/dp/8595151091
+
+A presente obra condensa mais de 16 anos de experiência na orientação de trabalhos de graduação, especialização, mestrado e doutorado. O livro apresenta o tema “metodologia da pesquisa” de forma agradável, fundamentada e baseando-se sempre em histórias ilustrativas sobre como fazer e também como não fazer um trabalho terminal de curso de computação. A ênfase principal do livro está na caracterização do trabalho científico em ciência da computação, visto que a experiência do autor em bancas examinadoras e na avaliação de artigos científicos demonstra a dificuldade que muitos alunos de computação têm em compreender e aplicar a metodologia científica a seus trabalhos.
+
+## Sumário
+
+- Capítulo 1 – Introdução
+- Capítulo 2 –  A Computação e a Classificação das Ciências
+- 2.1.   Ciência e suas Classificações
+- 2.2 Ciências Formais e Empíricas
+- 2.3 Ciências Puras e Aplicadas
+- 2.4 Ciências Exatas e Inexatas
+- 2.5 Ciências _Hard_ e _Soft_
+- 2.6 Ciências Nomotéticas e Idiográficas
+- Capítulo 3 – O Método Científico
+- 3.1 Empirismo
+- 3.2 Positivismo
+- 3.3 Pragmatismo
+- 3.4 Objetividade
+- 3.5 Indução
+- 3.6 Refutação
+- 3.7 Coerentismo
+- 3.8 Lâmina de Occam
+- Capítulo 4 – Métodos de Pesquisa
+- 4.1 Quanto a Natureza
+- 4.2 Quanto aos Objetivos
+- 4.3 Quanto aos Procedimentos Técnicos
+- 4.4 Ciência e Tecnologia
+-  Capítulo 5 – Estilos de  Pesquisa Correntes em  Computação
+- 5.1.   Estilo “Apresentação de um Produto”
+- 5.2.   Estilo “Apresentação de algo Diferente”
+- 5.3.   Estilo “Apresentação de algo Presumivelmente Melhor”
+- 5.4.   Estilo “Apresentação de algo Reconhecidamente Melhor”
+- 5.5.   Estilo: “Apresentação de uma Prova”
+- 5.6.   Discussão
+-  Capítulo 6 – Preparação de um  Trabalho de Pesquisa
+- 6.1.   Escolhendo o Objetivo de Pesquisa
+- 6.1.1.  O Caminho para a Escolha de um Objetivo de Pesquisa
+- 6.1.2.  O Tema
+- 6.1.3.  O Problema de Pesquisa
+- 6.1.4.  Perspectiva Profissional
+- 6.2.   A Revisão  Bibliográfica
+- 6.2.1.  Fichas de Leitura
+- 6.2.2.  Tipos de Fontes Bibliográficas
+- 6.2.3.  O que deve ser Necessariamente Lido
+- 6.2.4.  Leitura Crítica
+- 6.2.5.  Exposição à Pesquisa
+- 6.2.6.  A Ideia de Pesquisa
+- 6.2.7.  Como Sistematizar a Pesquisa Bibliográfica
+- 6.2.8.  Como Terminar a Revisão Bibliográfica
+- 6.3.   O Objetivo
+- 6.3.1.  A Extensão do Objetivo de Pesquisa
+- 6.3.2.  Objetivo de Pesquisa versus Objetivo Técnico
+- 6.3.3.  Os Objetivos Específicos
+- 6.4.   O Método de Pesquisa
+- 6.4.1.  Dados versus Conceitos
+- 6.4.2. Definições Constitutivas e Operacionais
+- 6.4.3.  Variáveis
+- 6.5.  A Hipótese de Pesquisa
+- 6.6.   Justificativa da Hipótese
+- 6.7.   Resultados Esperados
+- 6.8.   Limitações do Trabalho
+- 6.9.   Discussão
+-  Capítulo 7 – Análise Crítica de  Propostas de  Monografia
+- 7.1.   Análise da Contextualização e Colocação do Problema
+- 7.2.   Análise de Objetivo Geral
+- 7.3.   Análise de Objetivos Específicos
+- 7.4.   Análise de Justificativa
+- 7.5.   Análise de Método de Pesquisa
+-  Capítulo 8 – Escrita da  Monografia
+- 8.1.   Como os Capítulos de uma Monografia são Ordenados
+- 8.2.   Como uma Monografia poderá ser Lida pela Banca Examinadora
+- 8.3.   Como uma Monografia poderia ser Escrita
+- 8.4.   O Título
+- 8.5.   O Resumo
+- 8.6.   A Introdução
+- 8.7.   O Capítulo de Revisão Bibliográfica
+- 8.8.   O Capítulo de Desenvolvimento
+- 8.9.   O Capítulo de Conclusões
+- 8.10.  Trabalhos Futuros
+- 8.11. Seção de Bibliografia ou Referências Bibliográficas
+- 8.12. A Forma do Texto Científico
+-  Capítulo 9 – Escrita de  Artigo Científico
+- 9.1.   Autores
+- 9.2.   Motivação para Escrever
+- 9.3.   Trabalhos Correlacionados
+- 9.4.   A Contribuição do Artigo
+- 9.5.   Tipos de Artigos
+- 9.5.1.  Artigo Teórico
+- 9.5.2.  Relato de Experiência
+- 9.5.3.  Artigos sobre Métodos
+- 9.6.   Veículos de Publicação
+- 9.7.   Ética no Envio de Artigos
+- 9.8.   Qualis
+- 9.8.1.  Periódicos
+- 9.8.2.  Conferências
+-  Capítulo 10 – Plágio
+- 10.1.   Antecedentes
+- 10.2.   Proteção aos Direitos Autorais
+- 10.3.   A Lei Brasileira
+- 10.4 Pérolas do Plágio
+-  Capítulo 11 – Níveis  de  Exigência do Trabalho de  Conclusão
+- 11.1.   Graduação
+- 11.2.   Especialização
+- 11.3.   Mestrado e Doutorado
+-  Referências

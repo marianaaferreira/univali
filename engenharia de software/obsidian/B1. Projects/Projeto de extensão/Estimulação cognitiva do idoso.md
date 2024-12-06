@@ -1,0 +1,11 @@
+O envelhecimento é um processo dinâmico e progressivo que provoca mudanças morfológicas, funcionais, bioquímicas e psicológicas. Essas mudanças resultam na perda gradual da capacidade de adaptação ao ambiente, aumentando a vulnerabilidade e a incidência de patologias. Consequentemente, o envelhecimento pode levar à diminuição da capacidade funcional e à dependência, impactando a execução de atividades diárias básicas (ABVD) e instrumentais (AIVD).
+
+A capacidade funcional envolve a realização independente de ABVD, como higiene pessoal e alimentação, e AIVD, como cozinhar e cuidar das finanças. Manter essa capacidade é essencial para a autonomia do idoso, e técnicas de reabilitação baseadas na plasticidade cerebral têm sido desenvolvidas para promover a independência e qualidade de vida dos idosos.
+
+A terapia ocupacional foca em manter e melhorar o desempenho ocupacional dos idosos, adaptando tarefas para suas capacidades. As atividades diárias exigem habilidades percepto-sensoriais, cognitivas e emocionais. Com o envelhecimento, funções cognitivas, como memória e atenção, podem declinar, afetando a capacidade funcional e a interação com o ambiente.
+
+Testes como o Mini Exame do Estado Mental e escalas como a de Katz e Pfeffer são usados para avaliar a funcionalidade e independência dos idosos. A reabilitação cognitiva, que inclui restauração, compensação e substituição, visa manter a atenção e outras funções cognitivas.
+
+O uso de tecnologias, como softwares de estimulação cognitiva, tem se mostrado eficaz na reabilitação, promovendo a inclusão digital e a socialização dos idosos. Esses recursos, ajustados às necessidades dos idosos, podem facilitar a realização de atividades diárias e melhorar a qualidade de vida.
+
+O desenvolvimento de um software adequado para idosos requer compreensão das patologias cognitivas associadas ao envelhecimento. Esse tipo de ferramenta pode ser usado junto com terapeutas ocupacionais para treinar atividades diárias, adaptando-as às necessidades individuais dos idosos e promovendo seu engajamento e autonomia.
