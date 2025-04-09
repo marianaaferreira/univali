@@ -16,7 +16,26 @@ public class Linha2D {
     }
 
     public void desenhase(Graphics2D dbg) {
-        dbg.drawLine((int)a.x,(int)a.y,(int)b.x,(int)b.y);
-    }
+        int x1 = (int) a.x, y1 = (int) a.y;
+        int x2 = (int) b.x, y2 = (int) b.y;
 
+        int dx = Math.abs(x2 - x1), dy = Math.abs(y2 - y1);
+        int sx = x1 < x2 ? 1 : -1, sy = y1 < y2 ? 1 : -1;
+        int err = dx - dy;
+
+        while (true) {
+            dbg.drawRect(x1, y1, 1, 1);
+
+            if (x1 == x2 && y1 == y2) break;
+            int e2 = 2 * err;
+            if (e2 > -dy) {
+                err -= dy;
+                x1 += sx;
+            }
+            if (e2 < dx) {
+                err += dx;
+                y1 += sy;
+            }
+        }
+    }
 }

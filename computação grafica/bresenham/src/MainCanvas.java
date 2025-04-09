@@ -163,22 +163,76 @@ public class MainCanvas extends JPanel implements Runnable{
 
             }
 
+            public Ponto2D calcularInterseccao(Ponto2D p1, Ponto2D p2, int x1, int y1, int x2, int y2) {
+                double denom = (p2.x - p1.x) * (y2 - y1) - (p2.y - p1.y) * (x2 - x1);
+
+                if (denom == 0) {
+                    return null;
+                }
+
+                double ua = ((x2 - x1) * (p1.y - y1) - (y2 - y1) * (p1.x - x1)) / denom;
+                double ub = ((p2.x - p1.x) * (p1.y - y1) - (p2.y - p1.y) * (p1.x - x1)) / denom;
+
+                if (ua >= 0 && ua <= 1 && ub >= 0 && ub <= 1) {
+                    int intersecX = (int) (p1.x + ua * (p2.x - p1.x));
+                    int intersecY = (int) (p1.y + ua * (p2.y - p1.y));
+                    return new Ponto2D(intersecX, intersecY);
+                }
+
+                return null;
+            }
+
             @Override
             public void mousePressed(MouseEvent e) {
                 // TODO Auto-generated method stub
                 clickX = e.getX();
                 clickY = e.getY();
 
-                System.out.println("CLICO "+clickX+" "+clickY);
-                if(p1linhadesenhando==null) {
-                    p1linhadesenhando = new Ponto2D(clickX, clickY);
-                }else {
-                    Ponto2D p2 = new Ponto2D(clickX, clickY);
-                    Linha2D linha = new Linha2D(p1linhadesenhando,p2);
-                    listaDeLinhas.add(linha);
-                    p1linhadesenhando = null;
+                if (clickX >= 50 && clickX <= 750 && clickY >= 50 && clickY <= 550) {
+                    System.out.println("CLICO "+clickX+" "+clickY);
+                    if(p1linhadesenhando==null) {
+                        p1linhadesenhando = new Ponto2D(clickX, clickY);
+                    }else {
+                        Ponto2D p2 = new Ponto2D(clickX, clickY);
+                        Linha2D linha = new Linha2D(p1linhadesenhando,p2);
+                        listaDeLinhas.add(linha);
+                        p1linhadesenhando = null;
+                    }
+                }else{
+                    if(p1linhadesenhando==null) {
+                        p1linhadesenhando = new Ponto2D(clickX, clickY);
+                    }else {
+                        Ponto2D p2 = new Ponto2D(clickX, clickY);
+
+                        boolean p1Dentro = (p1linhadesenhando.x >= 50 && p1linhadesenhando.x <= 750 &&
+                                p1linhadesenhando.y >= 50 && p1linhadesenhando.y <= 550);
+
+                        Ponto2D interseccaoTopo = calcularInterseccao(p1linhadesenhando, p2, 50, 50, 750, 50);
+                        Ponto2D interseccaoBase = calcularInterseccao(p1linhadesenhando, p2, 50, 550, 750, 550);
+                        Ponto2D interseccaoEsq = calcularInterseccao(p1linhadesenhando, p2, 50, 50, 50, 550);
+                        Ponto2D interseccaoDir = calcularInterseccao(p1linhadesenhando, p2, 750, 50, 750, 550);
+
+                        Ponto2D interseccaoFinal = null;
+                        if (interseccaoTopo != null) interseccaoFinal = interseccaoTopo;
+                        if (interseccaoBase != null) interseccaoFinal = interseccaoBase;
+                        if (interseccaoEsq != null) interseccaoFinal = interseccaoEsq;
+                        if (interseccaoDir != null) interseccaoFinal = interseccaoDir;
+
+                        if (p1Dentro) {
+                            Linha2D linha = new Linha2D(p1linhadesenhando, interseccaoFinal);
+                            listaDeLinhas.add(linha);
+                        } else {
+                                Linha2D linha = new Linha2D(interseccaoFinal, p2);
+                                listaDeLinhas.add(linha);
+                            }
+                        }
+
+                        p1linhadesenhando = null;
+                    }
+
                 }
-            }
+
+
 
             @Override
             public void mouseExited(MouseEvent e) {
@@ -255,8 +309,6 @@ public class MainCanvas extends JPanel implements Runnable{
 //		for(int i = 0; i < bufferDeVideo.length; i++) {
 //			bufferDeVideo[i] = 0;
 //		}
-
-
 
         g.setFont(f);
 
