@@ -1,10 +1,14 @@
 package core3d;
 
+import core2d.BresenhamLine;
+import core2d.Rectangle;
+
 import java.awt.Graphics2D;
 
 public class Linha3D {
     Ponto3D a;
     Ponto3D b;
+    BresenhamLine bLine;
     public Linha3D(Ponto3D a, Ponto3D b) {
         super();
         this.a = a;
@@ -15,8 +19,12 @@ public class Linha3D {
         this.b = new Ponto3D(x2, y2, z2);
     }
 
-    public void desenhase(Graphics2D dbg) {
-        dbg.drawLine((int)a.x,(int)a.y,(int)b.x,(int)b.y);
+    //public void desenhase(Graphics2D dbg) {
+    //    dbg.drawLine((int)a.x,(int)a.y,(int)b.x,(int)b.y);
+    //}
+
+    public void desenhase(Graphics2D dbg, Rectangle rec) {
+        bLine.plotLine((int)a.x,(int)a.y,(int)b.x,(int)b.y, dbg, rec);
     }
 
 }

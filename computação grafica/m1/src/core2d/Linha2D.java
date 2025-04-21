@@ -5,6 +5,8 @@ import java.awt.Graphics2D;
 public class Linha2D {
     Ponto2D a;
     Ponto2D b;
+    BresenhamLine bLine;
+
     public Linha2D(Ponto2D a, Ponto2D b) {
         super();
         this.a = a;
@@ -15,8 +17,8 @@ public class Linha2D {
         this.b = new Ponto2D(x2, y2);
     }
 
-    public void desenhase(Graphics2D dbg) {
-        dbg.drawLine((int)a.x,(int)a.y,(int)b.x,(int)b.y);
+    public void desenhase(Graphics2D dbg, Rectangle rec) {
+        bLine.plotLine((int)a.x,(int)a.y,(int)b.x,(int)b.y, dbg, rec);
     }
-
 }
+

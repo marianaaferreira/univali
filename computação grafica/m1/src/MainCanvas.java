@@ -23,6 +23,7 @@ import javax.swing.JPanel;
 
 import core2d.Linha2D;
 import core2d.Ponto2D;
+import core2d.Rectangle;
 import core2d.Triangulo2D;
 import core3d.Mat4x4;
 import core3d.Ponto3D;
@@ -252,13 +253,71 @@ public class MainCanvas extends JPanel implements Runnable {
             }
         });
 
+
+
         //Triangulo3D tri = new Triangulo3D(new Ponto3D(0, 0, 0), new Ponto3D(200, 0, 0), new Ponto3D(0, 200, 0));
-        criaCubo(100,100,0,100,100,100);
-        criaCubo(300,200,0,100,200,100);
+        //criaCubo(100,100,0,100,100,100);
+        //criaCubo(300,200,0,100,200,100);
+        carregarModeloOBJ("D:/github/univali/computação grafica/m1/src/tartaruga_marinha.obj");
 
         viewMatrix.setIdentity();
         projectionMatrix.setIdentity();
         projectionMatrix.setPerspectiva(600);
+    }
+
+    private void carregarModeloOBJ(String caminho) {
+        ArrayList<Ponto3D> vertices = new ArrayList<>();
+
+        try {
+            FileInputStream fis = new FileInputStream(caminho);
+            DataInputStream dis = new DataInputStream(fis);
+
+            while (dis.available() > 0) {
+                String linha = dis.readLine();
+                if (linha == null) continue;
+
+                if (linha.startsWith("v ")) {
+                    String[] partes = linha.split("\\s+");
+                    float x = Float.parseFloat(partes[1]);
+                    //System.out.println("coordenada x: "+x);
+                    float y = Float.parseFloat(partes[2]);
+                    float z = Float.parseFloat(partes[3]);
+                    vertices.add(new Ponto3D(x, y, z, 1));
+                }else if (linha.startsWith("f ")) {
+                    String[] partes = linha.split("\\s+");
+
+                    // Pega os índices dos vértices
+                    int[] indices = new int[partes.length - 1];
+                    for (int i = 1; i < partes.length; i++) {
+                        indices[i - 1] = Integer.parseInt(partes[i].split("/")[0]) - 1;
+                    }
+
+                    // Se for um triângulo
+                    if (indices.length == 3) {
+                        Ponto3D p1 = vertices.get(indices[0]);
+                        Ponto3D p2 = vertices.get(indices[1]);
+                        Ponto3D p3 = vertices.get(indices[2]);
+                        listaDeTriangulos.add(new Triangulo3D(p1, p2, p3));
+                    }
+
+                    // Se for um quadrado
+                    else if (indices.length == 4) {
+                        Ponto3D p1 = vertices.get(indices[0]);
+                        Ponto3D p2 = vertices.get(indices[1]);
+                        Ponto3D p3 = vertices.get(indices[2]);
+                        Ponto3D p4 = vertices.get(indices[3]);
+
+                        listaDeTriangulos.add(new Triangulo3D(p1, p2, p3));
+                        listaDeTriangulos.add(new Triangulo3D(p1, p3, p4));
+                    }
+                }
+
+            }
+
+            dis.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void criaCubo(float x,float y, float z, float lx,float ly, float lz) {
@@ -342,19 +401,24 @@ public class MainCanvas extends JPanel implements Runnable {
 
 //		g.setColor(Color.black);
 //		for(int i = 0; i < listaDeLinhas.size();i++) {
-//			listaDeLinhas.get(i).desenhase((Graphics2D)g);
+//			listaDeLinhas.get(i).desenhase((Graphics2D)g, rec);
 //		}
+
+        Rectangle rec = new Rectangle(50, 50, 700, 500);
+        g.drawRect(rec.x, rec.y, rec.width, rec.height);
 
         g.setColor(Color.black);
         for (int i = 0; i < listaDeTriangulos.size(); i++) {
             Triangulo3D tri = listaDeTriangulos.get(i);
-            tri.desenhase((Graphics2D) g,viewMatrix,projectionMatrix);
+            tri.desenhase((Graphics2D)g, rec ,viewMatrix,projectionMatrix);
         }
 
         g.drawImage(imageBuffer, 0, 0, null);
 
         g.setColor(Color.black);
         g.drawString("FPS " + fps, 10, 25);
+
+
     }
 
     public void desenhaLinhaHorizontal(int x, int y, int w) {
@@ -416,17 +480,19 @@ public class MainCanvas extends JPanel implements Runnable {
         for (int i = 0; i < listaDeTriangulos.size(); i++) {
             Triangulo3D tri = listaDeTriangulos.get(i);
             Mat4x4 trans = new Mat4x4();
+            double passo = 0.00001;
+
             if (UP) {
-                trans.setTranslate(0, -0.1,0);
+                trans.setTranslate(0, -passo, 0);
             }
             if (DOWN) {
-                trans.setTranslate(0, +0.1,0);
+                trans.setTranslate(0, +passo, 0);
             }
             if (LEFT) {
-                trans.setTranslate(-0.1, 0,0);
+                trans.setTranslate(-passo, 0, 0);
             }
             if (RIGHT) {
-                trans.setTranslate(+0.1, 0,0);
+                trans.setTranslate(+passo, 0, 0);
             }
             Mat4x4 m = viewMatrix.multiplicaMatrix(trans);
             viewMatrix = m;
