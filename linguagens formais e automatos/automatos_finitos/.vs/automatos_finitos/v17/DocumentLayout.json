@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\github\\univali\\linguagens formais e automatos\\automatos_finitos\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{66110A85-CB80-4F31-A594-7B8EF6C78BC3}|automatos_finitos\\automatos_finitos.vcxproj|D:\\github\\univali\\linguagens formais e automatos\\automatos_finitos\\automatos_finitos\\automatos_finitos.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{66110A85-CB80-4F31-A594-7B8EF6C78BC3}|automatos_finitos\\automatos_finitos.vcxproj|solutionrelative:automatos_finitos\\automatos_finitos.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "automatos_finitos.cpp",
+              "DocumentMoniker": "D:\\github\\univali\\linguagens formais e automatos\\automatos_finitos\\automatos_finitos\\automatos_finitos.cpp",
+              "RelativeDocumentMoniker": "automatos_finitos\\automatos_finitos.cpp",
+              "ToolTip": "D:\\github\\univali\\linguagens formais e automatos\\automatos_finitos\\automatos_finitos\\automatos_finitos.cpp",
+              "RelativeToolTip": "automatos_finitos\\automatos_finitos.cpp",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-05T11:10:26.477Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
