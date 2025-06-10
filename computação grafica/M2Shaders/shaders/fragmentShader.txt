@@ -1,0 +1,38 @@
+#version 330 core
+
+uniform sampler2D tex;
+uniform vec3 lightPos;
+uniform vec3 viewPos;
+uniform vec3 lightColor;
+
+in vec3 fragColor;
+in vec3 fragNormal;
+in vec3 fragPos;
+in vec2 uv;
+
+out vec4 out_Color;
+
+void main(void) {
+    vec4 textureColor = texture(tex, uv);
+
+    // Normais e vetores
+    vec3 norm = normalize(fragNormal);
+    vec3 lightDir = normalize(lightPos - fragPos);
+    vec3 viewDir = normalize(viewPos - fragPos);
+    vec3 reflectDir = reflect(-lightDir, norm);
+
+    // Parâmetros Phong
+    float ambientStrength = 0.1;
+    float diff = max(dot(norm, lightDir), 0.0);
+    float specStrength = 0.5;
+    float shininess = 32.0;
+
+    // Componentes
+    vec3 ambient = ambientStrength * lightColor;
+    vec3 diffuse = diff * lightColor;
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
+    vec3 specular = specStrength * spec * lightColor;
+
+    vec3 result = (ambient + diffuse + specular) * textureColor.rgb;
+    out_Color = vec4(result, textureColor.a);
+}
