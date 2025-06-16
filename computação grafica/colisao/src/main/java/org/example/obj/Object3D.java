@@ -11,7 +11,9 @@ public class Object3D {
 	public float vy = 0;
 	public float vz = 0;
 	
-	float raio = 0; 
+	public float raio = 0;
+
+	public String tipo;
 	
 	public Object3D(float x, float y, float z) {
 		super();

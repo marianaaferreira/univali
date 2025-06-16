@@ -73,6 +73,7 @@ public class Main3D {
 	boolean keyRight = false;
 	
 	ObjtCene player;
+	ObjtCene missel;
 
 	public void run() {
 		System.out.println("Hello LWJGL " + Version.getVersion() + "!");
@@ -155,12 +156,44 @@ public class Main3D {
 			}
 			
 			if( key == GLFW_KEY_SPACE && action == GLFW_PRESS) {
-				ObjtCene missel = new ObjtCene(0.3f, -0.4f, 1.3f, 0.02f);
+				/*ObjtCene missel = new ObjtCene(0.3f, -0.4f, 1.3f, 0.02f);
 				missel.model = sr71;
-				missel.vz = 10.0f;
+				missel.vz = 1.0f;
 				missel.texture = tsr71;
+				missel.tipo = "missel";
 				listaObjetos.add(missel);
 				//System.out.println("Sapce");
+
+				missel.x = (float)(-1.3f*cameraVectorFront.x-0.4f*cameraVectorUP.x+0*cameraVectorRight.x);
+				missel.y = (float)(-1.3f*cameraVectorFront.y-0.4f*cameraVectorUP.y+0*cameraVectorRight.y);
+				missel.z = (float)(-1.3f*cameraVectorFront.z-0.4f*cameraVectorUP.z+0*cameraVectorRight.z);
+
+				missel.vF.set(-cameraVectorFront.x,-cameraVectorFront.y,-cameraVectorFront.z,-cameraVectorFront.w);
+				missel.vU.set(cameraVectorUP);
+				missel.vR.set(cameraVectorRight);*/
+
+				ObjtCene missel = new ObjtCene(0.3f, -0.4f, 1.3f, 0.02f);
+				missel.model = sr71;
+				missel.texture = tsr71;
+				missel.tipo = "missel";
+
+				// Definir posição inicial (baseada na câmera)
+				missel.x = (float)(-1.3f * cameraVectorFront.x - 0.4f * cameraVectorUP.x + 0 * cameraVectorRight.x);
+				missel.y = (float)(-1.3f * cameraVectorFront.y - 0.4f * cameraVectorUP.y + 0 * cameraVectorRight.y);
+				missel.z = (float)(-1.3f * cameraVectorFront.z - 0.4f * cameraVectorUP.z + 0 * cameraVectorRight.z);
+
+				// Direção de movimento do míssil (sempre para frente da câmera)
+				float velocidadeMissel = 1.0f;
+				missel.vx = -cameraVectorFront.x * velocidadeMissel;
+				missel.vy = -cameraVectorFront.y * velocidadeMissel;
+				missel.vz = -cameraVectorFront.z * velocidadeMissel;
+
+				// Orientação do míssil (opcional, se você quiser usar para rotação ou renderização)
+				missel.vF.set(-cameraVectorFront.x, -cameraVectorFront.y, -cameraVectorFront.z, -cameraVectorFront.w);
+				missel.vU.set(cameraVectorUP);
+				missel.vR.set(cameraVectorRight);
+
+				listaObjetos.add(missel);
 			}
 		
 		});
@@ -234,6 +267,7 @@ public class Main3D {
 		player.vz = 0.0f;
 		//player.rotvel = 5;
 		player.texture = tf104;
+		player.tipo = "player";
 		listaObjetos.add(player);
 		
 		sr71 = new ObjModel();
@@ -246,6 +280,7 @@ public class Main3D {
 			//Cubo3D cubo = new Cubo3D(rnd.nextFloat()*2-1,rnd.nextFloat()*2-1, rnd.nextFloat()*2-1, rnd.nextFloat()*0.005f+0.0001f);
 			//cubo.model = x35;
 			ObjtCene cubo = new ObjtCene(rnd.nextFloat()*10-5,rnd.nextFloat()*10-5, rnd.nextFloat()*10-5, rnd.nextFloat()*0.05f+0.02f);
+			cubo.tipo = "cubo";
 			cubo.model = vboc;
 			cubo.vx = 0;
 			cubo.vy = 0;
@@ -259,11 +294,11 @@ public class Main3D {
 //		aim120.loadObj("..\\OBJ\\AIM120D.obj");
 //		aim120.load();
 		
-//		ObjtCene missel = new ObjtCene(0.3f, -0.4f, 1.3f, 0.02f);
-//		missel.model = sr71;
-//		missel.vz = 0.5f;
-//		missel.texture = tsr71;
-//		listaObjetos.add(missel);
+		/*missel = new ObjtCene(0.3f, -0.4f, 1.3f, 0.02f);
+		missel.model = sr71;
+		missel.vz = 0.5f;
+		missel.texture = tsr71;
+		listaObjetos.add(missel);*/
 		
 		/*BufferedImage imgx35 = TextureLoader.loadImage("x35text.jpg");
 		int tx35 = TextureLoader.loadTexture(imgx35);
@@ -369,11 +404,45 @@ public class Main3D {
 		player.vF.set(-cameraVectorFront.x,-cameraVectorFront.y,-cameraVectorFront.z,-cameraVectorFront.w);
 		player.vU.set(cameraVectorUP);
 		player.vR.set(cameraVectorRight);
+
 		
 		for(int i = 0; i < listaObjetos.size();i++) {
 			listaObjetos.get(i).SimulaSe(diftime);
 		}
-		
+
+		//colisao
+
+		ArrayList<Object3D> objetosParaRemover = new ArrayList<>();
+
+		for (int i = 0; i < listaObjetos.size(); i++) {
+			Object3D obj1 = listaObjetos.get(i);
+
+			if (obj1.tipo.equals("missel")) {
+				for (int j = 0; j < listaObjetos.size(); j++) {
+					Object3D obj2 = listaObjetos.get(j);
+
+					if (obj2.tipo.equals("cubo")) {
+						float dx = obj1.x - obj2.x;
+						float dy = obj1.y - obj2.y;
+						float dz = obj1.z - obj2.z;
+						float distanceSquared = dx * dx + dy * dy + dz * dz;
+						float radiusSum = obj1.raio + obj2.raio;
+
+						/*System.out.println("distancia"+distanceSquared);
+						System.out.println("soma raio"+radiusSum);*/
+
+						if (distanceSquared < radiusSum * radiusSum) {
+							System.out.println("Míssil atingiu cubo! Removendo cubo da cena.");
+
+							objetosParaRemover.add(obj2);
+						}
+					}
+				}
+			}
+		}
+		listaObjetos.removeAll(objetosParaRemover);
+		// **
+
 		angle+=0.1;
 	}
 	
