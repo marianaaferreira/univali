@@ -177,18 +177,16 @@ public class Main3D {
 				missel.texture = tsr71;
 				missel.tipo = "missel";
 
-				// Definir posição inicial (baseada na câmera)
-				missel.x = (float)(-1.3f * cameraVectorFront.x - 0.4f * cameraVectorUP.x + 0 * cameraVectorRight.x);
-				missel.y = (float)(-1.3f * cameraVectorFront.y - 0.4f * cameraVectorUP.y + 0 * cameraVectorRight.y);
-				missel.z = (float)(-1.3f * cameraVectorFront.z - 0.4f * cameraVectorUP.z + 0 * cameraVectorRight.z);
+				missel.x = (float)(-1.3f * cameraVectorFront.x - 0.4f * cameraVectorUP.x + 0.25 * cameraVectorRight.x);
+				missel.y = (float)(-1.3f * cameraVectorFront.y - 0.4f * cameraVectorUP.y + 0.25 * cameraVectorRight.y);
+				missel.z = (float)(-1.3f * cameraVectorFront.z - 0.4f * cameraVectorUP.z + 0.25 * cameraVectorRight.z);
 
-				// Direção de movimento do míssil (sempre para frente da câmera)
+				// Direção de movimento do míssil
 				float velocidadeMissel = 1.0f;
 				missel.vx = -cameraVectorFront.x * velocidadeMissel;
 				missel.vy = -cameraVectorFront.y * velocidadeMissel;
 				missel.vz = -cameraVectorFront.z * velocidadeMissel;
 
-				// Orientação do míssil (opcional, se você quiser usar para rotação ou renderização)
 				missel.vF.set(-cameraVectorFront.x, -cameraVectorFront.y, -cameraVectorFront.z, -cameraVectorFront.w);
 				missel.vU.set(cameraVectorUP);
 				missel.vR.set(cameraVectorRight);
@@ -279,7 +277,7 @@ public class Main3D {
 		for(int i = 0; i < 1000; i++) {
 			//Cubo3D cubo = new Cubo3D(rnd.nextFloat()*2-1,rnd.nextFloat()*2-1, rnd.nextFloat()*2-1, rnd.nextFloat()*0.005f+0.0001f);
 			//cubo.model = x35;
-			ObjtCene cubo = new ObjtCene(rnd.nextFloat()*10-5,rnd.nextFloat()*10-5, rnd.nextFloat()*10-5, rnd.nextFloat()*0.05f+0.02f);
+			ObjtCene cubo = new ObjtCene(rnd.nextFloat()*10-5,rnd.nextFloat()*10-5, rnd.nextFloat()*10-5, rnd.nextFloat()*0.10f+0.05f);
 			cubo.tipo = "cubo";
 			cubo.model = vboc;
 			cubo.vx = 0;
@@ -441,7 +439,6 @@ public class Main3D {
 			}
 		}
 		listaObjetos.removeAll(objetosParaRemover);
-		// **
 
 		angle+=0.1;
 	}
