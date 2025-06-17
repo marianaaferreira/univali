@@ -156,22 +156,6 @@ public class Main3D {
 			}
 			
 			if( key == GLFW_KEY_SPACE && action == GLFW_PRESS) {
-				/*ObjtCene missel = new ObjtCene(0.3f, -0.4f, 1.3f, 0.02f);
-				missel.model = sr71;
-				missel.vz = 1.0f;
-				missel.texture = tsr71;
-				missel.tipo = "missel";
-				listaObjetos.add(missel);
-				//System.out.println("Sapce");
-
-				missel.x = (float)(-1.3f*cameraVectorFront.x-0.4f*cameraVectorUP.x+0*cameraVectorRight.x);
-				missel.y = (float)(-1.3f*cameraVectorFront.y-0.4f*cameraVectorUP.y+0*cameraVectorRight.y);
-				missel.z = (float)(-1.3f*cameraVectorFront.z-0.4f*cameraVectorUP.z+0*cameraVectorRight.z);
-
-				missel.vF.set(-cameraVectorFront.x,-cameraVectorFront.y,-cameraVectorFront.z,-cameraVectorFront.w);
-				missel.vU.set(cameraVectorUP);
-				missel.vR.set(cameraVectorRight);*/
-
 				ObjtCene missel = new ObjtCene(0.3f, -0.4f, 1.3f, 0.02f);
 				missel.model = sr71;
 				missel.texture = tsr71;
