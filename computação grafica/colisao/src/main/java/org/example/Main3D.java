@@ -451,13 +451,22 @@ public class Main3D {
 		shader.start();
 
 		int lightpos = glGetUniformLocation(shader.programID, "lightPosition");
+
+		FloatBuffer lightBuffer = BufferUtils.createFloatBuffer(4 * 3);
+
+		lightBuffer.put(new float[] {0.0f, 50.0f, 0.0f, 1.0f});   // Luz 1
+		lightBuffer.put(new float[] {50.0f, 50.0f, 0.0f, 1.0f});  // Luz 2
+		lightBuffer.put(new float[] {0.0f, 50.0f, 50.0f, 1.0f});  // Luz 3
+
+		lightBuffer.flip();
+		glUniform4fv(lightpos, lightBuffer);
 		
-		angluz+=0.0;
+		/*angluz+=0.0;
 		float yl = (float)(Math.cos(angluz)*50.0);
 		float zl = (float)(Math.sin(angluz)*50.0);
 		
 		float vf[] = {0,yl,zl,1.0f};
-		glUniform4fv(lightpos, vf);
+		glUniform4fv(lightpos, vf);*/
 		
 		
 		int posligaluz = glGetUniformLocation(shader.programID, "ligaluz");

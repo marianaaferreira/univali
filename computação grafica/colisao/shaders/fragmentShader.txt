@@ -1,46 +1,45 @@
 #version 330 core
+#define NUM_LIGHTS 3
 
 in vec3 color;
 in vec3 norm;
 in vec2 uv;
+in vec3 posOriginal;
 
+uniform vec4 lightPositions[NUM_LIGHTS];
 uniform sampler2D tex;
 uniform int ligaluz;
 
-varying vec3 posOriginal;
-varying vec3 vligthpos;
-
-
-
 out vec4 out_Color;
 
-void main(void){
-	vec4 colort = texture2D(tex,uv);
-	vec3 normnorm = normalize(norm);
-	
-	
-	float dotres = dot(normnorm,normalize(vligthpos-posOriginal));
-	
-	
-	if(dotres < 0.1){
-		dotres += 0.1;
-	}
-	if(dotres>1){
-		dotres = 1.0;
-	}
-	
-	vec4 newColor = vec4(0,0,0,0);
-	if(ligaluz==1){
-		//newColor = vec4(colort.x,colort.y,colort.z,colort.w);
-		newColor = vec4(colort.x*dotres,colort.y*dotres,colort.z*dotres,colort.w);
-	}else{
-		newColor = vec4(colort.x,colort.y,colort.z,colort.w);
-		//newColor = vec4(1.0,colort.y,colort.z,colort.w);
-	}
-	
-	if(colort.w==0){
-		discard;
-	}else{
-		out_Color = vec4(newColor);
-	}
+void main(void) {
+    vec4 colort = texture(tex, uv);
+    vec3 normnorm = normalize(norm);
+
+    float finalLight = 0.0;
+
+    for (int i = 0; i < NUM_LIGHTS; i++) {
+        vec3 lightDir = normalize(lightPositions[i].xyz - posOriginal);
+        float dotres = dot(normnorm, lightDir);
+        if (dotres < 0.1) dotres += 0.1;
+        if (dotres > 1.0) dotres = 1.0;
+        finalLight += dotres;
+    }
+
+    // Limita o brilho final entre 0 e 1
+    finalLight = clamp(finalLight, 0.0, 1.0);
+
+    vec4 newColor;
+
+    if (ligaluz == 1) {
+        newColor = vec4(colort.rgb * finalLight, colort.a);
+    } else {
+        newColor = colort;
+    }
+
+    if (colort.a == 0) {
+        discard;
+    } else {
+        out_Color = newColor;
+    }
 }
