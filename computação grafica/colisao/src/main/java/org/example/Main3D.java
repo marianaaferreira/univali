@@ -450,7 +450,7 @@ public class Main3D {
 
 		shader.start();
 
-		int lightpos = glGetUniformLocation(shader.programID, "lightPosition");
+		int lightpos = glGetUniformLocation(shader.programID, "lightPositions");
 
 		FloatBuffer lightBuffer = BufferUtils.createFloatBuffer(4 * 3);
 
