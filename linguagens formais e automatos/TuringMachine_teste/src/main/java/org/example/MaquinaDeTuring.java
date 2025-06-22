@@ -107,6 +107,40 @@ public class MaquinaDeTuring {
         }
     }
 
+
+
+    public void setEstados(String estados) {
+        this.estados = estados;
+    }
+
+    public void setAlfabetoEntrada(String alfabetoEntrada) {
+        this.alfabetoEntrada = alfabetoEntrada;
+    }
+
+    public void setAlfabetoFita(String alfabetoFita) {
+        this.alfabetoFita = alfabetoFita;
+    }
+
+    public void setEntrada(String entrada) {
+        this.entrada = entrada;
+    }
+
+    public void setEstadoInicial(String estadoInicial) {
+        this.estadoInicial = estadoInicial;
+    }
+
+    public void setEstadoAceitacao(String estadoAceitacao) {
+        this.estadoAceitacao = estadoAceitacao;
+    }
+
+    public void setEstadoRejeicao(String estadoRejeicao) {
+        this.estadoRejeicao = estadoRejeicao;
+    }
+
+    public void setTransicoes(List<Transicao> transicoes) {
+        this.transicoes = transicoes;
+    }
+
     @Override
     public String toString() {
         return alfabetoEntrada + ':' +

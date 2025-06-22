@@ -17,10 +17,9 @@ public class LeitorExcel {
             Sheet sheet = workbook.getSheetAt(0);
 
             String estadosStr = sheet.getRow(0).getCell(1).getStringCellValue();
-            maquina.setEstados((Arrays.asList(estadosStr.split(","))));
-
             String alfabetoFita = sheet.getRow(2).getCell(1).getStringCellValue();
 
+            maquina.setEstados(sheet.getRow(0).getCell(1).getStringCellValue());
             maquina.setAlfabetoEntrada(sheet.getRow(1).getCell(1).getStringCellValue());
             maquina.setAlfabetoFita(sheet.getRow(2).getCell(1).getStringCellValue());
             maquina.setEstadoInicial(sheet.getRow(3).getCell(1).getStringCellValue());
@@ -46,8 +45,9 @@ public class LeitorExcel {
                     novoEstado = sheet.getRow(10+i).getCell(1+j).getStringCellValue().split(",")[0].trim();
                     novoSimbolo = sheet.getRow(10+i).getCell(1+j).getStringCellValue().split(",")[1].trim();
                     direcao = sheet.getRow(10+i).getCell(1+j).getStringCellValue().split(",")[2].trim();
+                    Direcao direcaoEnum = Direcao.valueOf(direcao);
 
-                    transicoes.add(new Transicao(estadoAtual, simboloLido, novoEstado, novoSimbolo, direcao));
+                    transicoes.add(new Transicao(estadoAtual, simboloLido, novoEstado, novoSimbolo, direcaoEnum));
                 }
 
             }

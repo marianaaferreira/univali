@@ -6,6 +6,10 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) {
+        /*String caminho = "D:/github/univali/linguagens formais e automatos/TuringMachine/Transicoes.xlsx";
+        MaquinaDeTuring maquina = LeitorExcel.lerArquivo(caminho);
+        System.out.println(maquina);*/
+
         MaquinaDeTuring mt = new MaquinaDeTuring();
 
         try {
@@ -14,7 +18,7 @@ public class Main {
 
             mt.carregarFuncaoTransicao(str);
 
-            String entrada = "aaabbbccc";
+            String entrada = "abc";
             boolean resultado = mt.executar(entrada);
 
             System.out.println("Resultado final: " + (resultado ? "ACEITA" : "REJEITA"));
