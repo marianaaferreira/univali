@@ -40,6 +40,8 @@ public class Screen extends JFrame {
         outputArea.setEditable(false);
         JScrollPane scroll = new JScrollPane(outputArea);
         add(scroll, BorderLayout.CENTER);
+
+        setVisible(true);
     }
 
     public void adicionarTexto(String texto) {

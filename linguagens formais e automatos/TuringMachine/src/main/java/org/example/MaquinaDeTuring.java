@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MaquinaDeTuring {
-    public String estados;
+    //public String estados;
     public String alfabetoEntrada;
     public String alfabetoFita;
-    public String entrada;
+    //public String entrada;
     public String estadoInicial, estadoAceitacao, estadoRejeicao;
     public List<Transicao> transicoes;
 
@@ -17,13 +17,14 @@ public class MaquinaDeTuring {
 
     public void carregarFuncaoTransicao(String str) {
         String[] partes = str.split(":");
-        this.alfabetoEntrada = partes[0];
-        this.alfabetoFita = partes[1];
-        this.estadoInicial = partes[2];
-        this.estadoAceitacao = partes[3];
-        this.estadoRejeicao = partes[4];
 
-        String[] transicoesStr = partes[5].split(",");
+        this.alfabetoEntrada = partes[0].trim();
+        this.alfabetoFita = partes[1].trim();
+        this.estadoInicial = partes[2].trim();
+        this.estadoAceitacao = partes[3].trim();
+        this.estadoRejeicao = partes[4].trim();
+
+        String[] transicoesStr = partes[5].trim().split(",");
 
         for (String t : transicoesStr) {
             t = t.trim();
@@ -36,7 +37,7 @@ public class MaquinaDeTuring {
             String novoSimbolo = campos[3];
             String direcaoStr = campos[4];
 
-            Direcao direcao = direcaoStr.equalsIgnoreCase("DIREITA") ? Direcao.DIREITA : Direcao.ESQUERDA;
+            Direcao direcao = direcaoStr.equalsIgnoreCase("D") ? Direcao.DIREITA : Direcao.ESQUERDA;
 
             transicoes.add(new Transicao(estadoAtual, simboloLido, novoEstado, novoSimbolo, direcao));
         }
@@ -56,7 +57,7 @@ public class MaquinaDeTuring {
     }
 
 
-    public boolean executar(String entrada) {
+    public boolean executar(String entrada, Screen tela) {
         Fita head = criarFitaInicial(entrada);
         String estadoAtual = estadoInicial;
         Fita posicaoAtual = head;
@@ -73,35 +74,34 @@ public class MaquinaDeTuring {
             }
 
             if (transicaoValida == null) {
-                System.out.println("Sem transição válida. Máquina rejeita.");
+                tela.adicionarTexto("Sem transição válida. Máquina rejeita.");
                 return false;
             }
 
-            // Aplicar a transição
             posicaoAtual.conteudo = transicaoValida.novoSimbolo;
             estadoAtual = transicaoValida.novoEstado;
 
-            // Mover a cabeça
+            tela.adicionarTexto("Estado: " + estadoAtual + ", Símbolo: " + simboloLido + " -> Escreve: " + transicaoValida.novoSimbolo + " Novo estado: "+ transicaoValida.novoEstado+  ", Direção: " + transicaoValida.direcao);
+
             if (transicaoValida.direcao == Direcao.DIREITA) {
                 if (posicaoAtual.direita == null) {
-                    posicaoAtual.direita = new Fita("&branco&");
+                    posicaoAtual.direita = new Fita("β");
                     posicaoAtual.direita.esquerda = posicaoAtual;
                 }
                 posicaoAtual = posicaoAtual.direita;
             } else {
                 if (posicaoAtual.esquerda == null) {
-                    posicaoAtual.esquerda = new Fita("&branco&");
+                    posicaoAtual.esquerda = new Fita("β");
                     posicaoAtual.esquerda.direita = posicaoAtual;
                 }
                 posicaoAtual = posicaoAtual.esquerda;
             }
 
-            // Estado final?
             if (estadoAtual.equals(estadoAceitacao)) {
-                System.out.println("Máquina aceitou!");
+                tela.adicionarTexto("Máquina aceitou!");
                 return true;
             } else if (estadoAtual.equals(estadoRejeicao)) {
-                System.out.println("Máquina rejeitou!");
+                tela.adicionarTexto("Máquina rejeitou!");
                 return false;
             }
         }
