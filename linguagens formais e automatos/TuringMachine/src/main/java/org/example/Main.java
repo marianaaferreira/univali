@@ -22,15 +22,7 @@ public class Main {
             mt.carregarFuncaoTransicao(str);
             boolean resultado = mt.executar(entrada, tela);
 
-             /*String caminhoArquivo = "D:/github/univali/linguagens formais e automatos/TuringMachine/funcao.txt";
-             String str = Files.readString(Paths.get(caminhoArquivo));
-
-                 mt.carregarFuncaoTransicao(str);
-
-                 String entrada = "aabbccc";
-                 boolean resultado = mt.executar(entrada, tela);
-
-                 System.out.println("Resultado final: " + (resultado ? "ACEITA" : "REJEITA"));*/
+            //D:/github/univali/linguagens formais e automatos/TuringMachine/funcao.txt
 
         });
     }
