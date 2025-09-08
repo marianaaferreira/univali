@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="analisador-lexico:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/analisador_lexico_jar</output-path>
+    <root id="archive" name="analisador-lexico.jar">
+      <element id="module-output" name="analisador-lexico" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/junit-3.8.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/javacc-7.0.13.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/junit-3.8.1-sources.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/javacc-7.0.13-sources.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

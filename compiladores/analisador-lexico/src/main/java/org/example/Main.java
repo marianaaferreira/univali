@@ -12,7 +12,15 @@ import java.io.StringReader;
 
 public class Main {
 
+    private static AnalisadorLexicoTokenManager lexico;
+    private static StringReader reader;
+    private static SimpleCharStream stream;
+
     public static void main(String[] args) throws ParseException {
+        reader = new StringReader("");
+        stream = new SimpleCharStream(reader);
+        lexico = new AnalisadorLexicoTokenManager(stream);
+
         Janela janela = new Janela();
 
         janela.addActionListenerCompilar(new ActionListener() {
@@ -32,7 +40,6 @@ public class Main {
 
     public static void analisarCodigo(Janela janela) {
         String codigo = janela.getCodigo();
-
         janela.limparTabela();
 
         if (codigo.trim().isEmpty()) {
@@ -42,9 +49,11 @@ public class Main {
         }
 
         try {
-            StringReader reader = new StringReader(codigo);
-            SimpleCharStream stream = new SimpleCharStream(reader);
-            AnalisadorLexicoTokenManager lexico = new AnalisadorLexicoTokenManager(stream);
+            reader.close();
+            reader = new StringReader(codigo);
+            stream.ReInit(reader);
+            lexico.ReInit(stream);
+
 
             Token token;
             while ((token = lexico.getNextToken()).kind != AnalisadorLexicoConstants.EOF) {

@@ -67,7 +67,8 @@ TOKEN :
 | < CONSTANTE_REAL: (<DIGITO> (<DIGITO>)? (<DIGITO>)? (<DIGITO>)?) "." (<DIGITO> (<DIGITO>)?)>
 | < CONSTANTE_LITERAL: <CL_ASPAS_DUPLAS> | <CL_ASPAS_SIMPLES> >
 | < CONSTANTE_LOGICA: ( "true" | "false" ) >
-|< LITERAL_NAO_FECHADO: ("\""|"'")(<ASCII>)* >
+| < LITERAL_NAO_FECHADO: "\"" (<ASCII>)* ( "\n" | "\r" | "\r\n" | "\u0000" )
+                       | "'"  (<ASCII>)* ( "\n" | "\r" | "\r\n" | "\u0000" ) >
 
 
   // Tokens de apoio das definições regulares

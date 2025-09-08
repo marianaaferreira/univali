@@ -76,11 +76,16 @@ public class Janela extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 if (!areaCodigo.getText().isEmpty()) {
-                    int resposta = JOptionPane.showConfirmDialog(
+                    String[] opcoes = {"Sim", "Não", "Cancelar"};
+                    int resposta = JOptionPane.showOptionDialog(
                             Janela.this,
                             "Deseja salvar as alterações?",
                             "Sair",
-                            JOptionPane.YES_NO_CANCEL_OPTION
+                            JOptionPane.YES_NO_CANCEL_OPTION,
+                            JOptionPane.QUESTION_MESSAGE,
+                            null,
+                            opcoes,
+                            opcoes[0]
                     );
 
                     if (resposta == JOptionPane.YES_OPTION) {
@@ -134,11 +139,16 @@ public class Janela extends JFrame {
 
         novoItem.addActionListener(e -> {
             if (!areaCodigo.getText().isEmpty()) {
-                int resposta = JOptionPane.showConfirmDialog(
+                String[] opcoes = {"Sim", "Não", "Cancelar"};
+                int resposta = JOptionPane.showOptionDialog(
                         Janela.this,
                         "Deseja salvar as alterações?",
-                        "Sair",
-                        JOptionPane.YES_NO_CANCEL_OPTION
+                        "Abrir",
+                        JOptionPane.YES_NO_CANCEL_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        opcoes,
+                        opcoes[0]
                 );
 
                 if (resposta == JOptionPane.YES_OPTION) {
@@ -163,11 +173,16 @@ public class Janela extends JFrame {
 
         abrirItem.addActionListener(e -> {
             if (!areaCodigo.getText().isEmpty() && arquivoAtual != null) {
-                int resposta = JOptionPane.showConfirmDialog(
+                String[] opcoes = {"Sim", "Não", "Cancelar"};
+                int resposta = JOptionPane.showOptionDialog(
                         Janela.this,
-                        "Deseja salvar as alterações no arquivo atual?",
+                        "Deseja salvar as alterações?",
                         "Abrir",
-                        JOptionPane.YES_NO_CANCEL_OPTION
+                        JOptionPane.YES_NO_CANCEL_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        opcoes,
+                        opcoes[0]
                 );
 
                 if (resposta == JOptionPane.YES_OPTION) {
@@ -190,11 +205,16 @@ public class Janela extends JFrame {
 
         sairItem.addActionListener(e -> {
             if (!areaCodigo.getText().isEmpty()) {
-                int resposta = JOptionPane.showConfirmDialog(
+                String[] opcoes = {"Sim", "Não", "Cancelar"};
+                int resposta = JOptionPane.showOptionDialog(
                         Janela.this,
                         "Deseja salvar as alterações?",
                         "Sair",
-                        JOptionPane.YES_NO_CANCEL_OPTION
+                        JOptionPane.YES_NO_CANCEL_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        opcoes,
+                        opcoes[0]
                 );
 
                 if (resposta == JOptionPane.YES_OPTION) {
@@ -220,6 +240,10 @@ public class Janela extends JFrame {
         JMenuItem copiarItem = new JMenuItem("Copiar");
         JMenuItem colarItem = new JMenuItem("Colar");
         JMenuItem recortarItem = new JMenuItem("Recortar");
+
+        copiarItem.addActionListener(e -> areaCodigo.copy());
+        colarItem.addActionListener(e -> areaCodigo.paste());
+        recortarItem.addActionListener(e -> areaCodigo.cut());
 
         menuEdicao.add(copiarItem);
         menuEdicao.add(colarItem);
