@@ -67,9 +67,6 @@ TOKEN :
 | < CONSTANTE_REAL: (<DIGITO> (<DIGITO>)? (<DIGITO>)? (<DIGITO>)?) "." (<DIGITO> (<DIGITO>)?)>
 | < CONSTANTE_LITERAL: <CL_ASPAS_DUPLAS> | <CL_ASPAS_SIMPLES> >
 | < CONSTANTE_LOGICA: ( "true" | "false" ) >
-| < LITERAL_NAO_FECHADO: "\"" (<ASCII>)* ( "\n" | "\r" | "\r\n" | "\u0000" )
-                       | "'"  (<ASCII>)* ( "\n" | "\r" | "\r\n" | "\u0000" ) >
-
 
   // Tokens de apoio das definições regulares
 | < #LETRA: [ "A"-"Z", "a"-"z" ] >
@@ -89,9 +86,22 @@ SKIP :
 
 TOKEN :{
   //tratamento de erros
-< CONST_NUM_INVALIDA: (<DIGITO><DIGITO><DIGITO>(<DIGITO>)+)
+< CONST_INT_INVALIDA: (<DIGITO><DIGITO><DIGITO>(<DIGITO>)+)>
+
+|<CONST_REAL_INVALIDA: (<DIGITO>)+ "." (<DIGITO>)* ("." (<DIGITO>)+)+
     |(<DIGITO><DIGITO><DIGITO><DIGITO>(<DIGITO>)+"."<DIGITO><DIGITO>(<DIGITO>)+)
     |(<DIGITO> (<DIGITO>)? (<DIGITO>)? (<DIGITO>)?"."<DIGITO><DIGITO>(<DIGITO>)+)
     |(<DIGITO><DIGITO><DIGITO><DIGITO>(<DIGITO>)+"."<DIGITO> (<DIGITO>)?)>
+
+|< IDENTIFICADOR_INVALIDO:
+      ( <DIGITO> ( <LETRA> | <DIGITO> | "_" )* )
+    | ( ( <LETRA> | "_" ) ( <LETRA> | <DIGITO> | "_" )* <DIGITO> )
+    | ( ( <LETRA> | "_" ) ( <LETRA> | "_" )* <DIGITO>(<DIGITO>)+ ( <LETRA> | <DIGITO> | "_" )* )>
+
+|< COMENTARIO_NAO_FECHADO: "/*" (~["*"] "\n"| "\r" | "\r\n" | "\u0000" )* >
+
+| < LITERAL_NAO_FECHADO: "\"" (~["\""])* ( "\n" | "\r" | "\r\n" | "\u0000" )
+                       | "'"  ("'")* ( "\n" | "\r" | "\r\n" | "\u0000" ) >
+
 |< SIMBOLO_INVALIDO: ~[] >
 }

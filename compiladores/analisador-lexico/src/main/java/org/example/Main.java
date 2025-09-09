@@ -140,8 +140,14 @@ public class Main {
                 return "ERRO LÉXICO: símbolo inválido";
             case AnalisadorLexicoConstants.LITERAL_NAO_FECHADO:
                 return "ERRO LÉXICO: constante literal não finalizada";
-            case AnalisadorLexicoConstants.CONST_NUM_INVALIDA:
-                return "ERRO LÉXICO: constante númerica inválida";
+            case AnalisadorLexicoConstants.COMENTARIO_NAO_FECHADO:
+                return "ERRO LÉXICO: comentário não finalizado";
+            case AnalisadorLexicoConstants.CONST_INT_INVALIDA:
+                return "ERRO LÉXICO: constante inteira inválida";
+            case AnalisadorLexicoConstants.CONST_REAL_INVALIDA:
+                return "ERRO LÉXICO: constante real inválida";
+            case AnalisadorLexicoConstants.IDENTIFICADOR_INVALIDO:
+                return "ERRO LÉXICO: identificador inválido";
 
 
             default:

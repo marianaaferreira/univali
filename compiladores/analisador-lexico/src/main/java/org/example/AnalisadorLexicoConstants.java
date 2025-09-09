@@ -105,27 +105,33 @@ public interface AnalisadorLexicoConstants {
   /** RegularExpression Id. */
   int CONSTANTE_LOGICA = 48;
   /** RegularExpression Id. */
-  int LITERAL_NAO_FECHADO = 49;
+  int LETRA = 49;
   /** RegularExpression Id. */
-  int LETRA = 50;
+  int DIGITO = 50;
   /** RegularExpression Id. */
-  int DIGITO = 51;
+  int CL_ASPAS_DUPLAS = 51;
   /** RegularExpression Id. */
-  int CL_ASPAS_DUPLAS = 52;
+  int CL_ASPAS_SIMPLES = 52;
   /** RegularExpression Id. */
-  int CL_ASPAS_SIMPLES = 53;
+  int ASCII = 53;
   /** RegularExpression Id. */
-  int ASCII = 54;
+  int ESPACO_BRANCO = 54;
   /** RegularExpression Id. */
-  int ESPACO_BRANCO = 55;
+  int COMENTARIO_LINHA = 55;
   /** RegularExpression Id. */
-  int COMENTARIO_LINHA = 56;
+  int COMENTARIO_BLOCO = 56;
   /** RegularExpression Id. */
-  int COMENTARIO_BLOCO = 57;
+  int CONST_INT_INVALIDA = 57;
   /** RegularExpression Id. */
-  int CONST_NUM_INVALIDA = 58;
+  int CONST_REAL_INVALIDA = 58;
   /** RegularExpression Id. */
-  int SIMBOLO_INVALIDO = 59;
+  int IDENTIFICADOR_INVALIDO = 59;
+  /** RegularExpression Id. */
+  int COMENTARIO_NAO_FECHADO = 60;
+  /** RegularExpression Id. */
+  int LITERAL_NAO_FECHADO = 61;
+  /** RegularExpression Id. */
+  int SIMBOLO_INVALIDO = 62;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -181,7 +187,6 @@ public interface AnalisadorLexicoConstants {
     "<CONSTANTE_REAL>",
     "<CONSTANTE_LITERAL>",
     "<CONSTANTE_LOGICA>",
-    "<LITERAL_NAO_FECHADO>",
     "<LETRA>",
     "<DIGITO>",
     "<CL_ASPAS_DUPLAS>",
@@ -190,7 +195,11 @@ public interface AnalisadorLexicoConstants {
     "<ESPACO_BRANCO>",
     "<COMENTARIO_LINHA>",
     "<COMENTARIO_BLOCO>",
-    "<CONST_NUM_INVALIDA>",
+    "<CONST_INT_INVALIDA>",
+    "<CONST_REAL_INVALIDA>",
+    "<IDENTIFICADOR_INVALIDO>",
+    "<COMENTARIO_NAO_FECHADO>",
+    "<LITERAL_NAO_FECHADO>",
     "<SIMBOLO_INVALIDO>",
   };
 
