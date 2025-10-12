@@ -1,0 +1,283 @@
+options {
+  IGNORE_CASE = true;
+}
+
+PARSER_BEGIN(AnalisadorLexico)
+
+import org.example.AnalisadorLexicoConstants;import java.util.*;
+import java.io.*;
+public class AnalisadorLexico {
+    public static void main(String[] args) {
+        try {
+            AnalisadorLexico parser = new AnalisadorLexico(System.in);
+            parser.programa();
+            System.out.println("Programa compilado com sucesso.");
+        } catch (ParseException e) {
+            System.err.println(e.getMessage());
+        } catch (TokenMgrError tme) {
+            System.err.println("Erro léxico: " + tme.getMessage());
+        } catch (Exception ex) {
+            System.err.println("Erro inesperado: " + ex.getMessage());
+            ex.printStackTrace(System.err);
+        }
+    }
+}
+
+PARSER_END(AnalisadorLexico)
+
+TOKEN :
+{
+  // Palavras Reservadas
+  < BEGIN: "begin" >
+| < DEFINE: "define" >
+| < START: "start" >
+| < END: "end" >
+| < NUM: "num" >
+| < REAL: "real" >
+| < TEXT: "text" >
+| < FLAG: "flag" >
+| < SET: "set" >
+| < READ: "read" >
+| < SHOW: "show" >
+| < IF: "if" >
+| < THEN: "then" >
+| < ELSE: "else" >
+| < TRUE: "true" >
+| < FALSE: "false" >
+| < LOOP: "loop" >
+| < WHILE: "while" >
+
+  // Símbolos Especiais
+| < ATRIBUICAO: "=" >
+| < PONTO: "." >
+| < DOIS_PONTOS: ":" >
+| < PONTO_E_VIRGULA: ";" >
+| < VIRGULA: "," >
+| < ABRE_PARENTESES: "(" >
+| < FECHA_PARENTESES: ")" >
+| < ABRE_COLCHETES: "[" >
+| < FECHA_COLCHETES: "]" >
+| < ABRE_CHAVES: "{" >
+| < FECHA_CHAVES: "}" >
+| < MAIS: "+" >
+| < MENOS: "-" >
+| < VEZES: "*" >
+| < DIVIDIR: "/" >
+| < POTENCIA: "**" >
+| < DIVISAO_INTEIRA: "%" >
+| < RESTO_DIVISAO: "%%" >
+| < IGUAL: "==" >
+| < DIFERENTE: "!=" >
+| <MENOR_OU_IGUAL: "<<=" >
+| <MAIOR_OU_IGUAL: ">>=" >
+| <MENOR: "<<" >
+| <MAIOR: ">>" >
+| < E: "&" >
+| < OU: "|" >
+| < NAO: "!" >
+
+  //Identificador
+| < IDENTIFICADOR: ( <LETRA> | "_" ) ( <LETRA> | <DIGITO> | "_" )* >
+
+  // Constantes
+| < CONSTANTE_INTEIRA: (<DIGITO>)+ >
+| < CONSTANTE_REAL: (<DIGITO>)+ "." (<DIGITO>)+ >
+| < CONSTANTE_LITERAL:
+        "\"" (~["\"","\n","\r"])* "\""
+      | "'"  (~["'","\n","\r"])* "'"
+  >
+| < CONSTANTE_LOGICA: ( "true" | "false" ) >
+
+  // Tokens auxiliares
+| < #LETRA: [ "A"-"Z", "a"-"z" ] >
+| < #DIGITO: [ "0"-"9" ] >
+| < #ASCII: ~["\u0000" - "\u001F", "\u007F"] >
+}
+
+SKIP :
+{
+  < ESPACO_BRANCO: ( " " | "\t" | "\n" | "\r" )+ >
+| < COMENTARIO_LINHA: ("//"(<ASCII>)*) >
+| < COMENTARIO_BLOCO: ("/*"(<ASCII> | "\n")* "*/") >
+}
+
+TOKEN :{
+  // Tratamento de erros
+  < CONST_INT_INVALIDA: (<DIGITO><DIGITO><DIGITO>(<DIGITO>)+)>
+| < CONST_REAL_INVALIDA:
+      (<DIGITO>)+ "." (<DIGITO>)* ("." (<DIGITO>)+)+
+    | (<DIGITO><DIGITO><DIGITO><DIGITO>(<DIGITO>)+"."<DIGITO><DIGITO>(<DIGITO>)+)
+    | (<DIGITO> (<DIGITO>)? (<DIGITO>)? (<DIGITO>)?"."<DIGITO><DIGITO>(<DIGITO>)+)
+    | (<DIGITO><DIGITO><DIGITO><DIGITO>(<DIGITO>)+"."<DIGITO> (<DIGITO>)?) >
+| < IDENTIFICADOR_INVALIDO:
+      ( <DIGITO> ( <LETRA> | <DIGITO> | "_" )* )
+    | ( ( <LETRA> | "_" ) ( <LETRA> | <DIGITO> | "_" )* <DIGITO> )
+    | ( ( <LETRA> | "_" ) ( <LETRA> | "_" )* <DIGITO>(<DIGITO>)+ ( <LETRA> | <DIGITO> | "_" )* ) >
+| < COMENTARIO_NAO_FECHADO: "/*" (~[])* >
+| < LITERAL_NAO_FECHADO:
+          "\"" (~["\"","\n","\r"])* ("\n" | "\r" | "\r\n")
+        | "'"  (~["'","\n","\r"])* ("\n" | "\r" | "\r\n")
+    >
+| < SIMBOLO_INVALIDO: ~[] >
+}
+
+//sintatico
+
+void programa() :{}
+{<BEGIN> opcional_id() opcional_def()  <START> lista_de_comandos() <END> <PONTO> }
+
+void opcional_id() :{}
+{ (<IDENTIFICADOR>)?}
+
+void opcional_def() :{}
+{(<DEFINE> declaracao_de_variaveis())?}
+
+void tipo():{}
+{<NUM> | <REAL> | <TEXT> | <FLAG> }
+
+void valor(): {}
+{<CONSTANTE_INTEIRA> | <CONSTANTE_REAL> | <CONSTANTE_LITERAL> }
+
+void declaracao_de_variaveis():{}
+{lista_de_identificadores() <DOIS_PONTOS> tipo() declaracao_de_variaveis_aux() }
+
+void declaracao_de_variaveis_aux():{}
+{ <IGUAL> valor() <PONTO_E_VIRGULA> | <ABRE_COLCHETES> <CONSTANTE_INTEIRA> <FECHA_COLCHETES> declaracao_de_variaveis_aux2() | <PONTO_E_VIRGULA> }
+
+void declaracao_de_variaveis_aux2():{}
+{ (<IGUAL> <ABRE_CHAVES> valores() <FECHA_CHAVES> <PONTO_E_VIRGULA>)? }
+
+void lista_de_identificadores():{}
+{<IDENTIFICADOR> lista_de_identificadores_aux() }
+
+void lista_de_identificadores_aux():{}
+{(<VIRGULA> lista_de_identificadores())? }
+
+void valores(): {}
+{valor() valores_aux() }
+
+void valores_aux(): {}
+{(<VIRGULA> valores())? }
+
+void lista_de_comandos():{}
+{comando() lista_de_comandos_aux() }
+
+void lista_de_comandos_aux():{}
+{ (lista_de_comandos() )?}
+
+void comando():{}
+{comando_atribuicao() | comando_saida_dados() | comando_repeticao() | comando_selecao() | comando_entrada_dados() }
+
+void comando_atribuicao():{}
+{<SET> <IDENTIFICADOR> comando_atribuicao_aux() }
+
+void comando_atribuicao_aux():{}
+{<IGUAL> expressao() <PONTO_E_VIRGULA> | <ABRE_COLCHETES> <CONSTANTE_INTEIRA> <FECHA_COLCHETES> <IGUAL> expressao() <PONTO_E_VIRGULA> }
+
+void comando_entrada_dados():{}
+{<READ> <ABRE_PARENTESES> <IDENTIFICADOR> cmd_dados()}
+
+void cmd_dados():{}
+{<FECHA_PARENTESES> <PONTO_E_VIRGULA> | <ABRE_COLCHETES> <CONSTANTE_INTEIRA> <FECHA_COLCHETES> <FECHA_PARENTESES> <PONTO_E_VIRGULA> }
+
+void comando_saida_dados():{}
+{<SHOW> <ABRE_PARENTESES> lista_id_const() <FECHA_PARENTESES> <PONTO_E_VIRGULA> }
+
+void lista_id_const():{}
+{valor() lista() | <IDENTIFICADOR> lista()}
+
+void lista():{}
+{(<VIRGULA> lista_id_const())? }
+
+void comando_selecao():{}
+{<IF> expressao() <THEN> lista_de_comandos() cmd_else() <END> <PONTO_E_VIRGULA> }
+
+void cmd_else():{}
+{(<ELSE> lista_de_comandos())? }
+
+void comando_repeticao():{}
+{<LOOP> <WHILE> expressao() lista_de_comandos() <END> <PONTO_E_VIRGULA> }
+
+void expressao() :{}
+{  expressao_aux()}
+
+void expressao_aux() :{}
+{
+  expressao_arit()
+  ( ( <IGUAL> | <DIFERENTE> | <MENOR> | <MAIOR> | <MENOR_OU_IGUAL> | <MAIOR_OU_IGUAL> ) expressao_arit() )?
+}
+
+void expressao_arit() :{}
+{termo2() menor_prioridade()}
+
+void menor_prioridade() :{}
+{( ( <MAIS> | <MENOS> | <OU> ) termo2() )*}
+
+void termo2() :{}
+{termo1() media_prioridade()}
+
+void media_prioridade() :{}{
+  ( ( <VEZES> | <DIVIDIR> | <DIVISAO_INTEIRA> | <RESTO_DIVISAO> | <E> ) termo1() )*
+}
+
+void termo1() :{}
+{elemento() ( <POTENCIA> elemento() )*}
+
+void elemento() :{}
+{
+  <IDENTIFICADOR>
+| <CONSTANTE_INTEIRA>
+| <CONSTANTE_REAL>
+| <CONSTANTE_LITERAL>
+| <CONSTANTE_LOGICA>
+| <ABRE_PARENTESES> expressao() <FECHA_PARENTESES>
+| <NAO> <ABRE_PARENTESES> expressao() <FECHA_PARENTESES>
+}
+
+
+void skipUntil(int[] syncTokens) :
+{ Token t; int k=0; }
+{
+  {
+    while (true) {
+      t = getToken(1);
+      if (t == null || t.kind == 0) return;
+      boolean ok = false;
+      for (int i=0;i<syncTokens.length;i++) {
+        if (t.kind == syncTokens[i]) { ok = true; break; }
+      }
+      if (ok) return;
+      getNextToken();
+    }
+  }
+}
+
+void reportParseError(ParseException e) :
+{}
+{
+  {
+  Token tok = e.currentToken.next;
+  String found = (tok == null) ? "EOF" : tok.image;
+  int line = (tok == null) ? -1 : tok.beginLine;
+  int col  = (tok == null) ? -1 : tok.beginColumn;
+
+  StringBuilder expected = new StringBuilder();
+  if (e.expectedTokenSequences != null) {
+    for (int i = 0; i < e.expectedTokenSequences.length; i++) {
+      int[] seq = e.expectedTokenSequences[i];
+      if (i>0) expected.append(" | ");
+      StringBuilder seqBuf = new StringBuilder();
+      for (int j = 0; j < seq.length; j++) {
+        seqBuf.append(AnalisadorLexicoConstants.tokenImage[seq[j]]).append(" ");
+      }
+      expected.append(seqBuf.toString().trim());
+    }
+  } else {
+    expected.append("token válido");
+  }
+
+  String msg = "Erro sintático na linha " + line + ", coluna " + col +
+               ": encontrado '" + found + "'. Esperado: " + expected.toString() + ".";
+  throw new ParseException(msg);
+}
+}
