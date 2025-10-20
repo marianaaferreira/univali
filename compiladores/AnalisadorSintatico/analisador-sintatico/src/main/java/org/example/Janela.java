@@ -2,10 +2,7 @@ package org.example;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.CaretEvent;
-import javax.swing.event.CaretListener;
 import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
@@ -21,11 +18,20 @@ public class Janela extends JFrame {
     private File arquivoAtual;
 
     private JButton compilarBtn;
+    private JButton executarBtn;
     private JMenuItem compilarItem;
+    private JMenuItem executarItem;
 
     public Janela() {
         super("Compilador");
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                fecharJanela();
+            }
+        });
         setSize(1000, 680);
         setLocationRelativeTo(null);
 
@@ -41,12 +47,15 @@ public class Janela extends JFrame {
         JToolBar toolBar = new JToolBar();
         toolBar.setFloatable(false);
         toolBar.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
-        compilarBtn = makeSmallButton("Compilar", createIcon(new Color(255,180,200), "▶"));
+
         JButton novoBtn = makeSmallButton("Novo", createIcon(Color.GREEN, "N"));
-        JButton abrirBtn = makeSmallButton("Abrir", createIcon(Color.ORANGE, "O"));
+        JButton abrirBtn = makeSmallButton("Abrir", createIcon(Color.ORANGE, "A"));
         JButton salvarBtn = makeSmallButton("Salvar", createIcon(Color.CYAN, "S"));
         JButton cortarBtn = makeSmallButton("Cortar", createIcon(Color.LIGHT_GRAY, "✂"));
         JButton colarBtn = makeSmallButton("Colar", createIcon(Color.LIGHT_GRAY, "📋"));
+
+        compilarBtn = makeSmallButton("Compilar", createIcon(new Color(255, 220, 180), "⚙"));
+        executarBtn = makeSmallButton("Executar", createIcon(new Color(180, 220, 255), "▶"));
 
         toolBar.add(novoBtn);
         toolBar.add(abrirBtn);
@@ -56,6 +65,7 @@ public class Janela extends JFrame {
         toolBar.add(colarBtn);
         toolBar.addSeparator(new Dimension(8,0));
         toolBar.add(compilarBtn);
+        toolBar.add(executarBtn);
         toolBar.setBorder(BorderFactory.createMatteBorder(0,0,1,0, Color.GRAY));
 
         areaEdicao = new JTextArea();
@@ -121,10 +131,7 @@ public class Janela extends JFrame {
         getContentPane().add(center, BorderLayout.CENTER);
         getContentPane().add(statusBar, BorderLayout.SOUTH);
 
-        areaEdicao.addCaretListener(e -> {
-            updateStatus();
-            gutter.repaint();
-        });
+        areaEdicao.addCaretListener(e -> updateStatus());
         areaEdicao.getDocument().addDocumentListener(new DocumentListenerAdapter(() -> gutter.repaint()));
 
         fileChooser = new JFileChooser();
@@ -155,7 +162,9 @@ public class Janela extends JFrame {
 
         JMenu menuCompilacao = new JMenu("Compilação");
         compilarItem = new JMenuItem("Compilar");
+        executarItem = new JMenuItem("Executar");
         menuCompilacao.add(compilarItem);
+        menuCompilacao.add(executarItem);
 
         menuBar.add(menuArquivo);
         menuBar.add(menuEdicao);
@@ -177,6 +186,7 @@ public class Janela extends JFrame {
         salvarBtn.addActionListener(e -> salvarArquivo());
         cortarBtn.addActionListener(e -> areaEdicao.cut());
         colarBtn.addActionListener(e -> areaEdicao.paste());
+
     }
 
     private void updateStatus() {
@@ -331,7 +341,7 @@ public class Janela extends JFrame {
         }
     }
 
-    static class DocumentListenerAdapter implements DocumentListener {
+    static class DocumentListenerAdapter implements javax.swing.event.DocumentListener {
         private final Runnable r;
         DocumentListenerAdapter(Runnable r) { this.r = r; }
         public void insertUpdate(DocumentEvent e) { r.run(); }

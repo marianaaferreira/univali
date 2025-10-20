@@ -1,5 +1,6 @@
 options {
   IGNORE_CASE = true;
+  STATIC = false;
 }
 
 PARSER_BEGIN(AnalisadorLexico)
@@ -124,13 +125,13 @@ TOKEN :{
 //sintatico
 
 void programa() :{}
-{<BEGIN> opcional_id() opcional_def()  <START> lista_de_comandos() <END> <PONTO> }
+{<BEGIN> opcional_id() opcional_def()  <START> lista_de_comandos() <END> <PONTO> <EOF>}
 
 void opcional_id() :{}
-{ (<IDENTIFICADOR>)?}
+{ <IDENTIFICADOR> }
 
 void opcional_def() :{}
-{(<DEFINE> declaracao_de_variaveis())?}
+{(<DEFINE> lista_declaracao_var())?}
 
 void tipo():{}
 {<NUM> | <REAL> | <TEXT> | <FLAG> }
@@ -142,10 +143,16 @@ void declaracao_de_variaveis():{}
 {lista_de_identificadores() <DOIS_PONTOS> tipo() declaracao_de_variaveis_aux() }
 
 void declaracao_de_variaveis_aux():{}
-{ <IGUAL> valor() <PONTO_E_VIRGULA> | <ABRE_COLCHETES> <CONSTANTE_INTEIRA> <FECHA_COLCHETES> declaracao_de_variaveis_aux2() | <PONTO_E_VIRGULA> }
+{ <ATRIBUICAO> valor() <PONTO_E_VIRGULA> | <ABRE_COLCHETES> <CONSTANTE_INTEIRA> <FECHA_COLCHETES> declaracao_de_variaveis_aux2() | <PONTO_E_VIRGULA> }
 
 void declaracao_de_variaveis_aux2():{}
-{ (<IGUAL> <ABRE_CHAVES> valores() <FECHA_CHAVES> <PONTO_E_VIRGULA>)? }
+{ (<ATRIBUICAO> <ABRE_CHAVES> valores() <FECHA_CHAVES> <PONTO_E_VIRGULA>)? }
+
+void lista_declaracao_var():{}
+{declaracao_de_variaveis() (lista_declaracao_var_aux())? }
+
+void lista_declaracao_var_aux():{}
+{lista_declaracao_var()}
 
 void lista_de_identificadores():{}
 {<IDENTIFICADOR> lista_de_identificadores_aux() }
@@ -172,7 +179,7 @@ void comando_atribuicao():{}
 {<SET> <IDENTIFICADOR> comando_atribuicao_aux() }
 
 void comando_atribuicao_aux():{}
-{<IGUAL> expressao() <PONTO_E_VIRGULA> | <ABRE_COLCHETES> <CONSTANTE_INTEIRA> <FECHA_COLCHETES> <IGUAL> expressao() <PONTO_E_VIRGULA> }
+{(<ATRIBUICAO> expressao() <PONTO_E_VIRGULA>) | (<ABRE_COLCHETES> <CONSTANTE_INTEIRA> <FECHA_COLCHETES> <ATRIBUICAO> expressao() <PONTO_E_VIRGULA> )}
 
 void comando_entrada_dados():{}
 {<READ> <ABRE_PARENTESES> <IDENTIFICADOR> cmd_dados()}
@@ -198,8 +205,10 @@ void cmd_else():{}
 void comando_repeticao():{}
 {<LOOP> <WHILE> expressao() lista_de_comandos() <END> <PONTO_E_VIRGULA> }
 
+
 void expressao() :{}
 {  expressao_aux()}
+
 
 void expressao_aux() :{}
 {
