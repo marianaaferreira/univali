@@ -1,0 +1,4 @@
+﻿  fat16_tools.cpp
+D:\github\univali\sistemas operacionais\fat16_tools\fat16_tools.cpp(340,22): warning C4267: '-=': conversão de 'size_t' para 'uint32_t', possível perda de dados
+D:\github\univali\sistemas operacionais\fat16_tools\fat16_tools.cpp(417,19): warning C4267: '=': conversão de 'size_t' para 'uint32_t', possível perda de dados
+  fat16_tools.vcxproj -> D:\github\univali\sistemas operacionais\fat16_tools\x64\Debug\fat16_tools.exe

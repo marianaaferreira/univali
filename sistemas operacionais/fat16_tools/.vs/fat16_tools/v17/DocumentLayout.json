@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\github\\univali\\sistemas operacionais\\fat16_tools\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7AAEC446-EB5B-416E-A0AB-E2C99922CA81}|fat16_tools.vcxproj|D:\\github\\univali\\sistemas operacionais\\fat16_tools\\fat16_tools.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7AAEC446-EB5B-416E-A0AB-E2C99922CA81}|fat16_tools.vcxproj|solutionrelative:fat16_tools.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "fat16_tools.cpp",
+              "DocumentMoniker": "D:\\github\\univali\\sistemas operacionais\\fat16_tools\\fat16_tools.cpp",
+              "RelativeDocumentMoniker": "fat16_tools.cpp",
+              "ToolTip": "D:\\github\\univali\\sistemas operacionais\\fat16_tools\\fat16_tools.cpp",
+              "RelativeToolTip": "fat16_tools.cpp",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAAALMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-11-02T19:02:28.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
